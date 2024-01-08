@@ -1,0 +1,31 @@
+site_name: Arista Newsletter
+
+repo_url: 
+
+markdown_extensions:
+- abbr
+- attr_list
+- md_in_html
+- admonition
+- tables
+- pymdownx.details
+- pymdownx.superfences
+- pymdownx.snippets
+- toc: 
+    permalink: true
+
+theme:
+  name: material
+  icon:
+    admonition:
+      quote: octicons/quote-16
+      note: octicons/tag-16
+  palette:
+    primary: blue
+  logo: /img/arista_logo.png
+  favicon: /img/arista_logo.png
+
+
+
+copyright: Copyright &copy; 2024 Arista Networks. You are receiving this newsletter as a customer of Arista. To stop receiving newseltter please contact akash.takhar@arista.com or abojko@arista.com
+
