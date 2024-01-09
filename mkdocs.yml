@@ -1,6 +1,6 @@
 site_name: Arista Newsletter
 
-repo_url: 
+site_url: https://akash-t-ase.github.io/SouthwestNewsletter/
 
 markdown_extensions:
 - abbr
