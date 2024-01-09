@@ -2,6 +2,7 @@ site_name: Arista Newsletter
 
 site_url: https://akash-t-ase.github.io/SouthwestNewsletter/
 repo_name: Akash-T-ASE/SouthwestNewsletter
+docs_dir: docs/
 edit_uri: edit/main/docs/
 
 markdown_extensions:
