@@ -1,7 +1,7 @@
  ![Image Placememt](img/Arista_Logo_copy.png)
 
 
-# Arista December Southwest Region Newsletter
+# Arista January Southwest Region Newsletter
 
 Happy New Year! Welcome to the January 2024 newsletter for Arista customers in the U.S. Southwest Region.
 Have you utilized Arista’s new solution, AGNI? In this month’s informative article on the AI-driven network identifer solution, our Systems Engineer, Alan Sukiennik, explains the innovative tool and its benefits in large enterprise and service provider networks. 
