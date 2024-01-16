@@ -18,7 +18,7 @@ By: Alan Sukiennik, SE SouthWest Region
 Arista Guardian for Network Identity or AGNI is an AI-driven network identity service for network security and IT operations which utilizes a novel approach to identity management in enterprise networks.  
 
 <figure markdown>
-![Image Placement](img/december_newsletter_alan_2023.png)  
+![Image Placement](img/AGNI-Overview1.jpeg){: style="height:350px;width:950px"} 
     <figcaption>Arista Guardian for Network Identity</figcaption>
 </figure>
 
@@ -56,7 +56,7 @@ For more information on AGNI, [Click here](https://www.arista.com/en/products/ne
 By Hue McGraw, SE SouthWest Region
 
 <figure markdown>
-![Image Placement](img/dec-article-pic1.png)
+![Image Placement](img/dec-article-pic2again.png)
     <figcaption>Flexroute Workflow</figcaption>
 </figure>
 
@@ -105,7 +105,7 @@ trigger on-logging
 ```
 
 Resources:  
-[Ip Static Route with Health Check](https://aristanetworks.force.com/AristaCommunity/s/article/ip-static-route-with-health-check)  
+[IP Static Route with Health Check](https://aristanetworks.force.com/AristaCommunity/s/article/ip-static-route-with-health-check)  
 [Syslog Triggered Event Scripts](https://aristanetworks.force.com/AristaCommunity/s/article/syslog-triggered-event-scripts)  
 [Custom Event Handler](https://aristanetworks.force.com/AristaCommunity/s/article/arista-custom-event-handler-to-take-action-based-on-interface-utilization)  
 
@@ -147,11 +147,11 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
-   | __EOS__           | 4.31.1F <br>4.28.8.2M <br>4.27.12M<br>4.30.4M<br>     | December 12th, 2023 <br>November 22nd, 2023<br>November 21st, 2023<br>November 16th, 2023<br>
-   | __CVP__           | 2023.2.0      | November 14th, 2023
-   | __DMF__           | 8.4.0         | August 16th, 2023
+   | __EOS__           | 4.23.15M <br>4.28.10.1M  <br>4.31.1F<br>4.29.6M<br>     | January 13th, 2024 <br>January 11th, 2024<br>December 12th, 2023<br>December 18th, 2023<br>
+   | __CVP__           | 2023.3.0      | December 21st, 2023
+   | __DMF__           | 8.5.0         | January 7th, 2024
    | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>15.0.1-22<br>       | <br>December 15th, 2022<br>August 29th, 2023<br>
-   | __Awake__         | 5.0.6         | August 8th, 2023
+   | __Arista NDR__         | 5.0.6         | August 8th, 2023
    | __TerminAttr__    | 1.28.2        | November 3rd, 2023
 
 
@@ -169,18 +169,26 @@ For a list of the most current advisories and notices, click [Here](https://www.
 
 ---
 
-## __*Hardware Updates*__
+## __*Product Updates*__
 <figure markdown>
 ![Image Placement](img/pictureOfSwitches.jpeg){: style="height:200px;width:400px"}   
     <figcaption></figcaption>
 </figure>
-End of Sales notices are listed below.
+**End of Sale** notices are listed below.
 
 | Device        | Name           | End Of Sale Date  |
 | :-----------: |:-------------: |     :----:        |
-| Module        | [DCS-7500R2AK-36CQ & 48CQ](https://www.arista.com/en/support/advisories-notices/end-of-sale/17492-end-of-sale-of-the-arista-dcs-7500r2ak-36cq-and-dcs-7500r2ak-48cq-line-cards) | June 20th, 2023    |
-| Access Points | [Arista 802.11ac Wave 2 Devices](https://www.arista.com/en/support/advisories-notices/end-of-sale/14911-end-of-sale-of-arista-802-11ac-wave-2-devices)      |  February 8th, 2023 |
-| Switches      | [DCS-7280SR-48C6 & 7280TR-48C6 Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/17491-end-of-sale-of-the-arista-dcs-7280sr-48c6-and-dcs-7280tr-48c6-series)<br>[DCS-7280CR2-60 Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/17490-end-of-sale-of-the-arista-dcs-7280cr2-60-series)<br>[DCS-7010T-48](https://www.arista.com/en/support/advisories-notices/end-of-sale/16538-end-of-sale-7010t-48)<br>[DCS-7280QR-C72 Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/16537-end-of-sale-7280qr-c72)<br>      |    Varies by Device |
+| Module        | [7500R2 Series Linecards](https://www.arista.com/en/support/advisories-notices/end-of-sale/18886-end-of-sale-of-the-arista-7500r2-series-line-cards) | December 20th, 2023    |
+| Access Points | [Arista 802.11ac Wave 2 Devices](https://www.arista.com/en/support/advisories-notices/end-of-sale/14911-end-of-sale-of-arista-802-11ac-wave-2-devices)      |  June 30th, 2022 |
+| Switches      | [DCS-7020SRG-24C2](https://www.arista.com/en/support/advisories-notices/end-of-sale/18884-end-of-sale-of-the-arista-dcs-7020srg-24c2-series)<br>[DCS-7280SR-48C6 & 7280TR-48C6](https://www.arista.com/en/support/advisories-notices/end-of-sale/17491-end-of-sale-of-the-arista-dcs-7280sr-48c6-and-dcs-7280tr-48c6-series)<br>[DCS-7280CR2-60 Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/17490-end-of-sale-of-the-arista-dcs-7280cr2-60-series)<br>[DCS-7010T-48](https://www.arista.com/en/support/advisories-notices/end-of-sale/16538-end-of-sale-7010t-48)<br>      |    Varies by Device |
+
+
+**New Releases** of Arista's device are listed below 
+
+   |  Device       | More Information |  Release Date 
+   | :-----------: | :-----------:    | :-----------:
+   |  Arista 7130 Series             |  [Ultra Low Latency Network](https://www.arista.com/en/company/news/press-release/18273-pr-20231011)  | Q4 2023
+   |  Arista AGNI    |   [AI Driven Network Identity](https://www.arista.com/en/company/news/press-release/17244-pr-20230424)                | Q2 2023 
 
 ---
 
@@ -190,6 +198,5 @@ End of Sales notices are listed below.
     <figcaption></figcaption>
 </figure>
 We thank you for taking the time to read out newsletter today. Feel free to reach out to your SE or ASE for more information or questions regardsing your network operations. Until next month, have a good one! 
-
 
 
