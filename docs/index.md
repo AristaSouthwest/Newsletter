@@ -1,9 +1,9 @@
  ![Image Placememt](img/Arista_Logo_copy.png)
 
 
-# Arista January Southwest Region Newsletter
+# Arista February Southwest Region Newsletter
 
-Happy New Year! Welcome to the January 2024 newsletter for Arista customers in the U.S. Southwest Region.
+Welcome to the February 2024 newsletter for Arista customers in the U.S. Southwest Region.
 Have you utilized Arista’s new solution, AGNI? In this month’s informative article on the AI-driven network identifer solution, our Systems Engineer, Alan Sukiennik, explains the innovative tool and its benefits in large enterprise and service provider networks. 
 
 There is no question about the importance python has contributed to IT automation. What’s more interesting is the use of python in creating event handlers in case of unwanted activity on your network. Our second article, written by our SE Hue McGraw, elaborates on running scripts to help you automate monitoring various types of events in your production networks. 
