@@ -3,111 +3,75 @@
 
 # Arista February Southwest Region Newsletter
 
-Welcome to the February 2024 newsletter for Arista customers in the U.S. Southwest Region.
-Have you utilized Arista’s new solution, AGNI? In this month’s informative article on the AI-driven network identifer solution, our Systems Engineer, Alan Sukiennik, explains the innovative tool and its benefits in large enterprise and service provider networks. 
+Welcome to the March 2024 newsletter for Arista customers in the U.S. Southwest Region!
 
-There is no question about the importance python has contributed to IT automation. What’s more interesting is the use of python in creating event handlers in case of unwanted activity on your network. Our second article, written by our SE Hue McGraw, elaborates on running scripts to help you automate monitoring various types of events in your production networks. 
+Exploitation of enterprise networks continues to rise every year. As more security threats emerge, the importance of security maintenance and best practices for network vulnerabliites are crucial. Our very own Senior Manager of Systems Engineer, Salman Zahid, provides powerful insight to the importance of Zero Trust Security. 
+
+WiFi technology is consistantly improving over time by delivering faster speeds and enhancing wirelss infrastructures. It is crucial to understand the changes within the WiFi realm for future connectiivty endeavors. Dang Nguyen, Manager Systems Engineering, provides his technical expertise and extensive knowledge on WiFi in our 2nd article of our newsletter to help you stay up to date this the latest wireless trend.
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
 
 ---
 
-## **AGNI: Arista Guardian for Network Identity** 
-By: Alan Sukiennik, SE SouthWest Region
+## **Zero Trust Security: Addressing Challenges & Embracing Opportunities** 
+By: Salman Zahid, SE Senior Manager Southwest Region 
 
-Arista Guardian for Network Identity or AGNI is an AI-driven network identity service for network security and IT operations which utilizes a novel approach to identity management in enterprise networks.  
+In the realm of enterprise security, the relentless pursuit of staying ahead of potential threats weighs heavily on the minds of security teams. A recent survey conducted by Forrester Research revealed a startling statistic: a staggering 77% of firms fell victim to breaches in 2023. The inevitability of security breaches has transformed from a question of "if" to "when." It often feels like a game of whack-a-mole for security professionals, where one vulnerability is patched only for another to surface. However, amidst these challenges, there lies an opportunity to approach security strategically, fortifying our networks with greater resilience and protection. 
+
+Established organizations recognize that breaches are an unfortunate reality. With this acknowledgment, they craft security policies aimed at minimizing the impact of any potential breaches. Moreover, there's a growing awareness that many security threats originate from within the organization itself, underscoring the importance of creating a robust network foundation and security policies capable of defending against both internal and external attacks. 
+
+Arista is at the forefront of tackling the zero-trust challenge by aligning with recommendations from the Cybersecurity & Infrastructure Security Agency (CISA). According to CISA, the network serves as the nucleus of a mature zero-trust security architecture. Networking teams wield considerable influence in elevating the entire enterprise's security posture by embracing these crucial recommendations for enterprise networks. 
+
 
 <figure markdown>
-![Image Placement](img/AGNI-Overview1.jpeg){: style="height:350px;width:950px"} 
-    <figcaption>Arista Guardian for Network Identity</figcaption>
+![Image Placement](img/ztn11.jpg)
+    <figcaption>Cybersecurity & Infrastructure Security Agency Recommendations</figcaption>
 </figure>
 
-Traditional NAC solutions suffer from several drawbacks: 
+In following the recommendations from CISA, Arista is providing solutions across seven key areas identified for zero-trust maturity. Implementing these recommendations is a journey, not a destination. While it may not happen overnight, committing to a zero-trust architecture can significantly enhance enterprise security, reducing susceptibility to both internal and external security threats.
 
-> * Complexity of Deployment, Configuration, Maintenance and Upgrades  
-> * Lack of elastic/dynamic scalability to meet the ever-evolving service requirements.  
-> * Outdated secure authentication methods which are no longer recommended in the industry.  
-
-To overcome those challenges, Arista delivers a fully modern, AI-driven identity solution called AGNI to connect network, users, and devices across the local, remote, and geographically dispersed locations.
-
-AGNI brings revolutionary improvements to scale, simplicity and security for users, their associated endpoints and IOT devices.
-
-Arista AGNI requires no hardware, complex planning, or expensive professional services. AGNI is cloud-delivered software-as-a-service and is built on a fully modern cloud-native, API-first, microservices architecture to provide a seamless user experience without latency or service disruptions.
-
-AGNI provides simple self-serving onboarding using a single sign-on for wireless unique PSKs and 802.1x digital certificates, cloud-native PKI infrastructure, authorization and segmentation, behavioral profiling and visibility for all connected devices and users.
-Devices are discovered, profiled, and classified into groups for identity-based segmentation, single pain-of-glass visibility and control.
+<figure markdown>
+![Image Placement](img/ztn222.jpg)
+    <figcaption>Arista's Pillars of Zero Trust Security</figcaption>
+</figure>
 
 !!! quote
-    "Arista AGNI requires no hardware, complex planning, or expensive professional services"
+    "Arista is at the forefront of tackling the zero-trust challenge by aligning with recommendations from the Cybersecurity & Instrastructure Security Agency"
 
-AGNI integrates with network infrastructure devices (wired switches and wireless access points) through a highly secure TLS-based RadSec tunnel. The highly secure and encrypted tunnel offers complete protection to the communications that happen in a distributed network environment. RadSec mechanism offers much greater security to AAA workflows when compared with traditional RADIUS environment workflows, which are not encrypted.
+ 
 
-Arista’s Autonomous Virtual Assist, or AVA is the core to Arista’s Zero-Trust networking approach. AVA brings the human cognitive expertise through AI-based learned information about the state of devices and users’ experience on the network. AGNI introduces a new capability called Ask AVA, which can be used to interpret input from the users and network operators provided in a natural human language, derive intent, and allow the network operators troubleshoot issues and get to their Root Causes quickly and efficiently. AVA can also provide prescriptive guidance for the remediation of those issues. The use cases include errors in network provisioning and configuration, security troubleshooting, and even failure forecasting Overall AVA helps to simplify operations, reduce the mean-time-to-value, increase effectiveness, and reduce human errors. 
-
-AGNI integrates with all the leading identity (SSO) providers. 
-
-AGNI can also be easily integrated with other Arista solutions, such as CVP, EOS group-based macro-segmentation (MSS-G), NDR, as well as third-party XDR, EDR, MDM and SIEM products for post-admission control functionality.  
-
-For more information on AGNI, [Click here](https://www.arista.com/en/products/network-access-control)
+Learn more about these seven Arista architectural pillars of zero trust security by [clicking here](https://www.arista.com/assets/data/pdf/Arista-ZTNO-Solution-Brief.pdf) and [here](https://www.arista.com/assets/data/pdf/Whitepapers/Zero-Trust-Maturity-Model-WP.pdf)
 
 ---
 
-## **Event-Handler And The Power Of Python**
-By Hue McGraw, SE SouthWest Region
+## **High Performance Wi-Fi Today and Tomorrow**
+By Dang Nguyen, SE Manager Arizona/ San Diego Region 
 
-<figure markdown>
-![Image Placement](img/dec-article-pic2again.png)
-    <figcaption>Flexroute Workflow</figcaption>
-</figure>
+Technology has become an integral part of daily life and, at times, a bare necessity. Ultra-fast, reliable connectivity to information and applications is critical, especially for devices on the go.  Wireless LAN has evolved and grown in many ways to become the preferred and, at times, primary connectivity method.  Let’s take a high-level look at the current state of Wi-Fi 7, its benefits and challenges. 
 
-In a modern network, automation plays a crucial role in helping to avoid unwanted behaviors and maintaining network continuity.  In some cases, issues can develop from outside of your control, no matter how well architected your network infrastructure may be.  In many cases, these issues can be quickly addressed by implementing an event-handler strategy.  For those readers who are unfamiliar with event handler or how it works, here it is in a nutshell: 
+Wi-Fi 7 is the latest technology in this space and has undoubtedly built upon and improved on the most significant update to the Wi-Fi Spectrum since 1999 to increase speed, capacity, and efficiency. 
 
-An event handler executes a Linux bash shell command in response to a specific system event.  It consists of a Bash command, a trigger, and a delay.  When the trigger event occurs, the action is scheduled to run after delay seconds.
+| Release Year    | WiFi Name    | Standards                       | Frequency Bands      |
+| --------------- | ------------ | ----------                      | -------------------- |
+| 1999            | Wi-Fi 1      | 802.11b (1 to 11 Mbits/s)       | 2.4 GHz              |
+| 1999            | Wi-Fi 2      | 802.11a (1.5 to 54 Mbits/s)     | 5 Ghz                |
+| 2003            | Wi-Fi 3      | 802.11g (3 to 54 Mbits/s)       | 2.4 Ghz              | 
+| 2009            | Wi-Fi 4      | 802.11n (72 to 600 Mbits)       | 2.4/5 Ghz            | 
+| 2014            | Wi-Fi 5      | 802.11ac (433 to 6933 Mbits)    | 5 Ghz                | 
+| 2019            | Wi-Fi 6      | 802.11ax (600 to 9608 Mbits)    | 2.4/5 Ghz            | 
+| 2020            | Wi-Fi 6E     | 802.11ax (600 to 9608 Mbits)    | 6 Ghz                | 
 
-These commands are available in event-handler configuration mode:   
-- *action bash*   
-- *delay*   
-- *trigger*   
+It holds the promise of theoretic speeds above 30Gbps while reducing latency and providing for the support of multiple simultaneous devices.  It will utilize even wider channels than Wi-Fi 6E leveraging the new 802.11be standards to provide for this improved performance.  The standard has also introduced a clever innovation to get around interference in the form of preamble puncturing.  These and other advancements will pave a path for transformational applications throughout many industries, from education to manufacturing.  These applications will range from extended reality that requires high-fidelity visuals and low latency to the ever-increasing demand of enterprise network workloads that require high performance from the wired and now wireless infrastructure.  With all this performance, the new standard also brings additional security with Opportunistic Wireless Encryption (OWE) with unique keys for each session.  This prevents attackers from decrypting past communications should they be able to obtain the key. 
 
-So, as you can see, Event-handler by itself gives you the flexibility to monitor conditions within your environment and trigger an action to automate a task.  By simply utilizing the fastCli in bash, you have a quick and easy way to perform a change withing your Arista devices.  For example:
+The allure of new technology and its promises can surely be enticing, but we need to recognize the current challenges.  The most challenging yet most hard to define is that it is still in development, and there may be obstacles yet to be seen.  One of the biggest known challenges will be compatibility of end user devices and also routers and switches.  Due to the higher energy requirements, there will be higher power consumption on the part of the access points and also the for end devices.  Currently very few of these end user devices have been released that support the new standard.  Infrastructure will also need to be upgraded to accommodate to take full advantage of the increased speeds.
 
-Example of a show log:  
-
-```
-Sep 10 17:56:17 localhost EventMgr: %SYS-6-EVENT_TRIGGERED: Event handler ISP1-DOWN was activated  
-Sep 10 17:56:18 localhost Ebra: %LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet3 (IPS-1), changed state to up  
-Sep 10 17:56:18 localhost Rib: %BGP-3-NOTIFICATION: sent to neighbor 10.1.1.0 (AS 65010) 6/7 (Cease/connection collision resolution) 0 bytes   
-Sep 10 17:56:18 localhost Rib: %BGP-5-ADJCHANGE: peer 10.1.1.0 (AS 65010) old state OpenConfirm event RecvKeepAlive new state Established  
-Sep 10 17:56:20 localhost Lldp: %LLDP-5-NEIGHBOR_NEW: LLDP neighbor with chassisId 5000.00e4.7294 and portId "Ethernet1" added on interface Ethernet3  
-```
-
-Example Config with FastCli:  
-
-```
-event-handler ISP1-DOWN  
-Action Bash FastCli -p 15 -c $’config \n ip route 0.0.0.0/0 12.12.12.12’   
-trigger on-logging  
-   regex "*\(IPS1\), changed to down"
-```
-
-The above command adds new static default route that points traffic to a 12.12.12.12 address when a condition is triggered. 
-
-I know what you are thinking now: "If I can do this out of the box, why do I need Python?" Even though you can create multiple Event-Handler instances to revert your configuration back and forth when conditions happen.  Adding a Python script allows you to execute more than one Bash command in response to a trigger, allowing a more granular approach to your automation process in one shot.  For example, not only can you change a default route when an interface goes down, but once it comes back up, the same script can check for routes and reachability before removing the temporary default route that was added when the link first went down. 
+For current deployments of wireless LAN, Wi-Fi 6E is the viable option.  It is a more mature technology within the access point itself and also supported endpoints.  It utilizes the same 6 GHz spectrum as Wi-Fi 7 but is more cost effective itself, with most infrastructures already capable of supporting the power and bandwidth requirements.  The benefits of this technology are more immediate, yet still offers future proofing.
 
 
-Example Config with Python script:  
-
-```
-event-handler ISP1-DOWN  
-action bash /mnt/flash/ISPdown.py <- (This points to the location you put the script)  
-trigger on-logging  
-   regex "*\(IPS1\), changed to down"
-```
-
-Resources:  
-[IP Static Route with Health Check](https://aristanetworks.force.com/AristaCommunity/s/article/ip-static-route-with-health-check)  
-[Syslog Triggered Event Scripts](https://aristanetworks.force.com/AristaCommunity/s/article/syslog-triggered-event-scripts)  
-[Custom Event Handler](https://aristanetworks.force.com/AristaCommunity/s/article/arista-custom-event-handler-to-take-action-based-on-interface-utilization)  
+Learn more about Wi-Fi and Arista specific solutions:  
+[Wi-Fi 7: A Leap Towards Time-Sensitive Networking](https://www.arista.com/assets/data/pdf/Whitepapers/Arista-Wi-Fi-7-White-Paper.pdf)  
+[Wi-Fi 6E and Future-Proofing Wireless Infrastruture](https://www.arista.com/assets/data/pdf/Whitepapers/Arista-Wi-Fi-6E-White-Paper.pdf)  
+[Arista Cognitive Wi-Fi](https://www.arista.com/en/products/cloudvision-cue)  
 
 ---
 
@@ -147,12 +111,12 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
-   | __EOS__           | 4.23.15M <br>4.28.10.1M  <br>4.31.1F<br>4.29.6M<br>     | January 13th, 2024 <br>January 11th, 2024<br>December 12th, 2023<br>December 18th, 2023<br>
+   | __EOS__           | 4.29.7M <br>4.31.2F <br>4.26.13M<br>4.30.5M<br>4.23.15M<br>     | February 20th, 2024 <br>February 9th, 2024<br>February 1st, 2024<br>January 23rd, 2024<br>January 13th, 2024<br>
    | __CVP__           | 2023.3.0      | December 21st, 2023
-   | __DMF__           | 8.5.0         | January 7th, 2024
+   | __DMF__           | 8.5.0         | February 5th, 2024
    | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>15.0.1-22<br>       | <br>December 15th, 2022<br>August 29th, 2023<br>
-   | __Arista NDR__         | 5.0.6         | August 8th, 2023
-   | __TerminAttr__    | 1.28.2        | November 3rd, 2023
+   | __Arista NDR__         | 5.1.0         | December 20th, 2023
+   | __TerminAttr__    | 1.28.3        | February 1st, 2024
 
 
 ---
@@ -162,8 +126,9 @@ Below is a list of advisories that are announced by Arista. To view more details
 
 | Name          | Advisory Link           | Date of Advisory Notice  |
 | :-----------: |:-------------:| :-----:|
-| __Arista MOS__    | [Security Advisory 0090](https://www.arista.com/en/support/advisories-notices/security-advisory/18644-security-advisory-0090) | December 5th, 2023 |
-| __Vxlan Forwarding__      | [Security Advisory 0089](https://www.arista.com/en/support/advisories-notices/security-advisory/18043-security-advisory-0089)      |  August 23rd, 2023 | 
+| __SQL Injection__    | [Security Advisory 0093](https://www.arista.com/en/support/advisories-notices/security-advisory/19038-security-advisory-0093) | February 28th, 2024 |
+| __CVP Virtual Appliances__      | [Security Advisory 0092](https://www.arista.com/en/support/advisories-notices/security-advisory/19025-security-advisory-0092)      |  February 20th, 2024 | 
+| __7130 ACLs__                   | [Security Advisory 0091](https://www.arista.com/en/support/advisories-notices/security-advisory/19023-security-advisory-0091)     | February 20th, 2024
 
 For a list of the most current advisories and notices, click [Here](https://www.arista.com/en/support/advisories-notices)
 
