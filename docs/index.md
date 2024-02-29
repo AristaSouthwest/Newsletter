@@ -1,7 +1,7 @@
  ![Image Placememt](img/Arista_Logo_copy.png)
 
 
-# Arista February Southwest Region Newsletter
+# Arista March Southwest Region Newsletter
 
 Welcome to the March 2024 newsletter for Arista customers in the U.S. Southwest Region!
 
