@@ -5,9 +5,9 @@
 
 Welcome to the March 2024 newsletter for Arista customers in the U.S. Southwest Region!
 
-Exploitation of enterprise networks continues to rise every year. As more security threats emerge, the importance of security maintenance and best practices for network vulnerabliites are crucial. Our very own Senior Manager of Systems Engineer, Salman Zahid, provides powerful insight to the importance of Zero Trust Security. 
+Exploitation of enterprise networks continues to rise every year. As more security threats emerge, the importance of security maintenance and best practices for network vulnerabilities are crucial. Our very own Senior Manager of Systems Engineer, Salman Zahid, provides powerful insight to the importance of Zero Trust Security. 
 
-WiFi technology is consistantly improving over time by delivering faster speeds and enhancing wirelss infrastructures. It is crucial to understand the changes within the WiFi realm for future connectiivty endeavors. Dang Nguyen, Manager Systems Engineering, provides his technical expertise and extensive knowledge on WiFi in our 2nd article of our newsletter to help you stay up to date this the latest wireless trend.
+WiFi technology is constantly improving over time by delivering faster speeds and enhancing wireless infrastructures. It is crucial to understand the changes within the WiFi realm for future connectivity endeavors. Dang Nguyen, Manager Systems Engineering, provides his technical expertise and extensive knowledge on WiFi in our 2nd article of our newsletter to help you stay up to date on the latest wireless trends.
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
 
