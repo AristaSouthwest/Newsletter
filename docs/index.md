@@ -14,7 +14,7 @@ We welcome your feedback on the newsletter. If you have any ideas on what you wa
 ---
 
 ## **Zero Trust Security: Addressing Challenges & Embracing Opportunities** 
-By: Salman Zahid, SE Senior Manager Southwest Region 
+By: Salman Zahid, Sr Manager Systems Engineering Southwest Region 
 
 In the realm of enterprise security, the relentless pursuit of staying ahead of potential threats weighs heavily on the minds of security teams. A recent survey conducted by Forrester Research revealed a startling statistic: a staggering 77% of firms fell victim to breaches in 2023. The inevitability of security breaches has transformed from a question of "if" to "when." It often feels like a game of whack-a-mole for security professionals, where one vulnerability is patched only for another to surface. However, amidst these challenges, there lies an opportunity to approach security strategically, fortifying our networks with greater resilience and protection. 
 
@@ -31,7 +31,7 @@ Arista is at the forefront of tackling the zero-trust challenge by aligning with
 In following the recommendations from CISA, Arista is providing solutions across seven key areas identified for zero-trust maturity. Implementing these recommendations is a journey, not a destination. While it may not happen overnight, committing to a zero-trust architecture can significantly enhance enterprise security, reducing susceptibility to both internal and external security threats.
 
 <figure markdown>
-![Image Placement](img/ztn222.jpg)
+![Image Placement](img/ztn22222.jpg)
     <figcaption>Arista's Pillars of Zero Trust Security</figcaption>
 </figure>
 
@@ -45,7 +45,7 @@ Learn more about these seven Arista architectural pillars of zero trust security
 ---
 
 ## **High Performance Wi-Fi Today and Tomorrow**
-By Dang Nguyen, SE Manager Arizona/ San Diego Region 
+By Dang Nguyen, SE Manager Arizona/San Diego Region 
 
 Technology has become an integral part of daily life and, at times, a bare necessity. Ultra-fast, reliable connectivity to information and applications is critical, especially for devices on the go.  Wireless LAN has evolved and grown in many ways to become the preferred and, at times, primary connectivity method.  Let’s take a high-level look at the current state of Wi-Fi 7, its benefits and challenges. 
 
