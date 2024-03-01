@@ -24,7 +24,7 @@ Arista is at the forefront of tackling the zero-trust challenge by aligning with
 
 
 <figure markdown>
-![Image Placement](img/ztn11.jpg)
+![Image Placement](img/ztn1111.jpg)
     <figcaption>Cybersecurity & Infrastructure Security Agency Recommendations</figcaption>
 </figure>
 
