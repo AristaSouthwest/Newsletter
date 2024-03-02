@@ -31,7 +31,7 @@ Arista is at the forefront of tackling the zero-trust challenge by aligning with
 In following the recommendations from CISA, Arista is providing solutions across seven key areas identified for zero-trust maturity. Implementing these recommendations is a journey, not a destination. While it may not happen overnight, committing to a zero-trust architecture can significantly enhance enterprise security, reducing susceptibility to both internal and external security threats.
 
 <figure markdown>
-![Image Placement](img/ztn22222.jpg)
+![Image Placement](img/ztn3.jpg)
     <figcaption>Arista's Pillars of Zero Trust Security</figcaption>
 </figure>
 
