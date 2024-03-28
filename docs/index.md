@@ -1,77 +1,87 @@
  ![Image Placememt](img/Arista_Logo_copy.png)
 
 
-# Arista March Southwest Region Newsletter
+# Arista April Southwest Region Newsletter
 
-Welcome to the March 2024 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the April 2024 newsletter for Arista customers in the U.S. Southwest Region!
 
-Exploitation of enterprise networks continues to rise every year. As more security threats emerge, the importance of security maintenance and best practices for network vulnerabilities are crucial. Our very own Senior Manager of Systems Engineer, Salman Zahid, provides powerful insight to the importance of Zero Trust Security. 
+Our theme for this month is: Artifical Intelligence and Machine Learning! It seems as if in every corner of the industry, the recogniztion of AI is embraced. We here at Arista, have created solutions that take the capabilites of AI, to help secure your network operations. Our very own Senior Manager of Systems Engineer, Salman Zahid, explains the significance of our solution, CloudVision Universal Network Observability (CV UNO), in providing insight and maintenance of your network infrastructure. 
 
-WiFi technology is constantly improving over time by delivering faster speeds and enhancing wireless infrastructures. It is crucial to understand the changes within the WiFi realm for future connectivity endeavors. Dang Nguyen, Manager Systems Engineering, provides his technical expertise and extensive knowledge on WiFi in our 2nd article of our newsletter to help you stay up to date on the latest wireless trends.
+While CloudVision UNO is primarily focused on identifiying infrastruture behavior, our next article elaborates on the AI based virtual assistant solution. By integrating a virtual assitant that is consistantly observing the network enviornment, operators can complete their tasks with additional help at a faster rate. Alex Bojko, Advanced Services Engineer, is one of the creators of this newsletter and helps manage the publication. He also provides a detailed insight to the workings of our AI based assistant, Arista AVA (Autonomous Virtual Assistant).
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
 
 ---
 
-## **Zero Trust Security: Addressing Challenges & Embracing Opportunities** 
+## **Application-Aware Network Performance with Cloud Vision Universal Network Observability** 
 By: Salman Zahid, Sr Manager Systems Engineering Southwest Region 
 
-In the realm of enterprise security, the relentless pursuit of staying ahead of potential threats weighs heavily on the minds of security teams. A recent survey conducted by Forrester Research revealed a startling statistic: a staggering 77% of firms fell victim to breaches in 2023. The inevitability of security breaches has transformed from a question of "if" to "when." It often feels like a game of whack-a-mole for security professionals, where one vulnerability is patched only for another to surface. However, amidst these challenges, there lies an opportunity to approach security strategically, fortifying our networks with greater resilience and protection. 
-
-Established organizations recognize that breaches are an unfortunate reality. With this acknowledgment, they craft security policies aimed at minimizing the impact of any potential breaches. Moreover, there's a growing awareness that many security threats originate from within the organization itself, underscoring the importance of creating a robust network foundation and security policies capable of defending against both internal and external attacks. 
-
-Arista is at the forefront of tackling the zero-trust challenge by aligning with recommendations from the Cybersecurity & Infrastructure Security Agency (CISA). According to CISA, the network serves as the nucleus of a mature zero-trust security architecture. Networking teams wield considerable influence in elevating the entire enterprise's security posture by embracing these crucial recommendations for enterprise networks. 
+Enterprise networks are becoming increasingly complex, with the network perimeter often extending well beyond the enterprise boundaries in the public Cloud, with many users working remotely. With this increasing complexity, the network operations team is expected to quickly resolve any issues that may arise to provide business continuity, improve user experience, ensure the network is not at fault, and reduce mean time to resolution for any network or application performance-related issue. Network operations tools must evolve beyond device management and operations to offer comprehensive visibility across the entire infrastructure to meet these demands. With the introduction of Cloud Vision Unified Network Observability, or CV UNO for short, Arista has a couple of primary goals.
 
 
-<figure markdown>
-![Image Placement](img/ztn1111.jpg)
-    <figcaption>Cybersecurity & Infrastructure Security Agency Recommendations</figcaption>
-</figure>
+!!! note "Goals"
+    * Expand Visibility: CV-UNO builds upon the capabilities of Arista's network infrastructure, providing holistic insight that encompasses applications infrastructure and third-party network devices like Cisco. This 360-degree view empowers networking teams to understand the entire network ecosystem comprehensively.
 
-In following the recommendations from CISA, Arista is providing solutions across seven key areas identified for zero-trust maturity. Implementing these recommendations is a journey, not a destination. While it may not happen overnight, committing to a zero-trust architecture can significantly enhance enterprise security, reducing susceptibility to both internal and external security threats.
+    * Enhanced Insights through Machine Learning: CV-UNO employs advanced machine learning algorithms to deliver more accurate insights by leveraging the data obtained from applications and third-party networks. These insights translate to faster issue resolution and an enriched user experience.
+
+
+Operators familiar with Arista Cloud Vision's capabilities in provisioning and monitoring Arista infrastructure recognize the value of EOS real-time streaming telemetry in troubleshooting network issues. With CV-UNO, Arista extends this functionality, enabling the collection of telemetry and flow data from diverse systems, including vCenter for application discovery, Cisco routers for flow information, and Servicenow CMDB.  Additionally, it leverages other Arista products like the (DANZ) Monitoring Fabric (DMF) for end-to-end TCP session latency and SaaS applications. This integration enhances overall visibility and delivers application-aware network performance, enriching the Arista Cloud Vision ecosystem user experience.
 
 <figure markdown>
-![Image Placement](img/ztn3.jpg)
-    <figcaption>Arista's Pillars of Zero Trust Security</figcaption>
+![Image Placement](img/cv-uno1.jpg){: style="height:450px;width:550px"}
+    <figcaption>CloudVision Universal Network Observability</figcaption>
 </figure>
 
-!!! quote
-    "Arista is at the forefront of tackling the zero-trust challenge by aligning with recommendations from the Cybersecurity & Instrastructure Security Agency"
+While CV UNO's initial use case focus is improving application visibility within the data center, Arista plans to evolve the platform to encompass additional visibility in all parts of the network, including Enterprise LANs.
+Some of the use cases enabled by Cloud Vision UNO are summarized below.
 
- 
+<figure markdown>
+![Image Placement](img/cv-uno2.jpg)
+    <figcaption>CV UNO Capabilities</figcaption>
+</figure>
 
-Learn more about these seven Arista architectural pillars of zero trust security by [clicking here](https://www.arista.com/assets/data/pdf/Arista-ZTNO-Solution-Brief.pdf) and [here](https://www.arista.com/assets/data/pdf/Whitepapers/Zero-Trust-Maturity-Model-WP.pdf)
+
+
+For more information, please visit [here](https://www.arista.com/en/solutions/network-observability/cv-uno)
+
+CV UNO Release announcement, [click here](https://www.arista.com/en/company/news/press-release/19195-pr-20240305)
+
+CV UNO Blog, [click here](https://blogs.arista.com/blog/network-observability)
+
+Attend the CV UNO Webinar - Register, [click here](https://events.arista.com/uno-2024-webinar)
+
 
 ---
 
-## **High Performance Wi-Fi Today and Tomorrow**
-By Dang Nguyen, SE Manager Arizona/San Diego Region 
+## **Arista AVA: AI/ML Capabilities in the Modern Network**
+By: Alex Bojko, Advanced Services Engineer 
 
-Technology has become an integral part of daily life and, at times, a bare necessity. Ultra-fast, reliable connectivity to information and applications is critical, especially for devices on the go.  Wireless LAN has evolved and grown in many ways to become the preferred and, at times, primary connectivity method.  Let’s take a high-level look at the current state of Wi-Fi 7, its benefits and challenges. 
+Artificial intelligence (AI) is taking the world by storm, and for good reason. Why not embrace a technology that could make our everyday life as a network or security operator just a little bit easier? After all, we continue to embrace network automation for this very reason.
 
-Wi-Fi 7 is the latest technology in this space and has undoubtedly built upon and improved on the most significant update to the Wi-Fi Spectrum since 1999 to increase speed, capacity, and efficiency. 
+Introducing Arista Autonomous Virtual Assistant, or "AVA" for short. AVA ingests relevant, real-time telemetry data gathered from Arista EOS NetDL (Network DataLake) stack as well as a collection of anonymized data from our global technical assistance center (TAC) database to train itself on exactly what is happening in the network. Examples of data that AVA learns from includes application, in-band network telemetry, flow visibility, and complete control plane state information from devices spread around all domains of the modern network. AVA leverages this high quality data to serve as an accurate AI-based expert, helping to automate complex tasks like troubleshooting, perform root cause analysis, and identify and remediate network security threats.
 
-| Release Year    | WiFi Name    | Standards                       | Frequency Bands      |
-| --------------- | ------------ | ----------                      | -------------------- |
-| 1999            | Wi-Fi 1      | 802.11b (1 to 11 Mbits/s)       | 2.4 GHz              |
-| 1999            | Wi-Fi 2      | 802.11a (1.5 to 54 Mbits/s)     | 5 Ghz                |
-| 2003            | Wi-Fi 3      | 802.11g (3 to 54 Mbits/s)       | 2.4 Ghz              | 
-| 2009            | Wi-Fi 4      | 802.11n (72 to 600 Mbits)       | 2.4/5 Ghz            | 
-| 2014            | Wi-Fi 5      | 802.11ac (433 to 6933 Mbits)    | 5 Ghz                | 
-| 2019            | Wi-Fi 6      | 802.11ax (600 to 9608 Mbits)    | 2.4/5 Ghz            | 
-| 2020            | Wi-Fi 6E     | 802.11ax (600 to 9608 Mbits)    | 6 Ghz                | 
+<figure markdown>
+![Image Placement](img/Alex_AVA_Newsletter_Image.jpg)
+    <figcaption>Autonomous Virtual Assistant: AVA</figcaption>
+</figure>
 
-It holds the promise of theoretic speeds above 30Gbps while reducing latency and providing for the support of multiple simultaneous devices.  It will utilize even wider channels than Wi-Fi 6E leveraging the new 802.11be standards to provide for this improved performance.  The standard has also introduced a clever innovation to get around interference in the form of preamble puncturing.  These and other advancements will pave a path for transformational applications throughout many industries, from education to manufacturing.  These applications will range from extended reality that requires high-fidelity visuals and low latency to the ever-increasing demand of enterprise network workloads that require high performance from the wired and now wireless infrastructure.  With all this performance, the new standard also brings additional security with Opportunistic Wireless Encryption (OWE) with unique keys for each session.  This prevents attackers from decrypting past communications should they be able to obtain the key. 
+AVA exists to assist the network and security operator in their day to day tasks, increasing efficiency and productivity. Below is a list of use-cases, derived from the field, that showcase various features of AVA that your team can leverage: 
 
-The allure of new technology and its promises can surely be enticing, but we need to recognize the current challenges.  The most challenging yet most hard to define is that it is still in development, and there may be obstacles yet to be seen.  One of the biggest known challenges will be compatibility of end user devices and also routers and switches.  Due to the higher energy requirements, there will be higher power consumption on the part of the access points and also the for end devices.  Currently very few of these end user devices have been released that support the new standard.  Infrastructure will also need to be upgraded to accommodate to take full advantage of the increased speeds.
+!!! note "Utilizing AVA"
+    * "Ask AVA" serves as a conversational (GPT) AI feature within CloudVision AGNI, Arista's Cloud based NAC solution. Operators can leverage the "Ask AVA" feature to aid in configuring, troubleshooting, and analyzing policy configurations. 
 
-For current deployments of wireless LAN, Wi-Fi 6E is the viable option.  It is a more mature technology within the access point itself and also supported endpoints.  It utilizes the same 6 GHz spectrum as Wi-Fi 7 but is more cost effective itself, with most infrastructures already capable of supporting the power and bandwidth requirements.  The benefits of this technology are more immediate, yet still offers future proofing.
+    * "Autonomous NDR" enables AVA to identify and track users, devices, applications, and other entities over time. AVA can also identify and classify  patterns of activity that relate to attacker tactics, techniques, and procedures. By profiling these entities, AVA mitigates much of the false positives that might typically occur with legacy NDR tools. 
+
+    * "Quality of Experience" is constantly monitored by AVA, which provides network operators with a clear view of the root cause of poor user application experience. AVA also generates remedial action recommendations that can be taken to improve the experience. 
 
 
-Learn more about Wi-Fi and Arista specific solutions:  
-[Wi-Fi 7: A Leap Towards Time-Sensitive Networking](https://www.arista.com/assets/data/pdf/Whitepapers/Arista-Wi-Fi-7-White-Paper.pdf)  
-[Wi-Fi 6E and Future-Proofing Wireless Infrastruture](https://www.arista.com/assets/data/pdf/Whitepapers/Arista-Wi-Fi-6E-White-Paper.pdf)  
-[Arista Cognitive Wi-Fi](https://www.arista.com/en/products/cloudvision-cue)  
+The combination of Arista AVA and EOS NetDL provides predictive and prescriptive intelligence for modern data driven networks. To learn more about Arista AVA and how it can help facilitate a much more efficient and secure network, click on the following links below. 
+
+Learn more about Arista's AVA Solution below:
+
+Our very own CEO Jayshree Ullal's blog post on AVA, [click here](https://blogs.arista.com/blog/new-ai-era) 
+
+Arista AVA White Paper, [click here](https://www.arista.com/assets/data/pdf/Whitepapers/Arista-AVA-Whitepaper.pdf)  
 
 ---
 
@@ -112,10 +122,10 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
    | __EOS__           | 4.29.7M <br>4.31.2F <br>4.26.13M<br>4.30.5M<br>4.23.15M<br>     | February 20th, 2024 <br>February 9th, 2024<br>February 1st, 2024<br>January 23rd, 2024<br>January 13th, 2024<br>
-   | __CVP__           | 2023.3.0      | December 21st, 2023
+   | __CVP__           | 2023.3.1      | March 18th, 2024
    | __DMF__           | 8.5.0         | February 5th, 2024
    | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>15.0.1-22<br>       | <br>December 15th, 2022<br>August 29th, 2023<br>
-   | __Arista NDR__         | 5.1.0         | December 20th, 2023
+   | __Arista NDR__         | 5.1.2         | February 15th, 2024
    | __TerminAttr__    | 1.28.3        | February 1st, 2024
 
 
@@ -126,6 +136,7 @@ Below is a list of advisories that are announced by Arista. To view more details
 
 | Name          | Advisory Link           | Date of Advisory Notice  |
 | :-----------: |:-------------:| :-----:|
+| __L3LS CloudVision Studio__   | [Field Notice 0080](https://www.arista.com/en/support/advisories-notices/field-notice/19211-field-notice-0080) | March 19th, 2024
 | __SQL Injection__    | [Security Advisory 0093](https://www.arista.com/en/support/advisories-notices/security-advisory/19038-security-advisory-0093) | February 28th, 2024 |
 | __CVP Virtual Appliances__      | [Security Advisory 0092](https://www.arista.com/en/support/advisories-notices/security-advisory/19025-security-advisory-0092)      |  February 20th, 2024 | 
 | __7130 ACLs__                   | [Security Advisory 0091](https://www.arista.com/en/support/advisories-notices/security-advisory/19023-security-advisory-0091)     | February 20th, 2024
