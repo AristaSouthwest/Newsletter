@@ -5,9 +5,9 @@
 
 Welcome to the April 2024 newsletter for Arista customers in the U.S. Southwest Region!
 
-Our theme for this month is: Artifical Intelligence and Machine Learning! It seems as if in every corner of the industry, the recogniztion of AI is embraced. We here at Arista, have created solutions that take the capabilites of AI, to help secure your network operations. Our very own Senior Manager of Systems Engineer, Salman Zahid, explains the significance of our solution, CloudVision Universal Network Observability (CV UNO), in providing insight and maintenance of your network infrastructure. 
+Our theme for this month is: Artificial Intelligence and Machine Learning! It seems as if in every corner of the industry AI is being heavily embraced. At Arista, we are creating solutions that leverage the sheer power and capabilities of AI to improve the security, productivity, and overall efficiency of the modern network. Our very own Senior Manager of Systems Engineer, Salman Zahid, introduces CloudVision Universal Network Observability (CV UNO), which expands visibility into your network infrastructure and provides enhanced insights through Machine Learning.
 
-While CloudVision UNO is primarily focused on identifiying infrastruture behavior, our next article elaborates on the AI based virtual assistant solution. By integrating a virtual assitant that is consistantly observing the network enviornment, operators can complete their tasks with additional help at a faster rate. Alex Bojko, Advanced Services Engineer, is one of the creators of this newsletter and helps manage the publication. He also provides a detailed insight to the workings of our AI based assistant, Arista AVA (Autonomous Virtual Assistant).
+While CloudVision UNO is primarily focused on identifiying infrastruture behavior, our next article elaborates on the AI based virtual assistant solution. By integrating a virtual assitant that is constantly observing the network enviornment, operators can complete their tasks with additional help at a faster rate. Alex Bojko, Advanced Services Engineer, is one of the creators of this newsletter and helps manage the publication. He also provides a detailed insight to the workings of our AI based assistant, Arista AVA (Autonomous Virtual Assistant).
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
 
@@ -79,7 +79,7 @@ The combination of Arista AVA and EOS NetDL provides predictive and prescriptive
 
 Learn more about Arista's AVA Solution below:
 
-Our very own CEO Jayshree Ullal's blog post on AVA, [click here](https://blogs.arista.com/blog/new-ai-era) 
+Our very own CEO Jayshree Ullal's blog post on AI Networking, [click here](https://blogs.arista.com/blog/new-ai-era) 
 
 Arista AVA White Paper, [click here](https://www.arista.com/assets/data/pdf/Whitepapers/Arista-AVA-Whitepaper.pdf)  
 
@@ -165,6 +165,7 @@ For a list of the most current advisories and notices, click [Here](https://www.
    | :-----------: | :-----------:    | :-----------:
    |  Arista 7130 Series             |  [Ultra Low Latency Network](https://www.arista.com/en/company/news/press-release/18273-pr-20231011)  | Q4 2023
    |  Arista AGNI    |   [AI Driven Network Identity](https://www.arista.com/en/company/news/press-release/17244-pr-20230424)                | Q2 2023 
+   | Arista CV UNO  | [CloudVision Universal Network Observability](https://www.arista.com/en/company/news/press-release/19195-pr-20240305)  | Q1 2024
 
 ---
 
