@@ -3,85 +3,109 @@
 
 # Arista April Southwest Region Newsletter
 
-Welcome to the April 2024 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the May 2024 newsletter for Arista customers in the U.S. Southwest Region!
 
-Our theme for this month is: Artificial Intelligence and Machine Learning! It seems as if in every corner of the industry AI is being heavily embraced. At Arista, we are creating solutions that leverage the sheer power and capabilities of AI to improve the security, productivity, and overall efficiency of the modern network. Our very own Senior Manager of Systems Engineer, Salman Zahid, introduces CloudVision Universal Network Observability (CV UNO), which expands visibility into your network infrastructure and provides enhanced insights through Machine Learning.
+The year has been flying by fast, we are already on our May edition of the Southwest Newsletter! In this month's newsletter, we have an informative piece written by our Senior Manager of Systems Engineering, Salman Zahid, educating us on not only the impact of AI, but also highlighiting Arista's capabilites of modernizing our solutions to support the changes in the industry. Interested in gaining a further insight of AI on your industry? Check out the Article!
 
-While CloudVision UNO is primarily focused on identifiying infrastruture behavior, our next article elaborates on the AI based virtual assistant solution. By integrating a virtual assitant that is constantly observing the network enviornment, operators can complete their tasks with additional help at a faster rate. Alex Bojko, Advanced Services Engineer, is one of the creators of this newsletter and helps manage the publication. He also provides a detailed insight to the workings of our AI based assistant, Arista AVA (Autonomous Virtual Assistant).
+Speaking of staying up to date on industry changes, did you know that Arista has solutions that also cater to automating network operations? It's called Arista Validated Design (a.k.a AVD)! Not only are network teams adapting to the tools that can help automate mundane tasks, it's a practice that allows for you to operator more efficiently. Bilal Syed, Systems Engineer Southwest Region, provides a well written explanation of AVD along with examples of implementing the practice to your operations.
+
+
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
 
 ---
 
-## **Application-Aware Network Performance with Cloud Vision Universal Network Observability** 
+## **Unveiling the Power of AI: Transforming Enterprise Networks** 
 By: Salman Zahid, Sr Manager Systems Engineering Southwest Region 
 
-Enterprise networks are becoming increasingly complex, with the network perimeter often extending well beyond the enterprise boundaries in the public Cloud, with many users working remotely. With this increasing complexity, the network operations team is expected to quickly resolve any issues that may arise to provide business continuity, improve user experience, ensure the network is not at fault, and reduce mean time to resolution for any network or application performance-related issue. Network operations tools must evolve beyond device management and operations to offer comprehensive visibility across the entire infrastructure to meet these demands. With the introduction of Cloud Vision Unified Network Observability, or CV UNO for short, Arista has a couple of primary goals.
+In the ever-evolving technological innovation landscape, a game-changing force emerges every so often that reshapes the trajectory of businesses across industries. Artificial Intelligence (AI) is one such transformative technology, promising to revolutionize every facet of enterprise operations. Already, we have witnessed the profound impact of generative AI in enhancing marketing efficiency, streamlining customer support, optimizing HR functions, and revolutionizing inbound sales leads through intuitive chatbots. Beyond these immediate applications, AI can potentially unleash autonomous vehicles at scale and accelerate the discovery of groundbreaking medical cures. It amplifies business capabilities, presenting myriad opportunities for growth and innovation. 
 
+Businesses are embracing AI's potential and undergoing a paradigm shift in their approach to harnessing this transformative force.
 
-!!! note "Goals"
-    * Expand Visibility: CV-UNO builds upon the capabilities of Arista's network infrastructure, providing holistic insight that encompasses applications infrastructure and third-party network devices like Cisco. This 360-degree view empowers networking teams to understand the entire network ecosystem comprehensively.
+**Arista's Insight: Pioneering Trends in Technology and Networking:**  
+From its unique vantage point, Arista observes several distinct trends emerging in the realm of technology and networking. 
 
-    * Enhanced Insights through Machine Learning: CV-UNO employs advanced machine learning algorithms to deliver more accurate insights by leveraging the data obtained from applications and third-party networks. These insights translate to faster issue resolution and an enriched user experience.
+**Explosive Bandwidth Growth and Performance Demands:**  
+ The rise of GPUs powering AI technologies necessitates exceptionally high-bandwidth systems with specific characteristics such as lossless fabric and deterministic latency. With GPUs boasting 400G connectivity requirements gaining traction, the demand for networking clusters or fabrics supporting dense 400G GPUs surges. Arista, a pioneer in networking solutions, has been at the forefront of addressing these demands, having shipped 400G switches in volume for years. Moreover, Arista is poised to introduce a cutting-edge 2RU 64X800GE system, boasting a remarkable 51.2 Tbps single SOC (System on Chip) very soon.
 
+ **Ethernet's Ascendancy in AI Networks:**   
+ As organizations scale their AI networks, they confront the inherent challenges and limitations of existing technologies like Infiniband. Arista Ethernet switches emerge as the preferred choice for some of the world's largest AI clusters, owing to their unmatched scalability and reliability. However, recognizing the need for continuous innovation to meet evolving demands, Arista takes proactive steps. As a founding member of the Ultra Ethernet Consortium (UEC), Arista is spearheading efforts to evolve Ethernet, ensuring it remains adaptable to the ever-expanding requirements of AI networks.
 
-Operators familiar with Arista Cloud Vision's capabilities in provisioning and monitoring Arista infrastructure recognize the value of EOS real-time streaming telemetry in troubleshooting network issues. With CV-UNO, Arista extends this functionality, enabling the collection of telemetry and flow data from diverse systems, including vCenter for application discovery, Cisco routers for flow information, and Servicenow CMDB.  Additionally, it leverages other Arista products like the (DANZ) Monitoring Fabric (DMF) for end-to-end TCP session latency and visibility of SaaS applications. This integration enhances overall visibility and delivers application-aware network performance, enriching the Arista Cloud Vision ecosystem user experience.
-
-<figure markdown>
-![Image Placement](img/cv-uno1.jpg){: style="height:450px;width:550px"}
-    <figcaption>CloudVision Universal Network Observability</figcaption>
-</figure>
-
-While CV UNO's initial use case focus is improving application visibility within the data center, Arista plans to evolve the platform to encompass additional visibility in all parts of the network, including Enterprise LANs.
-Some of the use cases enabled by Cloud Vision UNO are summarized below.
-
-<figure markdown>
-![Image Placement](img/cv-uno2.jpg)
-    <figcaption>CV UNO Capabilities</figcaption>
-</figure>
+For insights into Arista's diverse portfolio and the cutting-edge technologies empowering customers to build AI clusters, visit Arista's AI Networking Solutions.
 
 
 
-For more information, please visit [here](https://www.arista.com/en/solutions/network-observability/cv-uno)
-
-CV UNO Release announcement, [click here](https://www.arista.com/en/company/news/press-release/19195-pr-20240305)
-
-CV UNO Blog, [click here](https://blogs.arista.com/blog/network-observability)
-
-Attend the CV UNO Webinar - Register, [click here](https://events.arista.com/uno-2024-webinar)
-
+For more information, please visit [HERE](https://www.arista.com/en/solutions/ai-networking)
 
 ---
 
-## **Arista AVA: AI/ML Capabilities in the Modern Network**
-By: Alex Bojko, Advanced Services Engineer 
+## **Leveraging the Power of Arista Validated Design**
+By: Bilal Syed, Systems Engineer Southwest Region 
 
-Artificial intelligence (AI) is taking the world by storm, and for good reason. Why not embrace a technology that could make our everyday life as a network or security operator just a little bit easier? After all, we continue to embrace network automation for this very reason.
+Automating network provisioning and deployment tasks is becoming increasingly prevalent.
+   
+Enterprises are looking to be more efficient in network provisioning while also reducing errors and downtimes. Automating the right way is important. Automation that allows for easier maintenance, change controls, usability and repeatability is what will allow enterprise networks to operate efficiently and effectively. 
+  
+AVD is a community-based Free Open Source Software (FOSS) project sponsored by Arista Networks. AVD provides an extensible data model that defines Arista’s Unified Cloud Network architecture as “code”.
+  
+Arista Networks supports Ansible for managing devices running the EOS operating system natively through eAPI or CloudVision Portal (CVP). 
+  
+AVD collection includes a set of Ansible roles and modules to help kick-start your automation with Arista. The various roles and templates provided are designed to be customized and extended to your needs.
+  
+AVD Schematic representation:
+Arista AVD data models cover fabric topology/variables, endpoints, services, common settings; and then convert these data models into per-device configurations. 
 
-Introducing Arista Autonomous Virtual Assistant, or "AVA" for short. AVA ingests relevant, real-time telemetry data gathered from Arista EOS NetDL (Network DataLake) stack as well as a collection of anonymized data from our global technical assistance center (TAC) database to train itself on exactly what is happening in the network. Examples of data that AVA learns from includes application, in-band network telemetry, flow visibility, and complete control plane state information from devices spread around all domains of the modern network. AVA leverages this high quality data to serve as an accurate AI-based expert, helping to automate complex tasks like troubleshooting, perform root cause analysis, and identify and remediate network security threats.
 
 <figure markdown>
-![Image Placement](img/Alex_AVA_Newsletter_Image.jpg)
-    <figcaption>Autonomous Virtual Assistant: AVA</figcaption>
+![Image Placement](img/Article_2_May_Newsletter.png)
+    <figcaption>Arista Validated Design Work Flow</figcaption>
 </figure>
 
-AVA exists to assist the network and security operator in their day to day tasks, increasing efficiency and productivity. Below is a list of use-cases, derived from the field, that showcase various features of AVA that your team can leverage: 
+__Features__
 
-!!! note "Utilizing AVA"
-    * "Ask AVA" serves as a conversational (GPT) AI feature within CloudVision AGNI, Arista's Cloud based NAC solution. Operators can leverage the "Ask AVA" feature to aid in configuring, troubleshooting, and analyzing policy configurations. 
+* Flexibility with Open Data Models: Extensible fabric-wide network models, simplifying configuration, delivering consistency, and reducing errors
 
-    * "Autonomous NDR" enables AVA to identify and track users, devices, applications, and other entities over time. AVA can also identify and classify  patterns of activity that relate to attacker tactics, techniques, and procedures. By profiling these entities, AVA mitigates much of the false positives that might typically occur with legacy NDR tools. 
+* Simplification through Multi-Domain Automation: A framework that can automate the data center, campus or wide area network, enabled by a consistent EOS software image and management platform
 
-    * "Quality of Experience" is constantly monitored by AVA, which provides network operators with a clear view of the root cause of poor user application experience. AVA also generates remedial action recommendations that can be taken to improve the experience. 
+* Comprehensive Workflows: Automating the full life cycle of network provisioning from config generation to pre and post-deployment validation, and self-documentation of the network
+
+__Roles Overview__
+
+This repository provides content for Arista’s arista.avd collection. The following roles are included. The various roles and templates provided are designed to be customized and extended to your needs.
+
+* [EOS Designs](https://avd.arista.com/4.7/roles/eos_designs/index.html) - Opinionated Data model to assist with the deployment of Arista Validated Designs.
+
+* [EOS CLI Config Generation](https://avd.arista.com/4.7/roles/eos_cli_config_gen/index.html) - Generate Arista EOS cli syntax and device documentation.
+
+* [EOS Config Deploy CVP](https://avd.arista.com/4.7/roles/eos_config_deploy_cvp/index.html) - Deploys intended configuration via CloudVision.
+
+* [EOS Config Deplot eAPI](https://avd.arista.com/4.7/roles/eos_config_deploy_eapi/index.html) - Deploys intended configuration via eAPI.
+
+* [CVP Configlet Upload](https://avd.arista.com/4.7/roles/cvp_configlet_upload/index.html) - Uploads configlets from a local folder to CloudVision Server.
+
+* [EOS Validate State](https://avd.arista.com/4.7/roles/eos_validate_state/index.html) - Validate operational states of Arista EOS devices.
+
+* [EOS Snapshot](https://avd.arista.com/4.7/roles/eos_snapshot/index.html) - Collect commands on EOS devices and generate report
+
+* [DHCP Provisioner](https://avd.arista.com/4.7/roles/dhcp_provisioner/index.html) - Configure an ISC-DHCP server to provide ZTP services and CloudVision registration.
+
+* [CV Deploy](https://avd.arista.com/4.7/roles/cv_deploy/index.html) - Deploys EOS device configurations and tags to the CloudVision management platform.
+
+<figure markdown>
+![Image Placement](img/Articel_2_Pic_2_May.png){: style="height:300px;width300px"}
+    <figcaption>Arista Validated Design Work Flow</figcaption>
+</figure>
 
 
-The combination of Arista AVA and EOS NetDL provides predictive and prescriptive intelligence for modern data driven networks. To learn more about Arista AVA and how it can help facilitate a much more efficient and secure network, click on the following links below. 
+Arista AVD Reference Designs:
 
-Learn more about Arista's AVA Solution below:
+Arista AVD provides example data models for Single/Dual DC L3 Leaf-Spine designs, EVPN Fabric, Campus Fabric (L2LS). These examples can be found [HERE](https://avd.arista.com), under the Examples section.
 
-Our very own CEO Jayshree Ullal's blog post on AI Networking, [click here](https://blogs.arista.com/blog/new-ai-era) 
+For additional information on AVD, please visit:
 
-Arista AVA White Paper, [click here](https://www.arista.com/assets/data/pdf/Whitepapers/Arista-AVA-Whitepaper.pdf)  
+For latest Arista AVD documentation visit [HERE](https://avd.arista.com)
+
+For AVD github link visit [HERE](https://github.com/aristanetworks/avd)
 
 ---
 
@@ -121,12 +145,12 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
-   | __EOS__           | 4.29.7M <br>4.31.2F <br>4.26.13M<br>4.30.5M<br>4.23.15M<br>     | February 20th, 2024 <br>February 9th, 2024<br>February 1st, 2024<br>January 23rd, 2024<br>January 13th, 2024<br>
-   | __CVP__           | 2023.3.1      | March 18th, 2024
+   | __EOS__           | 4.31.3M <br>4.30.6M <br>4.29.6.1M<br>4.29.7M<br>4.31.2F<br>     | May 1st, 2024 <br>April 12th, 2024<br>April 4th, 2024<br>February 20th, 2024<br>February 9th, 2024<br>
+   | __CVP__           | 2024.1.1      | April 22nd, 2024
    | __DMF__           | 8.5.0         | February 5th, 2024
    | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>15.0.1-22<br>       | <br>December 15th, 2022<br>August 29th, 2023<br>
    | __Arista NDR__         | 5.1.2         | February 15th, 2024
-   | __TerminAttr__    | 1.28.3        | February 1st, 2024
+   | __TerminAttr__    | 1.32.2        | April 12th, 2024
 
 
 ---
@@ -136,6 +160,8 @@ Below is a list of advisories that are announced by Arista. To view more details
 
 | Name          | Advisory Link           | Date of Advisory Notice  |
 | :-----------: |:-------------:| :-----:|
+| __XZ Tarballs__              |  [Security Advisory 0095](https://www.arista.com/en/support/advisories-notices/security-advisory/19222-security-advisory-0095)             | April 3rd, 2024       |
+| __HTTP/2 Continuation Frames__    | [Security Advisory 0094](https://www.arista.com/en/support/advisories-notices/security-advisory/19221-security-advisory-0094)               | April 5th, 2024             |
 | __L3LS CloudVision Studio__   | [Field Notice 0080](https://www.arista.com/en/support/advisories-notices/field-notice/19211-field-notice-0080) | March 19th, 2024
 | __SQL Injection__    | [Security Advisory 0093](https://www.arista.com/en/support/advisories-notices/security-advisory/19038-security-advisory-0093) | February 28th, 2024 |
 | __CVP Virtual Appliances__      | [Security Advisory 0092](https://www.arista.com/en/support/advisories-notices/security-advisory/19025-security-advisory-0092)      |  February 20th, 2024 | 
@@ -156,13 +182,15 @@ For a list of the most current advisories and notices, click [Here](https://www.
 | :-----------: |:-------------: |     :----:        |
 | Module        | [7500R2 Series Linecards](https://www.arista.com/en/support/advisories-notices/end-of-sale/18886-end-of-sale-of-the-arista-7500r2-series-line-cards) | December 20th, 2023    |
 | Access Points | [Arista 802.11ac Wave 2 Devices](https://www.arista.com/en/support/advisories-notices/end-of-sale/14911-end-of-sale-of-arista-802-11ac-wave-2-devices)      |  June 30th, 2022 |
-| Switches      | [DCS-7020SRG-24C2](https://www.arista.com/en/support/advisories-notices/end-of-sale/18884-end-of-sale-of-the-arista-dcs-7020srg-24c2-series)<br>[DCS-7280SR-48C6 & 7280TR-48C6](https://www.arista.com/en/support/advisories-notices/end-of-sale/17491-end-of-sale-of-the-arista-dcs-7280sr-48c6-and-dcs-7280tr-48c6-series)<br>[DCS-7280CR2-60 Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/17490-end-of-sale-of-the-arista-dcs-7280cr2-60-series)<br>[DCS-7010T-48](https://www.arista.com/en/support/advisories-notices/end-of-sale/16538-end-of-sale-7010t-48)<br>      |    Varies by Device |
+| DMF           | [DMF/CCF Appliances](https://www.arista.com/en/support/advisories-notices/end-of-sale/19298-end-of-sale-end-of-life-for-arista-ccf-appliances-dca-dm-cdl-and-dca-cc-cdl)          |  April 30th, 2024             |
+| Switches      | [DCS-7170-32CD](https://www.arista.com/en/support/advisories-notices/end-of-sale/19266-end-of-sale-of-the-arista-dcs-7170-32cd-series)<br>[DCS-7020SRG-24C2](https://www.arista.com/en/support/advisories-notices/end-of-sale/18884-end-of-sale-of-the-arista-dcs-7020srg-24c2-series)<br>[DCS-7280SR-48C6 & 7280TR-48C6](https://www.arista.com/en/support/advisories-notices/end-of-sale/17491-end-of-sale-of-the-arista-dcs-7280sr-48c6-and-dcs-7280tr-48c6-series)<br>[DCS-7280CR2-60 Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/17490-end-of-sale-of-the-arista-dcs-7280cr2-60-series)<br>[DCS-7010T-48](https://www.arista.com/en/support/advisories-notices/end-of-sale/16538-end-of-sale-7010t-48)<br>      |    Varies by Device |
 
 
 **New Releases** of Arista's device are listed below 
 
    |  Device       | More Information |  Release Date 
    | :-----------: | :-----------:    | :-----------:
+   | Arista Multi-Domain Segmentaton Service  | [Arista MSS](https://www.arista.com/en/company/news/press-release/19297-pr-20240430)         | April 30th, 2024
    |  Arista 7130 Series             |  [Ultra Low Latency Network](https://www.arista.com/en/company/news/press-release/18273-pr-20231011)  | Q4 2023
    |  Arista AGNI    |   [AI Driven Network Identity](https://www.arista.com/en/company/news/press-release/17244-pr-20230424)                | Q2 2023 
    | Arista CV UNO  | [CloudVision Universal Network Observability](https://www.arista.com/en/company/news/press-release/19195-pr-20240305)  | Q1 2024
