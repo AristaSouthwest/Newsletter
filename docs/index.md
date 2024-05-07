@@ -4,12 +4,6 @@
 # Arista April Southwest Region Newsletter
 
 Welcome to the May 2024 newsletter for Arista customers in the U.S. Southwest Region!
-
-The year has been flying by fast, we are already on our May edition of the Southwest Newsletter! In this month's newsletter, we have an informative piece written by our Senior Manager of Systems Engineering, Salman Zahid, educating us on not only the impact of AI, but also highlighiting Arista's capabilites of modernizing our solutions to support the changes in the industry. Interested in gaining a further insight of AI on your industry? Check out the Article!
-
-Speaking of staying up to date on industry changes, did you know that Arista has solutions that also cater to automating network operations? It's called Arista Validated Design (a.k.a AVD)! Not only are network teams adapting to the tools that can help automate mundane tasks, it's a practice that allows for you to operator more efficiently. Bilal Syed, Systems Engineer Southwest Region, provides a well written explanation of AVD along with examples of implementing the practice to your operations.
-
-
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
 
@@ -35,7 +29,8 @@ For insights into Arista's diverse portfolio and the cutting-edge technologies e
 
 
 
-For more information, please visit [HERE](https://www.arista.com/en/solutions/ai-networking)
+For more information, please visit:  
+[https://www.arista.com/en/solutions/ai-networking](https://www.arista.com/en/solutions/ai-networking)  
 
 ---
 
@@ -101,11 +96,11 @@ Arista AVD Reference Designs:
 
 Arista AVD provides example data models for Single/Dual DC L3 Leaf-Spine designs, EVPN Fabric, Campus Fabric (L2LS). These examples can be found [HERE](https://avd.arista.com), under the Examples section.
 
-For additional information on AVD, please visit:
+For latest Arista AVD documentation, please visit:  
+[https://avd.arista.com](https://avd.arista.com)
 
-For latest Arista AVD documentation visit [HERE](https://avd.arista.com)
-
-For AVD github link visit [HERE](https://github.com/aristanetworks/avd)
+For AVD github link, please visit:  
+[https://github.com/aristanetworks/avd](https://github.com/aristanetworks/avd)
 
 ---
 
