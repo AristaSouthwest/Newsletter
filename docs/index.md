@@ -3,104 +3,77 @@
 
 # Arista May Southwest Region Newsletter
 
-Welcome to the May 2024 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the June 2024 newsletter for Arista customers in the U.S. Southwest Region!
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
 
 ---
 
-## **Unveiling the Power of AI: Transforming Enterprise Networks** 
-By: Salman Zahid, Sr Manager Systems Engineering Southwest Region 
+## **Addressing Evolving Enterprise Security Needs: Arista's Multi-Domain Segmentation Services (MSS)** 
+By: Salman Zahid, Sr Manager Systems Engineering Southwest Region & Akashdeep Takhar, Advanced Services Engineer
 
-In the ever-evolving technological innovation landscape, a game-changing force emerges every so often that reshapes the trajectory of businesses across industries. Artificial Intelligence (AI) is one such transformative technology, promising to revolutionize every facet of enterprise operations. Already, we have witnessed the profound impact of generative AI in enhancing marketing efficiency, streamlining customer support, optimizing HR functions, and revolutionizing inbound sales leads through intuitive chatbots. Beyond these immediate applications, AI can potentially unleash autonomous vehicles at scale and accelerate the discovery of groundbreaking medical cures. It amplifies business capabilities, presenting myriad opportunities for growth and innovation. 
+In the contemporary landscape of enterprise architecture, the traditional concept of a network perimeter has become obsolete. With applications spanning across multiple clouds, both public and private, the distributed nature of modern networks presents new challenges for security. Attack methodologies have evolved as well, with a shift away from malware-centric approaches towards exploiting credentials to infiltrate networks and maneuver laterally, necessitating a reevaluation of conventional security paradigms. 
 
-Businesses are embracing AI's potential and undergoing a paradigm shift in their approach to harnessing this transformative force.
+Traditional network boundaries, such as VLANs and VRFs, often prove inadequate for enforcing robust security policies in these dynamic environments. There arises a need for more flexible and granular control over intra-segment communication and the grouping of endpoints dispersed across various VLANs. 
 
-**Arista's Insight: Pioneering Trends in Technology and Networking:**  
-From its unique vantage point, Arista observes several distinct trends emerging in the realm of technology and networking. 
+Arista's Multi-Domain Segmentation Services (MSS) addresses these challenges by enabling the creation of micro-perimeters that restrict intra-segment communication and facilitate the grouping of endpoints for streamlined security policy enforcement. Departing from the conventional reliance on network subnets for access control, Arista MSS leverages tags assigned to endpoints, allowing for more nuanced policy enforcement based on these tags. Each endpoint can be associated with multiple tags, providing enhanced granularity in access control.
 
-**Explosive Bandwidth Growth and Performance Demands:**  
- The rise of GPUs powering AI technologies necessitates exceptionally high-bandwidth systems with specific characteristics such as lossless fabric and deterministic latency. With GPUs boasting 400G connectivity requirements gaining traction, the demand for networking clusters or fabrics supporting dense 400G GPUs surges. Arista, a pioneer in networking solutions, has been at the forefront of addressing these demands, having shipped 400G switches in volume for years. Moreover, Arista is poised to introduce a cutting-edge 2RU 64X800GE system, boasting a remarkable 51.2 Tbps single SOC (System on Chip) very soon.
-
- **Ethernet's Ascendancy in AI Networks:**   
- As organizations scale their AI networks, they confront the inherent challenges and limitations of existing technologies like Infiniband. Arista Ethernet switches emerge as the preferred choice for some of the world's largest AI clusters, owing to their unmatched scalability and reliability. However, recognizing the need for continuous innovation to meet evolving demands, Arista takes proactive steps. As a founding member of the Ultra Ethernet Consortium (UEC), Arista is spearheading efforts to evolve Ethernet, ensuring it remains adaptable to the ever-expanding requirements of AI networks.
-
-For insights into Arista's diverse portfolio and the cutting-edge technologies empowering customers to build AI clusters, visit Arista's AI Networking Solutions.
+<figure markdown>
+![Image Placement](img/Newsletter_June2024_Article1.png)
+    <figcaption>Arista Multi-Domain Segmentation Services </figcaption>
+</figure>
 
 
+A brief explanation of Arista MSS is shown above. Let’s take a look at this: 
 
-For more information, please visit:  
-[https://www.arista.com/en/solutions/ai-networking](https://www.arista.com/en/solutions/ai-networking)  
+a) By identifying the endpoints of a network, we can keep a record of all the endpoints to where traffic is traveling. By utilizing this data, you can parse through information faster to identify the source cause of potential attacks.  
 
+b) Traffic maps help create policies allowing expected traffic to pass along. This gives users the ability to apply additional rules for further enhancement of traffic flow.  
+
+c) Applying Microperimeter practices allows or denies specified traffic. The traffic can also be redirected to travel to the firewalls set up in your existing infrastructure.  
+
+d) Observing the network traffic by applying the previous steps above gives you the access to gain visibility to your network. Additional changes can be made as applications are added into the infrastructure.
+
+
+Arista MSS further allows for us to provide you better tools for a Zero Trust Network equipped with best practices of monitoring endpoints as well as sourcing potential threats. As an effort to simplify our tools,  Arista MSS requires NO custom software or custom protocols to utilize our solution. Interested in learning more? Contact your SE or read the links shown below.  
+
+
+
+Links for more information on Arista MSS:  
+[Arista MSS Press Release](https://www.arista.com/en/company/news/press-release/19297-pr-20240430)  
+[The Era of Microperimeters](https://blogs.arista.com/blog/the-era-of-microperimeters)  
+[VIDEO: Arista MSS for Campus and Data Center](https://www.youtube.com/watch?v=yHgPwDmqtj0)
 ---
 
-## **Leveraging the Power of Arista Validated Design**
-By: Bilal Syed, Systems Engineer Southwest Region 
+## **Workflow Enhancement: Organize Configurations with CloudVision Studio’s Static Configlets Feature**
+By: Akashdeep Takhar, Advanced Services Engineer Southwest Region 
 
-Automating network provisioning and deployment tasks is becoming increasingly prevalent.
-   
-Enterprises are looking to be more efficient in network provisioning while also reducing errors and downtimes. Automating the right way is important. Automation that allows for easier maintenance, change controls, usability and repeatability is what will allow enterprise networks to operate efficiently and effectively. 
-  
-AVD is a community-based Free Open Source Software (FOSS) project sponsored by Arista Networks. AVD provides an extensible data model that defines Arista’s Unified Cloud Network architecture as “code”.
-  
-Arista Networks supports Ansible for managing devices running the EOS operating system natively through eAPI or CloudVision Portal (CVP). 
-  
-AVD collection includes a set of Ansible roles and modules to help kick-start your automation with Arista. The various roles and templates provided are designed to be customized and extended to your needs.
-  
-AVD Schematic representation:
-Arista AVD data models cover fabric topology/variables, endpoints, services, common settings; and then convert these data models into per-device configurations. 
+By now, you may have heard or interacted with the Configlet feature within the Provisioning tab of CloudVision. Applying configurations via Configlets is a great method for the network team to push multiple changes onto various devices, as well as save significant time during maintenance windows. Along with Configlets, another feature called Studios can further assist in tracking changes, in addition to deploying new fabrics within the network environment. Rather than utilizing the feature separately, why not combine the two together?  To enhance the capabilities of tracking configuration changes, we take a look at a feature called Studios Static Configlets!  
 
+Let’s take a look at the differences in workflow between traditional Configlets and Studio Static Configlets. Below is a table of Configlets in a CloudVision instance:  
 
 <figure markdown>
-![Image Placement](img/Article_2_May_Newsletter.png)
-    <figcaption>Arista Validated Design Work Flow</figcaption>
+![Image Placement](img/Article2_June2024_Pic1.png)
+    <figcaption>Configlet Table</figcaption>
 </figure>
 
-__Features__
-
-* Flexibility with Open Data Models: Extensible fabric-wide network models, simplifying configuration, delivering consistency, and reducing errors
-
-* Simplification through Multi-Domain Automation: A framework that can automate the data center, campus or wide area network, enabled by a consistent EOS software image and management platform
-
-* Comprehensive Workflows: Automating the full life cycle of network provisioning from config generation to pre and post-deployment validation, and self-documentation of the network
-
-__Roles Overview__
-
-This repository provides content for Arista’s arista.avd collection. The following roles are included. The various roles and templates provided are designed to be customized and extended to your needs.
-
-* [EOS Designs](https://avd.arista.com/4.7/roles/eos_designs/index.html) - Opinionated Data model to assist with the deployment of Arista Validated Designs.
-
-* [EOS CLI Config Generation](https://avd.arista.com/4.7/roles/eos_cli_config_gen/index.html) - Generate Arista EOS cli syntax and device documentation.
-
-* [EOS Config Deploy CVP](https://avd.arista.com/4.7/roles/eos_config_deploy_cvp/index.html) - Deploys intended configuration via CloudVision.
-
-* [EOS Config Deplot eAPI](https://avd.arista.com/4.7/roles/eos_config_deploy_eapi/index.html) - Deploys intended configuration via eAPI.
-
-* [CVP Configlet Upload](https://avd.arista.com/4.7/roles/cvp_configlet_upload/index.html) - Uploads configlets from a local folder to CloudVision Server.
-
-* [EOS Validate State](https://avd.arista.com/4.7/roles/eos_validate_state/index.html) - Validate operational states of Arista EOS devices.
-
-* [EOS Snapshot](https://avd.arista.com/4.7/roles/eos_snapshot/index.html) - Collect commands on EOS devices and generate report
-
-* [DHCP Provisioner](https://avd.arista.com/4.7/roles/dhcp_provisioner/index.html) - Configure an ISC-DHCP server to provide ZTP services and CloudVision registration.
-
-* [CV Deploy](https://avd.arista.com/4.7/roles/cv_deploy/index.html) - Deploys EOS device configurations and tags to the CloudVision management platform.
+In a typical operation, each device’s configlet is stored in this table. While it is great to know that you can use the search bar to find a specific configlet for the device of interest, the fact is that there should be a more efficient manner to organize configlets per device. Below is a picture of CloudVision Studio’s Static Configlet:
 
 <figure markdown>
-![Image Placement](img/Articel_2_Pic_2_May.png){: style="height:300px;width300px"}
-    <figcaption>Arista Validated Design Work Flow</figcaption>
+![Image Placement](img/Article2_June2024_Pic2.png)
+    <figcaption>Studios Static Configlet</figcaption>
 </figure>
 
+Rather than storing every single configlet from every device, we can place devices in a hierarchy manner, and store configlets within those devices! As shown above, Spine 1 has multiple tabs on the right, within each tab is a configlet that stores configurations pertaining to the device. This feature has simplified the Configlet’s table by allowing you to organize the configlets per device.  
 
-Arista AVD Reference Designs:
+Another tool integrated in Studio's Static Configlet is the hierarchy model. Take a look at the devices on the left panel. Every device has the option of inheriting the child device’s configurations. Example: Spine 1 and Spine 2 are the “children” of Tenant. You can enable the hierarchy schema for Tenant to inherit both Spine 1 and Spine 2 configurations. This allows for the tenant instance to collect configurations without the hassle of you specifically having to create a separate configlet by itself.  
 
-Arista AVD provides example data models for Single/Dual DC L3 Leaf-Spine designs, EVPN Fabric, Campus Fabric (L2LS). These examples can be found [HERE](https://avd.arista.com), under the Examples section.
+Optimizing the workflow of device operations by using Studio Static Configlets will lead to enhanced operations for your Arista devices. Studio’s delivers various other features as well to manage multiple devices in a simplified manner. Although Studio’s does take additional learning to maximize its capabilities, the knowledge is fairly easy to grasp! Please reach out to your SE or ASE for more additional information or training.  
 
-For latest Arista AVD documentation, please visit:  
-[https://avd.arista.com](https://avd.arista.com)
+Links for additional information:  
+[CloudVision Video Series](https://www.arista.com/en/support/product-documentation/cloudvision-video-guide)  
+[CloudVision Studios Whitepaper](https://www.arista.com/assets/data/pdf/Whitepapers/Network-Automation-CloudVision-Studios-WP.pdf)  
 
-For AVD github link, please visit:  
-[https://github.com/aristanetworks/avd](https://github.com/aristanetworks/avd)
 
 ---
 
@@ -140,12 +113,12 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
-   | __EOS__           | 4.31.3M <br>4.30.6M <br>4.29.6.1M<br>4.29.7M<br>4.31.2F<br>     | May 1st, 2024 <br>April 12th, 2024<br>April 4th, 2024<br>February 20th, 2024<br>February 9th, 2024<br>
-   | __CVP__           | 2024.1.1      | April 22nd, 2024
+   | __EOS__           | 4.32.0.1F <br>4.26.14M <br>4.29.8M<br>4.28.11M<br>4.31.3M<br>     | May 16th, 2024 <br>May 15th, 2024<br>May 14th, 2024<br>May 3rd, 2024<br>May 1st, 2024<br>
+   | __CVP__           | 2023.3.2 <br>2024.1.2<br>     | May 14th, 2024 <br>May 10th, 2024<br>
    | __DMF__           | 8.5.0         | February 5th, 2024
    | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>15.0.1-22<br>       | <br>December 15th, 2022<br>August 29th, 2023<br>
    | __Arista NDR__         | 5.1.2         | February 15th, 2024
-   | __TerminAttr__    | 1.32.2        | April 12th, 2024
+   | __TerminAttr__    | 1.28.4        | May 14th, 2024
 
 
 ---
@@ -155,12 +128,12 @@ Below is a list of advisories that are announced by Arista. To view more details
 
 | Name          | Advisory Link           | Date of Advisory Notice  |
 | :-----------: |:-------------:| :-----:|
+|  __SSID Confusion__   | [Security Advisory 0097](https://www.arista.com/en/support/advisories-notices/security-advisory/19476-security-advisory-0097)  | May 24th, 2024   |
+| __802.1x Authentication on Ports__    | [Security Advisory 0096](https://www.arista.com/en/support/advisories-notices/security-advisory/19462-security-advisory-0096) |   May 21st, 2024             |
 | __XZ Tarballs__              |  [Security Advisory 0095](https://www.arista.com/en/support/advisories-notices/security-advisory/19222-security-advisory-0095)             | April 3rd, 2024       |
 | __HTTP/2 Continuation Frames__    | [Security Advisory 0094](https://www.arista.com/en/support/advisories-notices/security-advisory/19221-security-advisory-0094)               | April 5th, 2024             |
 | __L3LS CloudVision Studio__   | [Field Notice 0080](https://www.arista.com/en/support/advisories-notices/field-notice/19211-field-notice-0080) | March 19th, 2024
 | __SQL Injection__    | [Security Advisory 0093](https://www.arista.com/en/support/advisories-notices/security-advisory/19038-security-advisory-0093) | February 28th, 2024 |
-| __CVP Virtual Appliances__      | [Security Advisory 0092](https://www.arista.com/en/support/advisories-notices/security-advisory/19025-security-advisory-0092)      |  February 20th, 2024 | 
-| __7130 ACLs__                   | [Security Advisory 0091](https://www.arista.com/en/support/advisories-notices/security-advisory/19023-security-advisory-0091)     | February 20th, 2024
 
 For a list of the most current advisories and notices, click [Here](https://www.arista.com/en/support/advisories-notices)
 
@@ -185,7 +158,7 @@ For a list of the most current advisories and notices, click [Here](https://www.
 
    |  Device       | More Information |  Release Date 
    | :-----------: | :-----------:    | :-----------:
-   | Arista Multi-Domain Segmentaton Service  | [Arista MSS](https://www.arista.com/en/company/news/press-release/19297-pr-20240430)         | April 30th, 2024
+   | Arista Multi-Domain Segmentaton Service  | [Arista MSS](https://www.arista.com/en/company/news/press-release/19297-pr-20240430)         | Q3 2024
    |  Arista 7130 Series             |  [Ultra Low Latency Network](https://www.arista.com/en/company/news/press-release/18273-pr-20231011)  | Q4 2023
    |  Arista AGNI    |   [AI Driven Network Identity](https://www.arista.com/en/company/news/press-release/17244-pr-20230424)                | Q2 2023 
    | Arista CV UNO  | [CloudVision Universal Network Observability](https://www.arista.com/en/company/news/press-release/19195-pr-20240305)  | Q1 2024
