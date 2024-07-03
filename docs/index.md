@@ -3,76 +3,64 @@
 
 # Arista May Southwest Region Newsletter
 
-Welcome to the June 2024 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the July 2024 newsletter for Arista customers in the U.S. Southwest Region!
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
 
 ---
 
-## **Addressing Evolving Enterprise Security Needs: Arista's Multi-Domain Segmentation Services (MSS)** 
-By: Salman Zahid, Sr Manager Systems Engineering Southwest Region & Akashdeep Takhar, Advanced Services Engineer
+## **Smart System Upgrade** 
+By: Murthy Devarakonda, SE Manager Southwest Region
 
-In the contemporary landscape of enterprise architecture, the traditional concept of a network perimeter has become obsolete. With applications spanning across multiple clouds, both public and private, the distributed nature of modern networks presents new challenges for security. Attack methodologies have evolved as well, with a shift away from malware-centric approaches towards exploiting credentials to infiltrate networks and maneuver laterally, necessitating a reevaluation of conventional security paradigms. 
+IT networks are increasingly becoming important to various organizations. Networks enable organizations to be agile in conducting business and improve overall performance. Networks are especially crucial in mission-critical environments like hospitals, where patient data and vitals are transferred through the network for better care. Network architects build networks to provide device and link-level redundancies to address unexpected failures. However, the network operations team, which manages the network, is always concerned about network device software upgrades and the possible downtime they can bring. 
 
-Traditional network boundaries, such as VLANs and VRFs, often prove inadequate for enforcing robust security policies in these dynamic environments. There arises a need for more flexible and granular control over intra-segment communication and the grouping of endpoints dispersed across various VLANs. 
+Due to this concern, the majority of operations teams delay software upgrades. However, these delays can expose the network infrastructure to vulnerabilities and potentially allow malicious actors to breach the network. While most network vendors promise software upgrades with less downtime, only Arista has been able to provide near zero downtime upgrades. Even though software upgrades are typically performed during a maintenance window, reducing or eliminating downtime remains a key metric for most networks. 
 
-Arista's Multi-Domain Segmentation Services (MSS) addresses these challenges by enabling the creation of micro-perimeters that restrict intra-segment communication and facilitate the grouping of endpoints for streamlined security policy enforcement. Departing from the conventional reliance on network subnets for access control, Arista MSS leverages tags assigned to endpoints, allowing for more nuanced policy enforcement based on these tags. Each endpoint can be associated with multiple tags, providing enhanced granularity in access control.
+In this article, I will discuss the Smart System Upgrade process, which reduces network downtime during software upgrades. A typical enterprise network consists of aggregation and leaf layer switches, as shown in the diagram below.
 
 <figure markdown>
-![Image Placement](img/Newsletter_June2024_Article1.png)
-    <figcaption>Arista Multi-Domain Segmentation Services </figcaption>
+![Image Placement](img/Newsletter_July2024_pic1.png)
+    <figcaption>Aggregation and Leaf Layer Switches </figcaption>
+</figure>
+
+In the above architecture, the aggregation layer switches can be upgraded one at a time to avoid network downtime at that layer using MLAG In-State Software Upgrade (MLAG ISSU) process. In this process, Arista EOS verifies the MLAG health before and after the upgrade to avoid network connectivity disruptions to both downstream and upstream network devices. Typically, endpoints at the leaf layer are single-homed. Arista's Smart System Upgrade (SSU) can reduce downtime to sub-second, and in most cases, the endpoints do not even notice the outage. In this upgrade process, Arista EOS will continue to forward the network traffic in the dataplane while upgrading the control plane. Once the control plane is upgraded to the latest version, it will reset the dataplane to achieve sub-second outage. The upgrade operation can be performed through CLI or through the CloudVision management platform. Upgrading the switch software through CloudVision provides additional controls like pre and post verifications through actions.
+
+<figure markdown>
+![Image Placement](img/Newsletter_July2024_pic11.png)
+    <figcaption>High Availability Features </figcaption>
 </figure>
 
 
-A brief explanation of Arista MSS is shown above. Let’s take a look at this: 
-
-a) By identifying the endpoints of a network, we can keep a record of all the endpoints to where traffic is traveling. By utilizing this data, you can parse through information faster to identify the source cause of potential attacks.  
-
-b) Traffic maps help create policies allowing expected traffic to pass along. This gives users the ability to apply additional rules for further enhancement of traffic flow.  
-
-c) Applying Microperimeter practices allows or denies specified traffic. The traffic can also be redirected to travel to the firewalls set up in your existing infrastructure.  
-
-d) Observing the network traffic by applying the previous steps above gives you the access to gain visibility to your network. Additional changes can be made as applications are added into the infrastructure.
+Links for more information are below:  
+[Hitless Upgrade - The Whats, The Whys, and The Hows](https://arista.my.site.com/AristaCommunity/s/article/Hitless-Upgrades-The-Whats-The-Whys-and-The-Hows)  
+[Smart System Upgrade User Manuel](https://www.arista.com/en/um-eos/eos-smart-system-upgrade)  
 
 
-Arista MSS further allows for us to provide you better tools for a Zero Trust Network equipped with best practices of monitoring endpoints as well as sourcing potential threats. As an effort to simplify our tools,  Arista MSS requires NO custom software or custom protocols to utilize our solution. Interested in learning more? Contact your SE or read the links shown below.  
-
-
-
-Links for more information on Arista MSS:  
-[Arista MSS Press Release](https://www.arista.com/en/company/news/press-release/19297-pr-20240430)  
-[The Era of Microperimeters](https://blogs.arista.com/blog/the-era-of-microperimeters)  
-[VIDEO: Arista MSS for Campus and Data Center](https://www.youtube.com/watch?v=yHgPwDmqtj0)
 ---
 
-## **Workflow Enhancement: Organize Configurations with CloudVision Studio’s Static Configlets Feature**
-By: Akashdeep Takhar, Advanced Services Engineer Southwest Region 
+## **Multi-Chassis Link Aggregation (MLAG)**
+By: Alex Bojko, Advanced Services Engineer Southwest Region
 
-By now, you may have heard or interacted with the Configlet feature within the Provisioning tab of CloudVision. Applying configurations via Configlets is a great method for the network team to push multiple changes onto various devices, as well as save significant time during maintenance windows. Along with Configlets, another feature called Studios can further assist in tracking changes, in addition to deploying new fabrics within the network environment. Rather than utilizing the feature separately, why not combine the two together?  To enhance the capabilities of tracking configuration changes, we take a look at a feature called Studios Static Configlets!  
+MLAG is Arista's open standards based solution for achieving Active-Active forwarding at Layer 2 of the OSI model. In this article, I will explain the benefits and components that make MLAG possible.  
 
-Let’s take a look at the differences in workflow between traditional Configlets and Studio Static Configlets. Below is a table of Configlets in a CloudVision instance:  
+When designing the optimal network, redundancy, scalability, and high availability are top of mind. We want to eliminate single points of failure, plan for the future, and ensure that mission critical applications and services are always operational. When purchasing devices and cabling for the optimal network, we want to fully leverage the capacity and bandwidth of those devices and cables. For example, if you purchase a high end sports car, you wouldn't want a governor stopping you from achieving maximum speed and performance of your vehicle. In that same regard, we want our network to be able to leverage the available bandwidth and capacity to its maximum potential, all while achieving redundancy, scalability, and high availability.  
+
+MLAG (Multi-chassis Link Aggregation) meets the demands of the optimal network while maximizing the bandwidth utilization and compute capacity of the available links and devices within our network. MLAG leverages open standards based LACP and expands on the functionality of standard port-channels. 
 
 <figure markdown>
-![Image Placement](img/Article2_June2024_Pic1.png)
+![Image Placement](img/Newsletter_July2024_article2.png)
     <figcaption>Configlet Table</figcaption>
 </figure>
 
-In a typical operation, each device’s configlet is stored in this table. While it is great to know that you can use the search bar to find a specific configlet for the device of interest, the fact is that there should be a more efficient manner to organize configlets per device. Below is a picture of CloudVision Studio’s Static Configlet:
 
-<figure markdown>
-![Image Placement](img/Article2_June2024_Pic2.png)
-    <figcaption>Studios Static Configlet</figcaption>
-</figure>
+MLAG consists of two physical peer switches that logically appear as a single device by advertising the same shared mac-address to downstream devices while syncing mac-address tables between the two peers. MLAG is an enhancement to a standard LAG because it splits a LAG group across different nodes, allowing downstream devices to be dual-homed to the MLAG Domain. MLAG eliminates any STP blocked ports while facilitating active-active forwarding at L2. This allows for full bandwidth utilization of our physical links as well as full compute capacity since both peer devices are in an active forwarding mode, advertising the same shared mac-address. Also, when it comes time to upgrade the devices, MLAG In-State Software Upgrade (MLAG ISSU) allows us to upgrade one peer device at a time, eliminating any downtime windows while continuing to forward traffic as expected.  
 
-Rather than storing every single configlet from every device, we can place devices in a hierarchy manner, and store configlets within those devices! As shown above, Spine 1 has multiple tabs on the right, within each tab is a configlet that stores configurations pertaining to the device. This feature has simplified the Configlet’s table by allowing you to organize the configlets per device.  
+By implementing MLAG, we receive link and device level redundancy, scalability with the capacity to support a large amount of downstream hosts, and high availability for our mission critical applications and services.
 
-Another tool integrated in Studio's Static Configlet is the hierarchy model. Take a look at the devices on the left panel. Every device has the option of inheriting the child device’s configurations. Example: Spine 1 and Spine 2 are the “children” of Tenant. You can enable the hierarchy schema for Tenant to inherit both Spine 1 and Spine 2 configurations. This allows for the tenant instance to collect configurations without the hassle of you specifically having to create a separate configlet by itself.  
-
-Optimizing the workflow of device operations by using Studio Static Configlets will lead to enhanced operations for your Arista devices. Studio’s delivers various other features as well to manage multiple devices in a simplified manner. Although Studio’s does take additional learning to maximize its capabilities, the knowledge is fairly easy to grasp! Please reach out to your SE or ASE for more additional information or training.  
 
 Links for additional information:  
-[CloudVision Video Series](https://www.arista.com/en/support/product-documentation/cloudvision-video-guide)  
-[CloudVision Studios Whitepaper](https://www.arista.com/assets/data/pdf/Whitepapers/Network-Automation-CloudVision-Studios-WP.pdf)  
+[MLAG Configuration Guide](https://arista.my.site.com/AristaCommunity/s/article/mlag-basic-configuration)  
+[MLAG Explanation](https://www.arista.com/en/products/multi-chassis-link-aggregation-mlag)  
 
 
 ---
@@ -118,7 +106,7 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
    | __DMF__           | 8.5.0         | February 5th, 2024
    | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>15.0.1-22<br>       | <br>December 15th, 2022<br>August 29th, 2023<br>
    | __Arista NDR__         | 5.1.2         | February 15th, 2024
-   | __TerminAttr__    | 1.28.4        | May 14th, 2024
+   | __TerminAttr__    | 1.32.1        | June 13th, 2024
 
 
 ---
@@ -128,12 +116,12 @@ Below is a list of advisories that are announced by Arista. To view more details
 
 | Name          | Advisory Link           | Date of Advisory Notice  |
 | :-----------: |:-------------:| :-----:|
+| __EOS with OpenConfig__   | [Security Advisory 0099](https://www.arista.com/en/support/advisories-notices/security-advisory/19862-security-advisory-0099) | July 2nd, 2024
+| __Wireless Access Points__   | [Security Advisory 0098](https://www.arista.com/en/support/advisories-notices/security-advisory/19844-security-advisory-0098) | June 25th, 2024
 |  __SSID Confusion__   | [Security Advisory 0097](https://www.arista.com/en/support/advisories-notices/security-advisory/19476-security-advisory-0097)  | May 24th, 2024   |
 | __802.1x Authentication on Ports__    | [Security Advisory 0096](https://www.arista.com/en/support/advisories-notices/security-advisory/19462-security-advisory-0096) |   May 21st, 2024             |
 | __XZ Tarballs__              |  [Security Advisory 0095](https://www.arista.com/en/support/advisories-notices/security-advisory/19222-security-advisory-0095)             | April 3rd, 2024       |
 | __HTTP/2 Continuation Frames__    | [Security Advisory 0094](https://www.arista.com/en/support/advisories-notices/security-advisory/19221-security-advisory-0094)               | April 5th, 2024             |
-| __L3LS CloudVision Studio__   | [Field Notice 0080](https://www.arista.com/en/support/advisories-notices/field-notice/19211-field-notice-0080) | March 19th, 2024
-| __SQL Injection__    | [Security Advisory 0093](https://www.arista.com/en/support/advisories-notices/security-advisory/19038-security-advisory-0093) | February 28th, 2024 |
 
 For a list of the most current advisories and notices, click [Here](https://www.arista.com/en/support/advisories-notices)
 
