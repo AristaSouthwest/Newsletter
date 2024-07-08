@@ -19,15 +19,15 @@ Due to this concern, the majority of operations teams delay software upgrades. H
 In this article, I will discuss the Smart System Upgrade process, which reduces network downtime during software upgrades. A typical enterprise network consists of aggregation and leaf layer switches, as shown in the diagram below.
 
 <figure markdown>
-![Image Placement](img/Newsletter_July2024_pic1.png)
-    <figcaption>Aggregation and Leaf Layer Switches </figcaption>
+![Image Placement](img/July Newsletter (1).png)
+    <figcaption>  </figcaption>
 </figure>
 
 In the above architecture, the aggregation layer switches can be upgraded one at a time to avoid network downtime at that layer using MLAG In-State Software Upgrade (MLAG ISSU) process. In this process, Arista EOS verifies the MLAG health before and after the upgrade to avoid network connectivity disruptions to both downstream and upstream network devices. Typically, endpoints at the leaf layer are single-homed. Arista's Smart System Upgrade (SSU) can reduce downtime to sub-second, and in most cases, the endpoints do not even notice the outage. In this upgrade process, Arista EOS will continue to forward the network traffic in the dataplane while upgrading the control plane. Once the control plane is upgraded to the latest version, it will reset the dataplane to achieve sub-second outage. The upgrade operation can be performed through CLI or through the CloudVision management platform. Upgrading the switch software through CloudVision provides additional controls like pre and post verifications through actions.
 
 <figure markdown>
 ![Image Placement](img/Newsletter_July2024_pic11.png)
-    <figcaption>High Availability Features </figcaption>
+    <figcaption> </figcaption>
 </figure>
 
 
@@ -48,8 +48,8 @@ When designing the optimal network, redundancy, scalability, and high availabili
 MLAG (Multi-chassis Link Aggregation) meets the demands of the optimal network while maximizing the bandwidth utilization and compute capacity of the available links and devices within our network. MLAG leverages open standards based LACP and expands on the functionality of standard port-channels. 
 
 <figure markdown>
-![Image Placement](img/Newsletter_July2024_article2.png)
-    <figcaption>Configlet Table</figcaption>
+![Image Placement](img/July Newsletter - Article2 (1).png){: style="height:500px;width:950px"}
+    <figcaption> </figcaption>
 </figure>
 
 
