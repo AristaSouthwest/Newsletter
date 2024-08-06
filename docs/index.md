@@ -9,44 +9,6 @@ We welcome your feedback on the newsletter. If you have any ideas on what you wa
 
 ---
 
-## **VARP (Virtual Address Resolution Protocol)** 
-By: Steven King, Systems Engineer Southwest Region
-
-VARP is also called Layer-3 Anycast Gateway and is very simple to deploy. It is completely standards-based, and provides Active/Active behavior that HSRP and VRRP cannot replicate. Packets received on a VARP address are forwarded to the next hop destination on the same switch so that traffic does not need to traverse the inter-switch link.  This reduces latency and unnecessary load on switches. 
-
-<figure markdown>
-![Image Placement](img/AugustNewsletter_Pic1.png)
-    <figcaption>  </figcaption>
-</figure>
-
-VARP works by responding to ARP requests for configured IP addresses with a configured virtual MAC address.  In the example below based off of your “segment” deployment diagram, two switches configured with VARP are providing a redundant first hop gateway to the downstream host, which resides in VLAN 1. Both switches respond to the host’s ARP request.  
-
-<figure markdown>
-![Image Placement](img/AugustNewsletter_Pic2.png)
-    <figcaption> </figcaption>
-</figure>
-
-An important item to note is that outside of ARP, traffic sent is not sourced from the virtual MAC address configured for VARP, but the switch’s system MAC address instead.  To illustrate this point, consider the example below:  
-
-<figure markdown>
-![Image Placement](img/AugustNewsletter_Pic3.png)
-    <figcaption> </figcaption>
-</figure>
-
-Two host machines are in two different VLANs with the switch acting as their default gateway, configured with VARP.  
-
-1) HOST 1 in VLAN 172 sends an ICMP ECHO request to Host 2 in VLAN 99; the destination MAC is that of its gateway residing on the switch, provided by the VARP virtual MAC address.  
-
-2) As the switch routes the request to HOST 2 in VLAN 99, the source MAC is not the virtual MAC address provided by VARP, but the switch’s system MAC address.  
-
-
-Links for more information are below:  
-[Arista EOS Virtual ARP (VARP) Behind the Scenes](https://blog.ipspace.net/2013/06/arista-eos-virtual-arp-varp-behind/)  
-[Active-active router redundancy using VARP](https://arista.my.site.com/AristaCommunity/s/article/active-active-router-redundancy-using-varp)  
-
-
----
-
 ## **Transforming Connectivity: Introducing Arista's Modern WAN Routing System for SD-WAN 2.0**
 By: Keith Huynh, Systems Engineer Southwest Region
 
@@ -70,7 +32,44 @@ Get In Touch: For more detailed information on our Modern WAN Routing System, re
 Links for additional information:  
 [Dynamic Path Selection](https://www.arista.com/en/cg-veos-router/veos-router-dynamic-path-selection)  
 [CloudVision](https://www.arista.com/en/support/toi/eos-4-30-0f/17496-wan-routing-system-adaptive-virtual-topology?tmpl=component&format=pdf)
-[AWE 7200R Datasheet](https://www.arista.com/assets/data/pdf/Datasheets/AWE-7200R-Datasheet.pdf)   
+[AWE 7200R Datasheet](https://www.arista.com/assets/data/pdf/Datasheets/AWE-7200R-Datasheet.pdf)  
+
+---
+
+## **VARP (Virtual Address Resolution Protocol)** 
+By: Steven King, Systems Engineer Southwest Region
+
+VARP is also called Layer-3 Anycast Gateway and is very simple to deploy. It is completely standards-based, and provides Active/Active behavior that HSRP and VRRP cannot replicate. Packets received on a VARP address are forwarded to the next hop destination on the same switch so that traffic does not need to traverse the inter-switch link.  This reduces latency and unnecessary load on switches. 
+
+<figure markdown>
+![Image Placement](img/AugustNewsletter_Pic1.png)
+    <figcaption>  </figcaption>
+</figure>
+
+VARP works by responding to ARP requests for configured IP addresses with a configured virtual MAC address.  In the example below based off of your “segment” deployment diagram, two switches configured with VARP are providing a redundant first hop gateway to the downstream host, which resides in VLAN 1. Both switches respond to the host’s ARP request.  
+
+<figure markdown>
+![Image Placement](img/AugustNewsletter_Pic2.png)
+    <figcaption> </figcaption>
+</figure>
+
+An important item to note is that outside of ARP, traffic sent is not sourced from the virtual MAC address configured for VARP, but the switch’s system MAC address instead.  To illustrate this point, consider the example below:  
+
+<figure markdown>
+![Image Placement](img/AugustNewsletter_Pic3.png){: style="height:300px;width:700px"}
+    <figcaption> </figcaption>
+</figure>
+
+Two host machines are in two different VLANs with the switch acting as their default gateway, configured with VARP.  
+
+1) HOST 1 in VLAN 172 sends an ICMP ECHO request to Host 2 in VLAN 99; the destination MAC is that of its gateway residing on the switch, provided by the VARP virtual MAC address.  
+
+2) As the switch routes the request to HOST 2 in VLAN 99, the source MAC is not the virtual MAC address provided by VARP, but the switch’s system MAC address.  
+
+
+Links for more information are below:  
+[Arista EOS Virtual ARP (VARP) Behind the Scenes](https://blog.ipspace.net/2013/06/arista-eos-virtual-arp-varp-behind/)  
+[Active-active router redundancy using VARP](https://arista.my.site.com/AristaCommunity/s/article/active-active-router-redundancy-using-varp)  
 
 
 ---
