@@ -192,7 +192,7 @@ Our team is looking to hire the following roles, located in Southwest area:
 [Phoenix SE Role, Click Here](https://www.smartrecruiters.com/AristaNetworks/743999994606279-network-systems-engineer-pre-sales-)    
 [Los Angeles SE Role, CLick Here](https://www.smartrecruiters.com/AristaNetworks/744000011382271-network-systems-engineer-pre-sales-)
 
-*Network Advanced Services Engineer*
+*Network Advanced Services Engineer*  
 [Southwest ASE Role, Click Here](https://www.smartrecruiters.com/AristaNetworks/744000000783368-network-advanced-services-engineer)
 
 
