@@ -186,14 +186,14 @@ For a list of the most current advisories and notices, click [Here](https://www.
 
 ## __**We're Hiring!**__
 
-Our team is looking to hire the following roles, located in Los Angeles and Phoenix area:
+Our team is looking to hire the following roles, located in Southwest area:
 
 *Network Systems Engineer*  
-https://www.smartrecruiters.com/AristaNetworks/743999994606279-network-systems-engineer-pre-sales-  
-https://www.smartrecruiters.com/AristaNetworks/744000011382271-network-systems-engineer-pre-sales-
+[Phoenix SE Role, Click Here](https://www.smartrecruiters.com/AristaNetworks/743999994606279-network-systems-engineer-pre-sales-)    
+[Los Angeles SE Role, CLick Here](https://www.smartrecruiters.com/AristaNetworks/744000011382271-network-systems-engineer-pre-sales-)
 
 *Network Advanced Services Engineer*
-https://www.smartrecruiters.com/AristaNetworks/744000000783368-network-advanced-services-engineer
+[Southwest ASE Role, Click Here](https://www.smartrecruiters.com/AristaNetworks/744000000783368-network-advanced-services-engineer)
 
 
 
