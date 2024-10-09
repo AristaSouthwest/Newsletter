@@ -56,7 +56,7 @@ Learn more about Arista MSS solution by clicking below:
 ## **Design Consideration: To Buffer or not to Buffer** 
 By: Hue McGraw, Systems Engineer, Southwest Region
  
-When it comes to designing a modern-day Data Center, it’s important to understand the different workflows you might have to address and where, within your DC, will traffic have the potential to be introduced to congestion.  Where is deep buffing needed?  
+When it comes to designing a modern-day Data Center, it’s important to understand the different workflows you might have to address and where, within your DC, will traffic have the potential to be introduced to congestion.  Where is deep buffering needed?  
 
 <figure markdown>
 ![Image Placement](img/October_Newsletter_A2.png)
@@ -73,7 +73,7 @@ As congestion tends to impact multiple flows, over time multiple (or all) flows 
     <figcaption>  </figcaption>
 </figure> 
 
-The picture above shows two things.  The firsts thing that it shows is that large buffers give for a very fair averaging of flows.  And second, In low buffer switches, a certain number of flows on 10G links can have as low as 5% of the average speed.  In this test, that meant that 7 flows were sending data at 12Mbps on a 10G link (Not good)!  This is what happens when users complain of slow speeds on specific hosts, but the network looks fine.  Finger pointing begins and it’s because your switches have low buffers.  This is because congestion happens when a device receives more traffic than it can buffer or send out of an egress port.  A Congested network produces symptoms such as packet loss, low throughput, and high latency.  
+The picture above shows two things.  The first thing that it shows is that large buffers give for a very fair averaging of flows.  And second, In low buffer switches, a certain number of flows on 10G links can have as low as 5% of the average speed.  In this test, that meant that 7 flows were sending data at 12Mbps on a 10G link (Not good)!  This is what happens when users complain of slow speeds on specific hosts, but the network looks fine.  Finger pointing begins and it’s because your switches have low buffers.  This is because congestion happens when a device receives more traffic than it can buffer or send out of an egress port.  A Congested network produces symptoms such as packet loss, low throughput, and high latency.  
 
 Methods of preventing congestion  
 
