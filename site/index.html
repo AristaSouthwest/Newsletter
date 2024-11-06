@@ -466,7 +466,7 @@
 <hr />
 <h2 id="design-consideration-to-buffer-or-not-to-buffer"><strong>Design Consideration: To Buffer or not to Buffer</strong><a class="headerlink" href="#design-consideration-to-buffer-or-not-to-buffer" title="Permanent link">&para;</a></h2>
 <p>By: Hue McGraw, Systems Engineer, Southwest Region</p>
-<p>When it comes to designing a modern-day Data Center, it’s important to understand the different workflows you might have to address and where, within your DC, will traffic have the potential to be introduced to congestion.  Where is deep buffing needed?  </p>
+<p>When it comes to designing a modern-day Data Center, it’s important to understand the different workflows you might have to address and where, within your DC, will traffic have the potential to be introduced to congestion.  Where is deep buffering needed?  </p>
 <figure>
 <p><img alt="Image Placement" src="img/October_Newsletter_A2.png" />
     <figcaption>  </figcaption></p>
@@ -477,7 +477,7 @@
 <p><img alt="Image Placement" src="img/October_Newsletter_A22.png" style="height:300px;width:600px" />
     <figcaption>  </figcaption></p>
 </figure>
-<p>The picture above shows two things.  The firsts thing that it shows is that large buffers give for a very fair averaging of flows.  And second, In low buffer switches, a certain number of flows on 10G links can have as low as 5% of the average speed.  In this test, that meant that 7 flows were sending data at 12Mbps on a 10G link (Not good)!  This is what happens when users complain of slow speeds on specific hosts, but the network looks fine.  Finger pointing begins and it’s because your switches have low buffers.  This is because congestion happens when a device receives more traffic than it can buffer or send out of an egress port.  A Congested network produces symptoms such as packet loss, low throughput, and high latency.  </p>
+<p>The picture above shows two things.  The first thing that it shows is that large buffers give for a very fair averaging of flows.  And second, In low buffer switches, a certain number of flows on 10G links can have as low as 5% of the average speed.  In this test, that meant that 7 flows were sending data at 12Mbps on a 10G link (Not good)!  This is what happens when users complain of slow speeds on specific hosts, but the network looks fine.  Finger pointing begins and it’s because your switches have low buffers.  This is because congestion happens when a device receives more traffic than it can buffer or send out of an egress port.  A Congested network produces symptoms such as packet loss, low throughput, and high latency.  </p>
 <p>Methods of preventing congestion  </p>
 <ul>
 <li>QoS</li>
