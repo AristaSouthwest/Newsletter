@@ -46,12 +46,12 @@ Image this scenario, which has unfortunately occurred to many network operators.
 The Event Notification tool is essential to use when utilizing CloudVision. Event Notifications communicate with 3rd party team collaboration tools such as Microsoft Teams, Slack, Google Chat, etc. via webhooks to send alerts directly to your team of desired destination. Not only is the team aware of anomalies within the Network as they occur, the team can also set threshold parameters with metrics to determine appropriate times to receive alerts. In this two part series, we’ll look at where to navigate to configure event notifications messages. Next month, we’ll show how to set threshold metrics to trigger the notifications to send messages.  
 
 <figure markdown>
-![Image Placement](img/November_Article2_Pic1.png)
+![Image Placement](img/Akash_Newsletter_Events1.png)
     <figcaption> Direction to navigate towards the Event Notification section </figcaption>
 </figure> 
 
 <figure markdown>
-![Image Placement](img/November_Article2_Pic2.png)
+![Image Placement](img/Akash_Newsletter_Events2.png)
     <figcaption> Open the platform section </figcaption>
 </figure> 
 
@@ -60,7 +60,7 @@ Start by navigating to the “Event” tab on the CloudVision portal on the left
 Upon landing onto the “Events” tab, navigate the mouse to the top right and click on “Event Notifications”. This will bring you to the section where you can configure the platform to receive notifications upon. How exactly does CloudVision communicate to these 3rd party platforms? This is accomplished via Webhooks. Webhooks use APIs to send communication data between the two tools. Webhook are created by the 3rd party platform and are unique for where it is sending API calls to. Each platform has a simple guide on generating the Webhook for CloudVision to use. Upon generating the Webhook, you can simply paste it to CloudVision and begin to send test messages.  
 
 <figure markdown>
-![Image Placement](img/November_Article2_Pic3.png)
+![Image Placement](img/Akash_Newsletter_Events3.png)
     <figcaption> Click on Receivers Tab </figcaption>
 </figure> 
 

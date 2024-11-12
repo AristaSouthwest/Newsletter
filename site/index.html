@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arista-october-southwest-region-newsletter" class="md-skip">
+        <a href="#arista-november-southwest-region-newsletter" class="md-skip">
           Skip to content
         </a>
       
@@ -254,18 +254,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-approach-network-segmentation-for-zero-trust-architecture-with-arista-multi-domain-segmentation-services-mss" class="md-nav__link">
+  <a href="#interface-configuration-made-easy-with-quick-actions" class="md-nav__link">
     <span class="md-ellipsis">
-      How to approach network segmentation for  Zero Trust Architecture with Arista Multi Domain Segmentation Services (MSS)
+      Interface Configuration Made Easy with Quick Actions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#design-consideration-to-buffer-or-not-to-buffer" class="md-nav__link">
+  <a href="#cloudvision-series-part-1-stay-aware-of-abnormal-network-behavior-with-event-alerts" class="md-nav__link">
     <span class="md-ellipsis">
-      Design Consideration: To Buffer or not to Buffer
+      CloudVision Series Part 1: Stay Aware of Abnormal Network Behavior with Event Alerts
     </span>
   </a>
   
@@ -351,18 +351,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-approach-network-segmentation-for-zero-trust-architecture-with-arista-multi-domain-segmentation-services-mss" class="md-nav__link">
+  <a href="#interface-configuration-made-easy-with-quick-actions" class="md-nav__link">
     <span class="md-ellipsis">
-      How to approach network segmentation for  Zero Trust Architecture with Arista Multi Domain Segmentation Services (MSS)
+      Interface Configuration Made Easy with Quick Actions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#design-consideration-to-buffer-or-not-to-buffer" class="md-nav__link">
+  <a href="#cloudvision-series-part-1-stay-aware-of-abnormal-network-behavior-with-event-alerts" class="md-nav__link">
     <span class="md-ellipsis">
-      Design Consideration: To Buffer or not to Buffer
+      CloudVision Series Part 1: Stay Aware of Abnormal Network Behavior with Event Alerts
     </span>
   </a>
   
@@ -432,63 +432,49 @@
 
 
 <p><img alt="Image Placememt" src="img/Arista_Logo_copy.png" /></p>
-<h1 id="arista-october-southwest-region-newsletter">Arista October Southwest Region Newsletter<a class="headerlink" href="#arista-october-southwest-region-newsletter" title="Permanent link">&para;</a></h1>
-<p>Welcome to the October 2024 newsletter for Arista customers in the U.S. Southwest Region!</p>
+<h1 id="arista-november-southwest-region-newsletter">Arista November Southwest Region Newsletter<a class="headerlink" href="#arista-november-southwest-region-newsletter" title="Permanent link">&para;</a></h1>
+<p>Welcome to the November 2024 newsletter for Arista customers in the U.S. Southwest Region!</p>
 <p>We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.</p>
 <hr />
-<h2 id="how-to-approach-network-segmentation-for-zero-trust-architecture-with-arista-multi-domain-segmentation-services-mss"><strong>How to approach network segmentation for  Zero Trust Architecture with Arista Multi Domain Segmentation Services (MSS)</strong><a class="headerlink" href="#how-to-approach-network-segmentation-for-zero-trust-architecture-with-arista-multi-domain-segmentation-services-mss" title="Permanent link">&para;</a></h2>
-<p>By: Salman Zahid, Sr. Systems Engineer Manager, Southwest Region</p>
-<p>The frequency of security breaches in an enterprise network coupled with how these breaches are occurring - often internal is creating a sense of urgency among customers to implement a Zero Trust Networking architecture. Here is a chart that represents some statistics, including the sources of the statistics. The two statistics that I find particularly valuable are that 42% of the breaches are internal and that 90% of the companies will have a security breach. Given those things, how is the enterprise best positioned to minimize its impact if a security breach happens? </p>
+<h2 id="interface-configuration-made-easy-with-quick-actions"><strong>Interface Configuration Made Easy with Quick Actions</strong><a class="headerlink" href="#interface-configuration-made-easy-with-quick-actions" title="Permanent link">&para;</a></h2>
+<p>By: Alex Bojko, Advanced Services Engineer, Southwest Region</p>
+<p>Configuring network devices can prove to be a tedious task. CloudVision Studios was introduced with the aim of easing device configuration hardships by providing a simple to navigate interface for device provisioning. By leveraging Studios, network engineers can configure a large subset of devices without ever typing in a single line of CLI. At Arista, we are constantly improving the functionality of CloudVision, and Studios, being a feature within CloudVision, is no exception. We are constantly reimagining device provisioning methods, with our latest improvement coming in the form of a feature called "Quick Actions."  </p>
+<p>The Access Interface Configuration Quick Action allows network operators to view their switch in CloudVision, displayed as an illustration of the front panel of the device.   </p>
 <figure>
-<p><img alt="Image Placement" src="img/Version2_October_A1.png" />
-    <figcaption>  </figcaption></p>
+<p><img alt="Image Placement" src="img/Access%20Interface%20Config%20Quick%20Action%20Image.png" />
+    <figcaption> Front Panel Illustration </figcaption></p>
 </figure>
-<p>This is where the idea of identity-aware microperimeters comes into play. We recommend customers decouple the security policy from the underlying topology. Customers have often used the network topology as one way to define the security perimeter, but in the current security landscape, that is not sufficient and leaves the customer vulnerable. If you look at the first picture below, you will see the current security architecture. Once the user/device is granted access to the network, they are free to roam around the network and move about laterally. The critical concept of zero trust is to minimize the lateral movement and allow access to any resource in the network explicitly and only if needed. In an ideal state, we want to get what is represented in the second visual below.  </p>
-<figure>
-<p><img alt="Image Placement" src="img/Version2_October_A11.png" />
-    <figcaption>  </figcaption></p>
-</figure>
-<figure>
-<p><img alt="Image Placement" src="img/Version2_October_A111.png" />
-    <figcaption>  </figcaption></p>
-</figure>
-<p>With the goal of the above-mentioned end state in mind, Arista is introducing a groundbreaking security architecture called Multi-Domain Segmentation Services (MSS). This innovative solution empowers customers to establish identity-aware security perimeters across all network domains (campus, DC, and WAN) using a single EOS across the entire network.  </p>
-<p>MSS allows customers to decouple the security policy from the underlying network topology and design a security policy based on asset tags (devices, users, VMs). These tags can either be defined manually (less desirable) or imported into other systems that naturally maintain the identity of the endpoints (Vcenter for VM tags), Network Access Control or NAC  systems for end users, and device tags.  </p>
-<p>Another important aspect of this security architecture is knowing the patterns of communication. Without that, it's impossible to come up with the right policy. Arista is providing an MSS monitor node that monitors all communications, letting the network and security operator audit those communications and permit/deny each set of flows.  </p>
-<p>MSS delivers four key capabilities:   </p>
-<pre><code>1. Endpoint identity and microperimeter tags  
-2. “Zero Trust” policy planning with traffic map  
-3. Microperimeter enforcement in the network or redirect to Firewall    
-4. Continuous Traffic monitoring and visibility of policy violations
-</code></pre>
-<p>Learn more about Arista MSS solution by clicking below:<br />
-<a href="https://www.arista.com/en/solutions/security/mss">Arista MSS Addition Information Here</a>  </p>
+<p>From here, the operator can select as many interfaces as required, and dynamically assign "Port Profiles" to the interfaces.   </p>
+<p><strong>NOTE:</strong> A Port Profile is a custom made profile intended to group common interface configuration settings into one location. For example, you can create a WIreless Access Point - Port Profile that sets the correct type of switchport, adds a description, adds any required vlans, and sets the speed, MTU, PTP settings, 802.1X configuration, PoE settings, and more. </p>
+<p>After assigning a port profile to an interface or subset of interfaces the network operator submits their change. The configuration parameters defined within the profile are leveraged to generate CLI configuration for the selected interfaces, which is then dynamically applied to each interface via a Change Control.  </p>
+<p>Furthermore, an operator can select specific interfaces and simply add a vlan to them, making day 2 tasks easy for network operators of all skillsets.   </p>
+<p>To learn more about the Access interface Configuration Quick Action, click the link below: <br />
+<a href="https://www.arista.io/help/articles/cHJvdmlzaW9uaW5nLnN0dWRpb3MuQWxsLmJ1aWx0SW4uYWNjZXNzLWludGVyZmFjZQ==">Quick Action Configuration</a>  </p>
 <hr />
-<h2 id="design-consideration-to-buffer-or-not-to-buffer"><strong>Design Consideration: To Buffer or not to Buffer</strong><a class="headerlink" href="#design-consideration-to-buffer-or-not-to-buffer" title="Permanent link">&para;</a></h2>
-<p>By: Hue McGraw, Systems Engineer, Southwest Region</p>
-<p>When it comes to designing a modern-day Data Center, it’s important to understand the different workflows you might have to address and where, within your DC, will traffic have the potential to be introduced to congestion.  Where is deep buffering needed?  </p>
+<h2 id="cloudvision-series-part-1-stay-aware-of-abnormal-network-behavior-with-event-alerts"><strong>CloudVision Series Part 1: Stay Aware of Abnormal Network Behavior with Event Alerts</strong><a class="headerlink" href="#cloudvision-series-part-1-stay-aware-of-abnormal-network-behavior-with-event-alerts" title="Permanent link">&para;</a></h2>
+<p>By: Akashdeep Takhar, Advanced Services Engineer, Southwest Region</p>
+<p>Image this scenario, which has unfortunately occurred to many network operators. Traffic loss across the network has significantly impacted end hosts. Neighboring devices cannot connect with their peers, perhaps a physical port is down. End users that depend on these networks are now complaining that they cannot connect to their applications, many tickets are created, a nightmare of stress hinders everyone…..and the network team was informed of all this chaos unexpectedly without any warning. Event notifications system can assist in alerting your team for unforeseen circumstances, such as the ones discussed. This is where CloudVision’s Event Notification tool can help your team!  </p>
+<p>The Event Notification tool is essential to use when utilizing CloudVision. Event Notifications communicate with 3rd party team collaboration tools such as Microsoft Teams, Slack, Google Chat, etc. via webhooks to send alerts directly to your team of desired destination. Not only is the team aware of anomalies within the Network as they occur, the team can also set threshold parameters with metrics to determine appropriate times to receive alerts. In this two part series, we’ll look at where to navigate to configure event notifications messages. Next month, we’ll show how to set threshold metrics to trigger the notifications to send messages.  </p>
 <figure>
-<p><img alt="Image Placement" src="img/October_Newsletter_A2.png" />
-    <figcaption>  </figcaption></p>
+<p><img alt="Image Placement" src="img/November_Article2_Pic1.png" />
+    <figcaption> Direction to navigate towards the Event Notification section </figcaption></p>
 </figure>
-<p>To understand where deep buffering is needed, let’s think about how the Transmit Control Packet protocol works.  TCP is a layer four stateful error correction protocol.  After a three-way handshake, TCP establishes a window and starts a data flow that slowly starts ramping up to port speed (Building trust) if no errors are occurring.  Once an error occurs (Breaking the trust), TCP drops the window size down by half and once again, slowly starts ramping up.  </p>
-<p>As congestion tends to impact multiple flows, over time multiple (or all) flows will tend to grow at the same rate, and throttle at the same rate, Increasing the change of microburst congestion and wasting bandwidth.</p>
 <figure>
-<p><img alt="Image Placement" src="img/October_Newsletter_A22.png" style="height:300px;width:600px" />
-    <figcaption>  </figcaption></p>
+<p><img alt="Image Placement" src="img/November_Article2_Pic2.png" />
+    <figcaption> Open the platform section </figcaption></p>
 </figure>
-<p>The picture above shows two things.  The first thing that it shows is that large buffers give for a very fair averaging of flows.  And second, In low buffer switches, a certain number of flows on 10G links can have as low as 5% of the average speed.  In this test, that meant that 7 flows were sending data at 12Mbps on a 10G link (Not good)!  This is what happens when users complain of slow speeds on specific hosts, but the network looks fine.  Finger pointing begins and it’s because your switches have low buffers.  This is because congestion happens when a device receives more traffic than it can buffer or send out of an egress port.  A Congested network produces symptoms such as packet loss, low throughput, and high latency.  </p>
-<p>Methods of preventing congestion  </p>
-<ul>
-<li>QoS</li>
-<li>Flow Control / Priority Flow Control</li>
-<li>Buffer tuning</li>
-<li>Increasing Bandwidth of the interface</li>
-</ul>
-<p>To learn more about Buffers, visit the links below: <br />
-<a href="https://www.arista.com/assets/data/pdf/Whitepapers/BigDataBigBuffers-WP.pdf">Big Data Big Buffer Whitepaper</a><br />
-<a href="https://solutions.arista.com/hubfs/Arista/White_Papers/Deploying_Storage_Net_WhitePaper.pdf">Deploying Storage Net White Paper</a><br />
-<a href="https://arista.my.site.com/AristaCommunity/s/article/how-to-troubleshoot-congestion">How To Troubleshoot Congestion</a> </p>
+<p>Start by navigating to the “Event” tab on the CloudVision portal on the left hand side of the page. Note that the pictures shown are of the latest version of CloudVision. If you currently run the previous version’s UI, the “Events” tab should be shown on top of the page.   </p>
+<p>Upon landing onto the “Events” tab, navigate the mouse to the top right and click on “Event Notifications”. This will bring you to the section where you can configure the platform to receive notifications upon. How exactly does CloudVision communicate to these 3rd party platforms? This is accomplished via Webhooks. Webhooks use APIs to send communication data between the two tools. Webhook are created by the 3rd party platform and are unique for where it is sending API calls to. Each platform has a simple guide on generating the Webhook for CloudVision to use. Upon generating the Webhook, you can simply paste it to CloudVision and begin to send test messages.  </p>
+<figure>
+<p><img alt="Image Placement" src="img/November_Article2_Pic3.png" />
+    <figcaption> Click on Receivers Tab </figcaption></p>
+</figure>
+<p>Under the “Receivers tab”, create a “Receiver” to inform CloudVision where to send the alert towards. Although the Webhook is recorded within the “Platform” tab, the “Receiver” tab finalizes the setting for CloudVision to recognize the receiving location.  </p>
+<p>By configuring Event Notifications, your team will be aware of ongoing concern within the Network. Rather than logging in to constantly monitor the network, CloudVision can help automate the monitoring task by sending alerts for abnormal behavior within the network fabric. Not only would this allow the team to quickly identify the matter, this would also allow the team to receive the issue faster than the end hosts bugging you about the issue. Contact your SE or ASE to receive help on setting up Event Notifications today!  </p>
+<p>Links for additional information on Events:<br />
+<a href="https://www.arista.com/en/cg-cv/cv-accessing-events">Accessing Events</a><br />
+<a href="https://www.arista.com/en/cg-cv/cv-events-app">Additional Events App Information</a><br />
+<a href="https://www.youtube.com/watch?v=dxy0YSyvbkE">CloudVision Events Getting Started Video</a> </p>
 <hr />
 <h2 id="upcoming-events"><strong><em>Upcoming Events</em></strong><a class="headerlink" href="#upcoming-events" title="Permanent link">&para;</a></h2>
 <p>Arista hosts various events throughout the year for you! Members of our team organize these informative events to showcase Arista's ability to not only help improve your network, but to also assist by providing a set of tools to improve your operations! Click on the boxes below to be directed to Arista's website for lists of Webinars and Events.</p>
@@ -526,13 +512,13 @@
 <tbody>
 <tr>
 <td style="text-align: center;"><strong>EOS</strong></td>
-<td style="text-align: center;">4.32.2.1F <br>4.29.7.1M <br>4.31.5M<br>4.30.8M<br>4.28.8.4M<br></td>
-<td style="text-align: center;">October 2nd, 2024 <br>September 27th, 2024<br>September 26th, 2024<br>September 26th, 2024<br>September 20th, 2024<br></td>
+<td style="text-align: center;">4.30.8.1M <br> 4.33.0F <br>4.32.2.1F <br>4.29.7.1M <br>4.31.5M<br>4.30.8M<br></td>
+<td style="text-align: center;">October 30th, 2024 <br> October 10th, 2024 <br>October 2nd, 2024 <br>September 27th, 2024<br>September 26th, 2024<br>September 26th, 2024<br></td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>CVP</strong></td>
-<td style="text-align: center;">Portal 2024.2.0 <br>Appliance 6.0.7<br></td>
-<td style="text-align: center;">July 24th, 2024 <br>September 18th, 2024<br></td>
+<td style="text-align: center;">Portal 2024.3.0 <br> Portal 2024.2.1 <br>Appliance 6.0.7<br> Sensor 1.0.0 <br></td>
+<td style="text-align: center;">October 21st, 2024 <br> October 15th, 2024 <br>September 18th, 2024<br> October 16th, 2024 <br></td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>DMF</strong></td>
@@ -551,8 +537,8 @@
 </tr>
 <tr>
 <td style="text-align: center;"><strong>TerminAttr</strong></td>
-<td style="text-align: center;">1.31.1</td>
-<td style="text-align: center;">August 1st, 2024</td>
+<td style="text-align: center;">1.34.2 <br> 1.31.7 <br> 1.28.8 <br></td>
+<td style="text-align: center;">October 28th, 2024 <br> October 28th, 2024 <br> October 28th, 2024 <br></td>
 </tr>
 </tbody>
 </table>
@@ -569,6 +555,11 @@
 </thead>
 <tbody>
 <tr>
+<td style="text-align: center;"><strong>Edge Threat Management</strong></td>
+<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/security-advisory/20454-security-advisory-0105">Security Advisory 0105</a></td>
+<td style="text-align: center;">October 29th, 2024</td>
+</tr>
+<tr>
 <td style="text-align: center;"><strong>CloudVision Appliance</strong></td>
 <td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/security-advisory/20405-security-advisory-0104">Security Advisory 0104</a></td>
 <td style="text-align: center;">September 24th, 2024</td>
@@ -584,29 +575,24 @@
 <td style="text-align: center;">July 23rd, 2024</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>RADIUS Protocol</strong></td>
-<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/security-advisory/19905-security-advisory-0101">Security Advisory 0101</a></td>
-<td style="text-align: center;">July 9th, 2024</td>
+<td style="text-align: center;"><strong>Mojo Identity ID</strong></td>
+<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/field-notice/20618-field-notice-0089">Field Notice 0089</a></td>
+<td style="text-align: center;">October 29th, 2024</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>OpenSSH</strong></td>
-<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/security-advisory/19904-security-advisory-0100">Security Advisory 0100</a></td>
-<td style="text-align: center;">July 8th, 2024</td>
+<td style="text-align: center;"><strong>WiFi AP Firmware</strong></td>
+<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/field-notice/20438-field-notice-0088">Field Notice 0088</a></td>
+<td style="text-align: center;">October 23rd, 2024</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Zero Touch Provisioning</strong></td>
+<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/field-notice/20418-field-notice-0087">Field Notice 0087</a></td>
+<td style="text-align: center;">October 10th, 2024</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>Wi-Fi Integration with WLAN Controllers</strong></td>
 <td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/field-notice/20411-field-notice-0086">Field Notice 0086</a></td>
 <td style="text-align: center;">October 1st, 2024</td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>Wi-Fi 7 AP-C-460</strong></td>
-<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/field-notice/20410-field-notice-0085">Field Notice 0085</a></td>
-<td style="text-align: center;">September 30th, 2024</td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>7130 Platform</strong></td>
-<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/field-notice/20160-field-notice-0084">Field Notice 0084</a></td>
-<td style="text-align: center;">August 16th, 2024</td>
 </tr>
 </tbody>
 </table>
@@ -630,7 +616,7 @@
 <tr>
 <td style="text-align: center;">Software</td>
 <td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/end-of-support/20174-end-of-software-support-for-eos-4-27">EOS 4.27 Series</a></td>
-<td style="text-align: center;">September 27th, 2024</td>
+<td style="text-align: center;">August 27th, 2024</td>
 </tr>
 <tr>
 <td style="text-align: center;">Module</td>
