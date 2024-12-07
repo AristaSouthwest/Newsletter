@@ -1,72 +1,126 @@
  ![Image Placememt](img/Arista_Logo_copy.png)
 
 
-# Arista November Southwest Region Newsletter
+# Arista December Southwest Region Newsletter
 
-Welcome to the November 2024 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the December 2024 newsletter for Arista customers in the U.S. Southwest Region!
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
 
 ---
 
-## **Interface Configuration Made Easy with Quick Actions**
-By: Alex Bojko, Advanced Services Engineer, Southwest Region
+## **Arista Roaming And Mobility Support **
+By: Steven King, Systems Engineer, Southwest Region  
 
-Configuring network devices can prove to be a tedious task. CloudVision Studios was introduced with the aim of easing device configuration hardships by providing a simple to navigate interface for device provisioning. By leveraging Studios, network engineers can configure a large subset of devices without ever typing in a single line of CLI. At Arista, we are constantly improving the functionality of CloudVision, and Studios, being a feature within CloudVision, is no exception. We are constantly reimagining device provisioning methods, with our latest improvement coming in the form of a feature called "Quick Actions."  
+The main objectives for good client roaming support are:  
+**1.** Maintain quality of experience  
+**2.** Maintain security  
 
-The Access Interface Configuration Quick Action allows network operators to view their switch in CloudVision, displayed as an illustration of the front panel of the device.   
+This means it is desirable for clients to roam and not experience  interruptions to the services they are using, as well as for security to be maintained without unnecessary reauthentication.  
+
+The general roaming process steps are:  
+**1.** Client scans network for candidate “target” APs  
+**2.** Client and target AP exchange 802.11 reauthentication messages  
+**3.** Client and target AP exchange 802.11 reassociation messages  
+**4.** If the SSID is using 802.1X, the 802.1X EAP authentication begins with derivation of a Pairwise Master Key (PMK) by the client and target AP  
+**5.** Client and target AP do a 4-way handshake (Defined in 802.11i) to derive the Pairwise Transient Key (PTK) - the unique encryption key for their association, derived from PMK.  
+
+The EAP process generally takes longer than the 4-way handshake, so many of the mechanisms that reduce roaming times do so by skipping the EAP authentication step (Step 4).    
+
+**The 802.11k Amendment**  
+The 802.11k amendment defines methods allowing stations to inform each other about their respective RF environments, with the end goal to make faster and better-informed roaming decisions. A client can request an AP to send a Neighbor Report.  This reduces scanning needing to be done by the client (Optimizing step 1 in the roaming process).  
+
+**The 802.11v Amendment**  
+The 802.11v amendment is also known as Wireless Network Management(WNM), and includes a service called BSS Transition Management(BTSM).  When an AP decides to disassociate with a client because the AP knows that a neighboring AP can better serve the client, it sends an 802.11v frame called a BTSM Request that tells the client that the AP intends to disassociate, which allows the client time to find a better AP and associate with it.  
+
+Both 802.11k and 802.11v are supported by Arista.
+
+**PMK Caching and Opportunistic Key Caching (OKC)**  
+Arista APs use Pairwise Master Key (PMK) caching. With PMK caching, an AP caches the PMK ID used by the client and the AP during their association. Consider a client that roams from AP1 to AP2, and then back.  If the client also caches PMKIDs, the client and AP will skip the 802.1x EAP authentication step (Step 4 above) and go right into the 4-way handshake.  
+
+OKC can be thought of as a network-wide, 802.1X version of PMK caching, where the PMK for a client is cached for as long as the client is associated with the network, again allowing step 4 above to be skipped and proceed directly to the 4-way handshake.
+
+**Preauthentication**  
+This is when a client initiates authentication and establishes a PMK Security Association (SA) with the target AP while still associated with the current AP.  The client does this via the current AP over the wired network.  When preauth completes, the client and the target AP both have a PMK SA (cached) for their future association.  So when the client roams, step 4 above is skipped and it goes right into the 4-way handshake.  
+
+However preauthentication doesn’t scale well because all clients need to establish PMK SAs with all possible APs they could roam to, greatly increasing network traffic.  802.11r solves this problem.  
+
+**802.11r or Fast BSS Transition**  
+802.11r speeds up roaming in two ways:  
+**1.** When the SSID uses 802.1X without 802.11r, the client needs to perform EAP auth every time it roams to a different AP. 802.11r bypasses this step by caching part of the key derived from the RADIUS server, eliminating step 4.  This builds on the OKC method of caching keys (OKC was a precursor of or a step towards 802.11r).    
+802.11r specifies a key hierarchy: a first-level key for storage in the RADIUS server (PMK-R0), and a second-level key for storage in APs (PMK-R1), used to derive the PTK for encryption.  
+**2.** 802.11r also piggybacks the 4-way handshake messages between the client and the target AP onto the reassociation messages, combining steps 3 and 5.  This is done whether the SSID uses 802.1X or WPA2-PSK.  
+
+Arista supports 802.11r as well as a Mixed Mode option to allow clients that do not support 802.11r to connect the SSID.  
+
+
+**Role of Inter-AP Coordination in Roaming**
+
+Rather than using a controller, the APs coordinate amongst themselves.  APs do this using L2 broadcast, among their RF neighbors, or through the Wireless Manager (WM) service. Regardless of the method chosen, the APs ensure a seamless roaming experience by sharing necessary information across all APs in the ESS.  For example when a SSID uses a captive portal, the state of the client with respect to the captive portal (authenticated with or logged off from the portal) is communicated to all APs in the ESS even if the inter-AP coordination method selected is narrower in scope.  
+
+An additional consideration for an SSID using NAT-ed IP addresses is that DHCP messages need to be shared among APs so that a client connected to the SSID retains its IP address as it roams.  The relevant DHCP messages are therefore exchanged among all APs in the ESS. PMK caching information on the other hand, is shared per the specific configured  Inter-AP Coordination method.  
+
+The table below shows the roaming-related information exchanged and the method used to exchange this information.  
+
+
+
+
 
 
 
 <figure markdown>
-![Image Placement](img/Access Interface Config Quick Action Image.png)
-    <figcaption> Front Panel Illustration </figcaption>
+![Image Placement](img/December_Newsletter_Pic1.png)
+    <figcaption> Roaming Related Information Exchange </figcaption>
 </figure> 
+ 
 
+Contact your SE or ASE to learn more!
 
-From here, the operator can select as many interfaces as required, and dynamically assign "Port Profiles" to the interfaces.   
-
-
-**NOTE:** A Port Profile is a custom made profile intended to group common interface configuration settings into one location. For example, you can create a WIreless Access Point - Port Profile that sets the correct type of switchport, adds a description, adds any required vlans, and sets the speed, MTU, PTP settings, 802.1X configuration, PoE settings, and more. 
-
-After assigning a port profile to an interface or subset of interfaces the network operator submits their change. The configuration parameters defined within the profile are leveraged to generate CLI configuration for the selected interfaces, which is then dynamically applied to each interface via a Change Control.  
-
-Furthermore, an operator can select specific interfaces and simply add a vlan to them, making day 2 tasks easy for network operators of all skillsets.   
-
-To learn more about the Access interface Configuration Quick Action, click the link below:   
-[Quick Action Configuration](https://www.arista.io/help/articles/cHJvdmlzaW9uaW5nLnN0dWRpb3MuQWxsLmJ1aWx0SW4uYWNjZXNzLWludGVyZmFjZQ==)  
 
 ---
 
-## **CloudVision Series Part 1: Stay Aware of Abnormal Network Behavior with Event Alerts** 
-By: Akashdeep Takhar, Advanced Services Engineer, Southwest Region
+## **CloudVision Series Part 2/2: Stay Aware of Abnormal Network Behavior with Event Alerts** 
+By: Akashdeep Takhar, Advanced Services Engineer, Southwest Region  
  
-Image this scenario, which has unfortunately occurred to many network operators. Traffic loss across the network has significantly impacted end hosts. Neighboring devices cannot connect with their peers, perhaps a physical port is down. End users that depend on these networks are now complaining that they cannot connect to their applications, many tickets are created, a nightmare of stress hinders everyone…..and the network team was informed of all this chaos unexpectedly without any warning. Event notifications system can assist in alerting your team for unforeseen circumstances, such as the ones discussed. This is where CloudVision’s Event Notification tool can help your team!  
 
-The Event Notification tool is essential to use when utilizing CloudVision. Event Notifications communicate with 3rd party team collaboration tools such as Microsoft Teams, Slack, Google Chat, etc. via webhooks to send alerts directly to your team of desired destination. Not only is the team aware of anomalies within the Network as they occur, the team can also set threshold parameters with metrics to determine appropriate times to receive alerts. In this two part series, we’ll look at where to navigate to configure event notifications messages. Next month, we’ll show how to set threshold metrics to trigger the notifications to send messages.  
+In last month’s newsletter, we began our tour of the “Events” tab within CloudVision. The article provided the steps necessary to send alert messages from CloudVision to your 3rd party collaboration platform (Slack, Microsoft Teams, Syslog Server, etc). Along with the configuration, the article bridged the gap of sending alert messages by explaining the purpose of utilizing Webhooks. This leads to the question, how do I configure specific activities to monitor in my network? In this month’s article, we will complete our discussion of the Events tab by taking a dive into the “Event Generation” section. Upon completion of these steps, your instance will be prepared to monitor and receive alert messages based on your customized requirements.  
+
+We began our previous article by navigating to the Events tab. At this point, the “Event Notifications” setup is complete and CloudVision understands the destination to send messages towards. However, how is CloudVision supposed to know what to monitor? This is where the “Event Generation” tab is factored in. Upon clicking on the “Events” tab, click on the “Event Generation” section.  
 
 <figure markdown>
-![Image Placement](img/Akash_Newsletter_Events1.png)
-    <figcaption> Direction to navigate towards the Event Notification section </figcaption>
+![Image Placement](img/December_Newsletter_A2_Pic1.png)
+    <figcaption> Click on the events tab located on the left side of the page </figcaption>
 </figure> 
 
 <figure markdown>
-![Image Placement](img/Akash_Newsletter_Events2.png)
-    <figcaption> Open the platform section </figcaption>
-</figure> 
+![Image Placement](img/December_Newsletter_A2_Pic2.png)
+    <figcaption> Click on the event generation button, located on the top right</figcaption>
+</figure>  
 
-Start by navigating to the “Event” tab on the CloudVision portal on the left hand side of the page. Note that the pictures shown are of the latest version of CloudVision. If you currently run the previous version’s UI, the “Events” tab should be shown on top of the page.   
-
-Upon landing onto the “Events” tab, navigate the mouse to the top right and click on “Event Notifications”. This will bring you to the section where you can configure the platform to receive notifications upon. How exactly does CloudVision communicate to these 3rd party platforms? This is accomplished via Webhooks. Webhooks use APIs to send communication data between the two tools. Webhook are created by the 3rd party platform and are unique for where it is sending API calls to. Each platform has a simple guide on generating the Webhook for CloudVision to use. Upon generating the Webhook, you can simply paste it to CloudVision and begin to send test messages.  
+Event types are a list of anomalies that occur in your network. You can choose from over 70+ different types to monitor for activities ranging from traffic disruption, to potential hardware outages. By sending alerts, CloudVision protects your production from potential catastrophic damage by anticipating the anomaly through user input. You have the ability to set a numeric threshold value that will trigger CloudVision to send messages informing the user of the event. For our example, we will set up an event generation with the event type “Device stopped streaming”.   
 
 <figure markdown>
-![Image Placement](img/Akash_Newsletter_Events3.png)
-    <figcaption> Click on Receivers Tab </figcaption>
+![Image Placement](img/December_Newsletter_A2_Pic3.png)
+    <figcaption> Navigate the lists of event types to find "Device Stopped Streaming"</figcaption>
+</figure>  
+
+As you click on the event type, notice that there is a default section. This is called a “rule”. You have the ability to add multiple rules for CloudVision to inspect prior to sending out messages. If none of the rules are configured, the default rule will be responsible for checking events.   
+
+<figure markdown>
+![Image Placement](img/December_Newsletter_A2_Pic4.png)
+    <figcaption> Event Rules List </figcaption>
 </figure> 
 
-Under the “Receivers tab”, create a “Receiver” to inform CloudVision where to send the alert towards. Although the Webhook is recorded within the “Platform” tab, the “Receiver” tab finalizes the setting for CloudVision to recognize the receiving location.  
+Notice the middle boxes labeled “Severity” , “Raise Time” , “Clear Time”? Those are the values you input to trigger the event alert. Severity is a label included in the message to show the user the level of importance of the event as determined by the user that created the input. You have the options of choosing between: Debug, Info, Warning, Error, or Critical. “Raise Time” is the number of seconds the event has to occur for before sending out the message. “Clear Time” is the number of seconds the event should be inactive for before clearing the event message from the CloudVision event page. When an event occurs, not only do you receive the message, in addition to this the event tab also records the event for you to reference in the future.  
 
-By configuring Event Notifications, your team will be aware of ongoing concern within the Network. Rather than logging in to constantly monitor the network, CloudVision can help automate the monitoring task by sending alerts for abnormal behavior within the network fabric. Not only would this allow the team to quickly identify the matter, this would also allow the team to receive the issue faster than the end hosts bugging you about the issue. Contact your SE or ASE to receive help on setting up Event Notifications today!  
+<figure markdown>
+![Image Placement](img/December_Newsletter_A2_Pic3.png)
+    <figcaption> Threshold Values To Input </figcaption>
+</figure> 
+
+In our example, if we input 120 for "Raise Time", 240 for "Clear Time" and Critical for "Severity", CloudVision will monitor the chosen device and interface to see if the link is down for more than 120 seconds. If that is true, CloudVision sends a message to the assigned receiver within the "Notifications" section with a "Critical" message alerting you of a discuption in your device's streaming telemetry. 
+
+After completing these steps, click on the top right button labeled “Save”. Your Event tab configuration is now complete! Navigate to the main Event tab to send a test message to ensure the setup was successful. Within a few steps not only were you able to utilize this feature in CloudVision, we also have an additional tool that is active in checking your network health. This is just one of many tools used in CloudVision to help automate tasks along with taking the burden of performing compliance checks for fostering an effective environment.  
   
 
 Links for additional information on Events:  
