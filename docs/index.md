@@ -9,7 +9,7 @@ We welcome your feedback on the newsletter. If you have any ideas on what you wa
 
 ---
 
-## **Arista Roaming And Mobility Support **
+## **Arista Roaming And Mobility Support**
 By: Steven King, Systems Engineer, Southwest Region  
 
 The main objectives for good client roaming support are:  
