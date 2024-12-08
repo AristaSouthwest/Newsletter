@@ -120,7 +120,7 @@ Notice the middle boxes labeled “Severity” , “Raise Time” , “Clear Tim
 
 In our example, if we input 120 for "Raise Time", 240 for "Clear Time" and Critical for "Severity", CloudVision will monitor the chosen device and interface to see if the link is down for more than 120 seconds. If that is true, CloudVision sends a message to the assigned receiver within the "Notifications" section with a "Critical" message alerting you of a discuption in your device's streaming telemetry. 
 
-Last step is to select the device to monitor activity for. Unless a specific device is configured in the box, CloudVision will monitor the chosen event for all devices. Click the box next to the magnifying glass where the message "Click here to select device tags"
+Last step is to select the device to monitor activity for. Unless a specific device is configured in the box, CloudVision will monitor the chosen event for all devices. Click the box next to the magnifying glass where the message "Click here to select device tags"    
 
 
 <figure markdown>
