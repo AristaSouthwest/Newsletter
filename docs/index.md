@@ -120,6 +120,16 @@ Notice the middle boxes labeled “Severity” , “Raise Time” , “Clear Tim
 
 In our example, if we input 120 for "Raise Time", 240 for "Clear Time" and Critical for "Severity", CloudVision will monitor the chosen device and interface to see if the link is down for more than 120 seconds. If that is true, CloudVision sends a message to the assigned receiver within the "Notifications" section with a "Critical" message alerting you of a discuption in your device's streaming telemetry. 
 
+Last step is to select the device to monitor activity for. Unless a specific device is configured in the box, CloudVision will monitor the chosen event for all devices. Click the box next to the magnifying glass where the message "Click here to select device tags"
+
+
+<figure markdown>
+![Image Placement](img/December_Newsletter_A2_Pic5.png)
+    <figcaption> Device Selection </figcaption>
+</figure> 
+
+In addition to the Time setting, we have now asked CloudVision to monior one specific device. When the rule is triggered, a message will be sent out to your collaboration platform. An example of a workflow here: You could configure Events to check if specific switches that utilize a high amount of bandwidth are sending telemetry data to CloudVision. If the device fails to stream information to CloudVision, you will receive a message. The operations team is now able to troubleshoot the matter as the event occured, rather than at a later time. In this case, you are resolving the issue from growing further and leading to a possible network outage.
+
 After completing these steps, click on the top right button labeled “Save”. Your Event tab configuration is now complete! Navigate to the main Event tab to send a test message to ensure the setup was successful. Within a few steps not only were you able to utilize this feature in CloudVision, we also have an additional tool that is active in checking your network health. This is just one of many tools used in CloudVision to help automate tasks along with taking the burden of performing compliance checks for fostering an effective environment.  
   
 
@@ -166,12 +176,12 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
-   | __EOS__           | 4.30.8.1M <br> 4.33.0F <br>4.32.2.1F <br>4.29.7.1M <br>4.31.5M<br>4.30.8M<br>    | October 30th, 2024 <br> October 10th, 2024 <br>October 2nd, 2024 <br>September 27th, 2024<br>September 26th, 2024<br>September 26th, 2024<br>
+   | __EOS__           | 4.29.10M <br> 4.32.3M <br> 4.30.8.1M <br> 4.33.0F <br>4.32.2.1F <br>   | November 12th, 2024 <br> November 10th, 2024 <br >October 30th, 2024 <br> October 10th, 2024 <br>October 2nd, 2024 <br>
    | __CVP__           | Portal 2024.3.0 <br> Portal 2024.2.1 <br>Appliance 6.0.7<br> Sensor 1.0.0 <br>    | October 21st, 2024 <br> October 15th, 2024 <br>September 18th, 2024<br> October 16th, 2024 <br>
-   | __DMF__           | 8.4.4 <br>8.5.1<br>        | September 26th, 2024 <br>August 15th, 2024
+   | __DMF__           | 8.5.2 <br >8.4.4 <br> | November 1st, 2024 <br> September 26th, 2024 <br>
    | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>17.0.0<br>       | <br>December 15th, 2022<br>July 12th, 2024<br>
    | __Arista NDR__         | 5.2.3         | August 2024
-   | __TerminAttr__    | 1.34.2 <br> 1.31.7 <br> 1.28.8 <br>        | October 28th, 2024 <br> October 28th, 2024 <br> October 28th, 2024 <br>
+   | __TerminAttr__    | 1.35.1 <br> 1.34.2 <br> 1.31.7 <br> 1.28.8 <br>        | November 5th, 2024 <br> October 28th, 2024 <br> October 28th, 2024 <br> October 28th, 2024 <br>
 
 
 ---
@@ -181,14 +191,15 @@ Below is a list of advisories that are announced by Arista. To view more details
 
 | Name          | Advisory Link           | Date of Advisory Notice  |
 | :-----------: |:-------------:| :-----:|
+|  __Policy Based Routing (PBR)__   | [Security Advisory 0108](https://www.arista.com/en/support/advisories-notices/security-advisory/20689-security-advisory-0108)  | December 5th, 2024   |
+|  __SNMP Transit Max Size__   | [Security Advisory 0107](https://www.arista.com/en/support/advisories-notices/security-advisory/20650-security-advisory-0107)  | November 19th, 2024   |
+|  __Incorrect Vlan Tag__   | [Security Advisory 0106](https://www.arista.com/en/support/advisories-notices/security-advisory/20649-security-advisory-0106)  | November 19th, 2024   |
 |  __Edge Threat Management__   | [Security Advisory 0105](https://www.arista.com/en/support/advisories-notices/security-advisory/20454-security-advisory-0105)  | October 29th, 2024   |
 | __CloudVision Appliance__   | [Security Advisory 0104](https://www.arista.com/en/support/advisories-notices/security-advisory/20405-security-advisory-0104) | September 24th, 2024
-| __EOS in 802.1X mode__   | [Security Advisory 0103](https://www.arista.com/en/support/advisories-notices/security-advisory/19917-security-advisory-0103) | July 23rd, 2024
-| __EOS with MACsec and egress ACLs__   | [Security Advisory 0102](https://www.arista.com/en/support/advisories-notices/security-advisory/19908-security-advisory-0102) | July 23rd, 2024
+| __QSFP Connector Cage__    | [Field Notice 0091](https://www.arista.com/en/support/advisories-notices/field-notice/20690-field-notice-0091) | November 27th, 2024   |
+| __CloudEOS v4.33.2F__    | [Field Notice 0090](https://www.arista.com/en/support/advisories-notices/field-notice/20651-field-notice-0090)   | November 14th, 2024   |
 | __Mojo Identity ID__    | [Field Notice 0089](https://www.arista.com/en/support/advisories-notices/field-notice/20618-field-notice-0089)   | October 29th, 2024   |
 | __WiFi AP Firmware__    |  [Field Notice 0088](https://www.arista.com/en/support/advisories-notices/field-notice/20438-field-notice-0088)  | October 23rd, 2024   |
-| __Zero Touch Provisioning__    |  [Field Notice 0087](https://www.arista.com/en/support/advisories-notices/field-notice/20418-field-notice-0087)  | October 10th, 2024   |
-| __Wi-Fi Integration with WLAN Controllers__         |  [Field Notice 0086](https://www.arista.com/en/support/advisories-notices/field-notice/20411-field-notice-0086) | October 1st, 2024    |
 
 
 
@@ -207,7 +218,7 @@ For a list of the most current advisories and notices, click [Here](https://www.
 | :-----------: |:-------------: |     :----:        |
 | Software      | [EOS 4.27 Series](https://www.arista.com/en/support/advisories-notices/end-of-support/20174-end-of-software-support-for-eos-4-27) | August 27th, 2024    |
 | Module        | [7500R2 Series Linecards](https://www.arista.com/en/support/advisories-notices/end-of-sale/18886-end-of-sale-of-the-arista-7500r2-series-line-cards) | December 20th, 2023    |
-| Access Points | [Arista 802.11ac Wave 2 Devices](https://www.arista.com/en/support/advisories-notices/end-of-sale/14911-end-of-sale-of-arista-802-11ac-wave-2-devices)      |  June 30th, 2022 |
+| Access Points | [AP Model W-118](https://www.arista.com/en/support/advisories-notices/end-of-sale/20652-end-of-sale-of-ap-model-w-118) <br> [Arista 802.11ac Wave 2 Devices](https://www.arista.com/en/support/advisories-notices/end-of-sale/14911-end-of-sale-of-arista-802-11ac-wave-2-devices)      |   November 20th, 2024 <br>June 30th, 2022 |
 | DMF           | [Analytics Node DCA-DM-AA3](https://www.arista.com/en/support/advisories-notices/end-of-sale/20142-end-of-sale-end-of-life-for-arista-analytics-node-appliance-dca-dm-aa3)          |  August 3rd, 2024             |
 | DMF           | [Pluribus NVOS, UNUM, Freedom 9000](https://www.arista.com/en/support/advisories-notices/end-of-sale/20133-end-of-sale-pluribus-nvos-unum-freedom-9000-series)          |  August 2nd, 2024             |
 | Switches      | [DCS-7130-96S Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/20381-end-of-sale-of-the-arista-dcs-7130-96s-series)<br>[DCS-7170 and 7170B Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/19846-end-of-sale-of-the-arista-7170-and-7170b-series)<br>[DCS-7130B-32QD](https://www.arista.com/en/support/advisories-notices/end-of-sale/19845-end-of-sale-of-the-arista-dcs-7130b-32qd-series)<br>[DCS-7170-32CD](https://www.arista.com/en/support/advisories-notices/end-of-sale/19266-end-of-sale-of-the-arista-dcs-7170-32cd-series)<br>[DCS-7010T-48](https://www.arista.com/en/support/advisories-notices/end-of-sale/16538-end-of-sale-7010t-48)<br>      |    Varies by Device |
@@ -231,9 +242,6 @@ Our team is looking to hire the following roles, located in Southwest area:
 *Network Systems Engineer*  
 [Phoenix SE Role, Click Here](https://www.smartrecruiters.com/AristaNetworks/743999994606279-network-systems-engineer-pre-sales-)    
 [Los Angeles SE Role, CLick Here](https://www.smartrecruiters.com/AristaNetworks/744000011382271-network-systems-engineer-pre-sales-)
-
-*Network Advanced Services Engineer*  
-[Southwest ASE Role, Click Here](https://www.smartrecruiters.com/AristaNetworks/744000000783368-network-advanced-services-engineer)
 
 
 
