@@ -1,9 +1,9 @@
  ![Image Placememt](img/Arista_Logo_copy.png)
 
 
-# Arista December Southwest Region Newsletter
+# Arista January Southwest Region Newsletter
 
-Welcome to the December 2024 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the January 2025 newsletter for Arista customers in the U.S. Southwest Region!
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
 
@@ -11,6 +11,8 @@ We welcome your feedback on the newsletter. If you have any ideas on what you wa
 
 ## **Arista Roaming And Mobility Support**
 By: Steven King, Systems Engineer, Southwest Region  
+
+Arista's AP products are throughly built to assist for wireless requirements. To better understand the technical aspects of roaming with Arista's APs, let's take a look at the communication workflow amongst devices.
 
 The main objectives for good client roaming support are:  
 **1.** Maintain quality of experience  
@@ -74,6 +76,8 @@ The table below shows the roaming-related information exchanged and the method u
 </figure> 
  
 
+ In addition to this, you also have the ability to implement these devices locally and without the need for a controller!
+
 Contact your SE or ASE to learn more!
 
 
@@ -128,7 +132,7 @@ Last step is to select the device to monitor activity for. Unless a specific dev
     <figcaption> Device Selection </figcaption>
 </figure> 
 
-In addition to the Time setting, we have now asked CloudVision to monior one specific device. When the rule is triggered, a message will be sent out to your collaboration platform. An example of a workflow here: You could configure Events to check if specific switches that utilize a high amount of bandwidth are sending telemetry data to CloudVision. If the device fails to stream information to CloudVision, you will receive a message. The operations team is now able to troubleshoot the matter as the event occured, rather than at a later time. In this case, you are resolving the issue from growing further and leading to a possible network outage.
+In addition to the Time setting, we have now asked CloudVision to monitor one specific device. When the rule is triggered, a message will be sent out to your collaboration platform. An example of a workflow here: You could configure Events to check if specific switches that utilize a high amount of bandwidth are sending telemetry data to CloudVision. If the device fails to stream information to CloudVision, you will receive a message. The operations team is now able to troubleshoot the matter as the event occured, rather than at a later time. In this case, you are resolving the issue from growing further and leading to a possible network outage.
 
 After completing these steps, click on the top right button labeled “Save”. Your Event tab configuration is now complete! Navigate to the main Event tab to send a test message to ensure the setup was successful. Within a few steps not only were you able to utilize this feature in CloudVision, we also have an additional tool that is active in checking your network health. This is just one of many tools used in CloudVision to help automate tasks along with taking the burden of performing compliance checks for fostering an effective environment.  
   
@@ -176,8 +180,8 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
-   | __EOS__           | 4.29.10M <br> 4.32.3M <br> 4.30.8.1M <br> 4.33.0F <br>4.32.2.1F <br>   | November 12th, 2024 <br> November 10th, 2024 <br >October 30th, 2024 <br> October 10th, 2024 <br>October 2nd, 2024 <br>
-   | __CVP__           | Portal 2024.3.0 <br> Portal 2024.2.1 <br>Appliance 6.0.7<br> Sensor 1.0.0 <br>    | October 21st, 2024 <br> October 15th, 2024 <br>September 18th, 2024<br> October 16th, 2024 <br>
+   | __EOS__           | 4.33.1F <br> 4.29.10M <br> 4.32.3M <br> 4.30.8.1M <br> 4.33.0F <br>4.32.2.1F <br>   | December 16th, 2024 <br> November 12th, 2024 <br> November 10th, 2024 <br >October 30th, 2024 <br> October 10th, 2024 <br>October 2nd, 2024 <br>
+   | __CVP__           | Portal 2024.3.1 <br>Portal 2024.3.0 <br> Portal 2024.2.1 <br>Appliance 6.0.7<br> Sensor 1.0.0 <br>    | December 13th, 2024 <br> October 21st, 2024 <br> October 15th, 2024 <br>September 18th, 2024<br> October 16th, 2024 <br>
    | __DMF__           | 8.5.2 <br >8.4.4 <br> | November 1st, 2024 <br> September 26th, 2024 <br>
    | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>17.0.0<br>       | <br>December 15th, 2022<br>July 12th, 2024<br>
    | __Arista NDR__         | 5.2.3         | August 2024
@@ -216,7 +220,7 @@ For a list of the most current advisories and notices, click [Here](https://www.
 
 | Device        | Name           | End Of Sale Date  |
 | :-----------: |:-------------: |     :----:        |
-| Software      | [EOS 4.27 Series](https://www.arista.com/en/support/advisories-notices/end-of-support/20174-end-of-software-support-for-eos-4-27) | August 27th, 2024    |
+| Software      | [CloudVision Portal 2023.1 Train](https://www.arista.com/en/support/advisories-notices/end-of-support/21053-end-of-software-support-for-cloudvision-portal-2023-1-release-train) <br> [EOS 4.27 Series](https://www.arista.com/en/support/advisories-notices/end-of-support/20174-end-of-software-support-for-eos-4-27) | December 20th, 2024 <br>August 27th, 2024    |
 | Module        | [7500R2 Series Linecards](https://www.arista.com/en/support/advisories-notices/end-of-sale/18886-end-of-sale-of-the-arista-7500r2-series-line-cards) | December 20th, 2023    |
 | Access Points | [AP Model W-118](https://www.arista.com/en/support/advisories-notices/end-of-sale/20652-end-of-sale-of-ap-model-w-118) <br> [Arista 802.11ac Wave 2 Devices](https://www.arista.com/en/support/advisories-notices/end-of-sale/14911-end-of-sale-of-arista-802-11ac-wave-2-devices)      |   November 20th, 2024 <br>June 30th, 2022 |
 | DMF           | [Analytics Node DCA-DM-AA3](https://www.arista.com/en/support/advisories-notices/end-of-sale/20142-end-of-sale-end-of-life-for-arista-analytics-node-appliance-dca-dm-aa3)          |  August 3rd, 2024             |
@@ -232,16 +236,6 @@ For a list of the most current advisories and notices, click [Here](https://www.
    |  Arista 7130 Series             |  [Ultra Low Latency Network](https://www.arista.com/en/company/news/press-release/18273-pr-20231011)  | Q4 2023
    |  Arista AGNI    |   [AI Driven Network Identity](https://www.arista.com/en/company/news/press-release/17244-pr-20230424)                | Q2 2023 
    | Arista CV UNO  | [CloudVision Universal Network Observability](https://www.arista.com/en/company/news/press-release/19195-pr-20240305)  | Q1 2024
-
----
-
-## __**We're Hiring!**__
-
-Our team is looking to hire the following roles, located in Southwest area:
-
-*Network Systems Engineer*  
-[Phoenix SE Role, Click Here](https://www.smartrecruiters.com/AristaNetworks/743999994606279-network-systems-engineer-pre-sales-)    
-[Los Angeles SE Role, CLick Here](https://www.smartrecruiters.com/AristaNetworks/744000011382271-network-systems-engineer-pre-sales-)
 
 
 
