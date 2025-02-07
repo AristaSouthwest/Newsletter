@@ -11,11 +11,14 @@ markdown_extensions:
 - md_in_html
 - admonition
 - tables
+- def_list
 - pymdownx.details
 - pymdownx.superfences
 - pymdownx.snippets
 - toc: 
-    permalink: true
+    permalink: true  
+- pymdownx.tasklist:  
+    custom_checkbox: true
 
 theme:
   name: material

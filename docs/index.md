@@ -1,69 +1,63 @@
  ![Image Placememt](img/Arista_Logo_copy.png)
 
 
-# Arista January Southwest Region Newsletter
+# Arista February Southwest Region Newsletter
 
-Welcome to the January 2025 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the February 2025 newsletter for Arista customers in the U.S. Southwest Region!
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
 
+Have you signed up yet for the Arista Southwest Customer Exchange? Here's a chance to gain insights from industyr leaders on how Arista's latest technologies transform modern networks. The event will take place February 19, 2025 in Marina Del Rey. Sign up below today!
+
+[Sign Up Link Below](https://www.arista.com/en/cg-cv/cv-accessing-events):  
+https://events.arista.com/2025-02-19-sko-customer-event-marina-del-rey-ca
+
 ---
 
-## **Arista Roaming And Mobility Support**
-By: Steven King, Systems Engineer, Southwest Region  
+## **Arista Switch Aggregation**
+By: Salman Zahid, Director of Systems Engineering, Southwest Region  
 
-Arista's AP products are throughly built to assist for wireless requirements. To better understand the technical aspects of roaming with Arista's APs, let's take a look at the communication workflow amongst devices.
-
-The main objectives for good client roaming support are:  
-**1.** Maintain quality of experience  
-**2.** Maintain security  
-
-This means it is desirable for clients to roam and not experience  interruptions to the services they are using, as well as for security to be maintained without unnecessary reauthentication.  
-
-The general roaming process steps are:  
-**1.** Client scans network for candidate “target” APs  
-**2.** Client and target AP exchange 802.11 reauthentication messages  
-**3.** Client and target AP exchange 802.11 reassociation messages  
-**4.** If the SSID is using 802.1X, the 802.1X EAP authentication begins with derivation of a Pairwise Master Key (PMK) by the client and target AP  
-**5.** Client and target AP do a 4-way handshake (Defined in 802.11i) to derive the Pairwise Transient Key (PTK) - the unique encryption key for their association, derived from PMK.  
-
-The EAP process generally takes longer than the 4-way handshake, so many of the mechanisms that reduce roaming times do so by skipping the EAP authentication step (Step 4).    
-
-**The 802.11k Amendment**  
-The 802.11k amendment defines methods allowing stations to inform each other about their respective RF environments, with the end goal to make faster and better-informed roaming decisions. A client can request an AP to send a Neighbor Report.  This reduces scanning needing to be done by the client (Optimizing step 1 in the roaming process).  
-
-**The 802.11v Amendment**  
-The 802.11v amendment is also known as Wireless Network Management(WNM), and includes a service called BSS Transition Management(BTSM).  When an AP decides to disassociate with a client because the AP knows that a neighboring AP can better serve the client, it sends an 802.11v frame called a BTSM Request that tells the client that the AP intends to disassociate, which allows the client time to find a better AP and associate with it.  
-
-Both 802.11k and 802.11v are supported by Arista.
-
-**PMK Caching and Opportunistic Key Caching (OKC)**  
-Arista APs use Pairwise Master Key (PMK) caching. With PMK caching, an AP caches the PMK ID used by the client and the AP during their association. Consider a client that roams from AP1 to AP2, and then back.  If the client also caches PMKIDs, the client and AP will skip the 802.1x EAP authentication step (Step 4 above) and go right into the 4-way handshake.  
-
-OKC can be thought of as a network-wide, 802.1X version of PMK caching, where the PMK for a client is cached for as long as the client is associated with the network, again allowing step 4 above to be skipped and proceed directly to the 4-way handshake.
-
-**Preauthentication**  
-This is when a client initiates authentication and establishes a PMK Security Association (SA) with the target AP while still associated with the current AP.  The client does this via the current AP over the wired network.  When preauth completes, the client and the target AP both have a PMK SA (cached) for their future association.  So when the client roams, step 4 above is skipped and it goes right into the 4-way handshake.  
-
-However preauthentication doesn’t scale well because all clients need to establish PMK SAs with all possible APs they could roam to, greatly increasing network traffic.  802.11r solves this problem.  
-
-**802.11r or Fast BSS Transition**  
-802.11r speeds up roaming in two ways:  
-**1.** When the SSID uses 802.1X without 802.11r, the client needs to perform EAP auth every time it roams to a different AP. 802.11r bypasses this step by caching part of the key derived from the RADIUS server, eliminating step 4.  This builds on the OKC method of caching keys (OKC was a precursor of or a step towards 802.11r).    
-802.11r specifies a key hierarchy: a first-level key for storage in the RADIUS server (PMK-R0), and a second-level key for storage in APs (PMK-R1), used to derive the PTK for encryption.  
-**2.** 802.11r also piggybacks the 4-way handshake messages between the client and the target AP onto the reassociation messages, combining steps 3 and 5.  This is done whether the SSID uses 802.1X or WPA2-PSK.  
-
-Arista supports 802.11r as well as a Mixed Mode option to allow clients that do not support 802.11r to connect the SSID.  
+Arista Networks' Switch Aggregation Group (SWAG™) redefines campus network stacking with a modern, standards-based approach that addresses decades-old challenges in enterprise network management. By leveraging Arista EOS® and CloudVision® Leaf Spine Stack (LSS™) Management, SWAG delivers scalable, flexible aggregation while eliminating proprietary dependencies.  
 
 
-**Role of Inter-AP Coordination in Roaming**
+Key Benefits of Arista SWAG    
 
-Rather than using a controller, the APs coordinate amongst themselves.  APs do this using L2 broadcast, among their RF neighbors, or through the Wireless Manager (WM) service. Regardless of the method chosen, the APs ensure a seamless roaming experience by sharing necessary information across all APs in the ESS.  For example when a SSID uses a captive portal, the state of the client with respect to the captive portal (authenticated with or logged off from the portal) is communicated to all APs in the ESS even if the inter-AP coordination method selected is narrower in scope.  
+1.  Unified Management & Simplified Operations    
+    * Single IP/CLI Interface: Manage up to 16( and 48 in the future)  switches as a single logical entity through one IP address and CLI session, reducing operational complexity.  
+     CloudVision Integration: Centrally provision, monitor, and troubleshoot stacks across entire campuses via a unified dashboard, eliminating siloed management.  
+    * CloudVision Integration: Centrally provision, monitor, and troubleshoot stacks across entire campuses via a unified dashboard, eliminating siloed management.  
 
-An additional consideration for an SSID using NAT-ed IP addresses is that DHCP messages need to be shared among APs so that a client connected to the SSID retains its IP address as it roams.  The relevant DHCP messages are therefore exchanged among all APs in the ESS. PMK caching information on the other hand, is shared per the specific configured  Inter-AP Coordination method.  
 
-The table below shows the roaming-related information exchanged and the method used to exchange this information.  
+2. Cost Efficiency
+    * Reduced Licensing Costs: Third-party tools licensing per IP can save significantly when managing multiple switches under one IP.
+    * No Proprietary Hardware: Uses standard Ethernet cabling/optics instead of vendor-locked stacking cables, lowering CapEx and easing upgrades.  
 
+
+3.  Architectural Flexibility
+    * Multi-Topology Support: Deploy universal leaf-spine, ring, or chain designs, enabling seamless migration from legacy stacks.
+    * Scalability: Scale from 16 (and in future, 48) switches per cluster, outperforming legacy systems limited to 10 switches. Architecture is designed from day 1 to scale up to 48 switches in a single stack, although that scale will be delivered over time.  
+
+4. Resilient Modern Stacking
+    * Distributed Control Plane: SWAG’s active/standby supervisor model ensures high availability, while worker switches handle forwarding.
+    * Hitless Upgrades: Modify configurations or replace hardware without downtime.
+
+Technical Advantages Over Legacy Stacking
+
+| Feature                     | Leagacy Stacking                 | Arista SWAG |
+| -----------                 | --------------------             | ---------------- |
+| Cabling                     | Proprietary cables               | Standard Ethernet |
+| Topology Flexibility        | Restricted to ring/chain         | Supports leaf-spine, ring, or hybrid  |
+| Scalability                 | less than or equal to 10 switches per stack | Up to 48 switches  |
+| Management                  | Per-stack CLI | CloudVision multi-stack orchestration  |
+| Upgrade Impact              | Full-stack reboots | Hitless, incremental updates  |  
+
+CloudVision LSS (Leaf Spine Stack) Management: Multi-Domain Stack Orchestration  
+
+CloudVision LSS extends SWAG’s benefits by enabling hierarchical management:  
+
+* Logical Grouping: Organize switches by physical location (closet, floor, building) or functional role 
+* AI-Driven Insights: Proactively identify performance bottlenecks or misconfigurations across stacks
+* Automated Compliance: Enforce security policies and audit configurations network-wide
 
 
 
@@ -71,76 +65,51 @@ The table below shows the roaming-related information exchanged and the method u
 
 
 <figure markdown>
-![Image Placement](img/December_Newsletter_Pic1.png)
-    <figcaption> Roaming Related Information Exchange </figcaption>
+![Image Placement](img/February_Newsletter_Pic1.png)
+    <figcaption> Arista SWAG </figcaption>
 </figure> 
  
 
- In addition to this, you also have the ability to implement these devices locally and without the need for a controller!
+Links for additional information on Arista SWAG:  
+[Whitepaper](https://www.arista.com/assets/data/pdf/Whitepapers/Cognitive-Campus-WP.pdf)  
+[Video](https://www.youtube.com/watch?v=cMLYLz_3ZEk)  
 
 Contact your SE or ASE to learn more!
 
 
 ---
 
-## **CloudVision Series Part 2/2: Stay Aware of Abnormal Network Behavior with Event Alerts** 
-By: Akashdeep Takhar, Advanced Services Engineer, Southwest Region  
+## **A Simple Solution to Network Upgrades** 
+By: Alex Bojko, Advanced Services Engineer, Southwest Region  
+
+Upgrading network infrastructure is oftentimes viewed as a tedious and stressful task that has the potential to lead to disruptions in network operations and even outages. Extensive planning for an upgrade is typically required, as we need to ensure we have the right software version in place, a time window to execute the upgrade within, and a fallback plan in case things go wrong. When it comes time to perform the upgrade, depending on the scale of the infrastructure, it can prove to be a very time consuming task.   
+
+Arista's CloudVision Software Management Studio is a new addition to Studios that streamlines the process of upgrading network infrastructure. The Software Management Studio greatly simplifies the formerly tedious and time consuming task of upgrading your network infrastructure. Here is how the process works:  
+
+You start by creating a new Workspace, opening the Software Management Studio, and selecting "Add Software". 
+
+<figure markdown>
+![Image Placement](img/February_Newsletter_Pic2.png){: style="height:150px;width:650px"}
+    <figcaption> Studios add software feature </figcaption>
+</figure>   
+
+Software in this case can be an EOS image, extension, or TerminAttr image. You can download an image or extension onto your local device, then upload it into your CloudVision instance using the "Local" option, or you can download an image directly into CloudVision using the "Cloud" option.  
+
+Once the required images are in place, you simply add them to devices based on a tagging schema you have created. For example, if you are upgrading network infrastructure at a specific site, you can tag each device with that site name, and assign an EOS image or extension to that tag. Once completed, review and submit the Workspace, and execute the associated Change Control to apply the images to the device.  
+
+<figure markdown>
+![Image Placement](img/February_Newsletter_Pic3.png){: style="height:150px;width:650px"}
+    <figcaption> Image assignment to device </figcaption>
+</figure>  
+
+The Software Management Studio makes upgrading network infrastructure a seamless experience, all while reducing network disruptions and giving you time back in your day.  
+
+To learn more about the Software Management Studio, or CloudVision Studios in general, select the links below:  
+
+Links for additional information on Arista SWAG:  
+[Software Management Article](https://www.arista.io/help/articles/cHJvdmlzaW9uaW5nLnN0dWRpb3MuQWxsLmJ1aWx0SW4uc29mdHdhcmU=)  
+[CloudVision Studios Article](https://www.arista.io/help/articles/cHJvdmlzaW9uaW5nLnN0dWRpb3MuQWxsLnN0dWRpb3M=#studios) 
  
-
-In last month’s newsletter, we began our tour of the “Events” tab within CloudVision. The article provided the steps necessary to send alert messages from CloudVision to your 3rd party collaboration platform (Slack, Microsoft Teams, Syslog Server, etc). Along with the configuration, the article bridged the gap of sending alert messages by explaining the purpose of utilizing Webhooks. This leads to the question, how do I configure specific activities to monitor in my network? In this month’s article, we will complete our discussion of the Events tab by taking a dive into the “Event Generation” section. Upon completion of these steps, your instance will be prepared to monitor and receive alert messages based on your customized requirements.  
-
-We began our previous article by navigating to the Events tab. At this point, the “Event Notifications” setup is complete and CloudVision understands the destination to send messages towards. However, how is CloudVision supposed to know what to monitor? This is where the “Event Generation” tab is factored in. Upon clicking on the “Events” tab, click on the “Event Generation” section.  
-
-<figure markdown>
-![Image Placement](img/December_Newsletter_A2_Pic1.png)
-    <figcaption> Click on the events tab located on the left side of the page </figcaption>
-</figure> 
-
-<figure markdown>
-![Image Placement](img/December_Newsletter_A2_Pic2.png)
-    <figcaption> Click on the event generation button, located on the top right</figcaption>
-</figure>  
-
-Event types are a list of anomalies that occur in your network. You can choose from over 70+ different types to monitor for activities ranging from traffic disruption, to potential hardware outages. By sending alerts, CloudVision protects your production from potential catastrophic damage by anticipating the anomaly through user input. You have the ability to set a numeric threshold value that will trigger CloudVision to send messages informing the user of the event. For our example, we will set up an event generation with the event type “Device stopped streaming”.   
-
-<figure markdown>
-![Image Placement](img/December_Newsletter_A2_Pic3.png)
-    <figcaption> Navigate the lists of event types to find "Device Stopped Streaming"</figcaption>
-</figure>  
-
-As you click on the event type, notice that there is a default section. This is called a “rule”. You have the ability to add multiple rules for CloudVision to inspect prior to sending out messages. If none of the rules are configured, the default rule will be responsible for checking events.   
-
-<figure markdown>
-![Image Placement](img/December_Newsletter_A2_Pic4.png)
-    <figcaption> Event Rules List </figcaption>
-</figure> 
-
-Notice the middle boxes labeled “Severity” , “Raise Time” , “Clear Time”? Those are the values you input to trigger the event alert. Severity is a label included in the message to show the user the level of importance of the event as determined by the user that created the input. You have the options of choosing between: Debug, Info, Warning, Error, or Critical. “Raise Time” is the number of seconds the event has to occur for before sending out the message. “Clear Time” is the number of seconds the event should be inactive for before clearing the event message from the CloudVision event page. When an event occurs, not only do you receive the message, in addition to this the event tab also records the event for you to reference in the future.  
-
-<figure markdown>
-![Image Placement](img/December_Newsletter_A2_Pic3.png)
-    <figcaption> Threshold Values To Input </figcaption>
-</figure> 
-
-In our example, if we input 120 for "Raise Time", 240 for "Clear Time" and Critical for "Severity", CloudVision will monitor the chosen device and interface to see if the link is down for more than 120 seconds. If that is true, CloudVision sends a message to the assigned receiver within the "Notifications" section with a "Critical" message alerting you of a discuption in your device's streaming telemetry. 
-
-Last step is to select the device to monitor activity for. Unless a specific device is configured in the box, CloudVision will monitor the chosen event for all devices. Click the box next to the magnifying glass where the message "Click here to select device tags"    
-
-
-<figure markdown>
-![Image Placement](img/December_Newsletter_A2_Pic5.png)
-    <figcaption> Device Selection </figcaption>
-</figure> 
-
-In addition to the Time setting, we have now asked CloudVision to monitor one specific device. When the rule is triggered, a message will be sent out to your collaboration platform. An example of a workflow here: You could configure Events to check if specific switches that utilize a high amount of bandwidth are sending telemetry data to CloudVision. If the device fails to stream information to CloudVision, you will receive a message. The operations team is now able to troubleshoot the matter as the event occured, rather than at a later time. In this case, you are resolving the issue from growing further and leading to a possible network outage.
-
-After completing these steps, click on the top right button labeled “Save”. Your Event tab configuration is now complete! Navigate to the main Event tab to send a test message to ensure the setup was successful. Within a few steps not only were you able to utilize this feature in CloudVision, we also have an additional tool that is active in checking your network health. This is just one of many tools used in CloudVision to help automate tasks along with taking the burden of performing compliance checks for fostering an effective environment.  
-  
-
-Links for additional information on Events:  
-[Accessing Events](https://www.arista.com/en/cg-cv/cv-accessing-events)  
-[Additional Events App Information](https://www.arista.com/en/cg-cv/cv-events-app)  
-[CloudVision Events Getting Started Video](https://www.youtube.com/watch?v=dxy0YSyvbkE) 
 
 ---
 
@@ -180,12 +149,12 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
-   | __EOS__           | 4.33.1F <br> 4.29.10M <br> 4.32.3M <br> 4.30.8.1M <br> 4.33.0F <br>4.32.2.1F <br>   | December 16th, 2024 <br> November 12th, 2024 <br> November 10th, 2024 <br >October 30th, 2024 <br> October 10th, 2024 <br>October 2nd, 2024 <br>
-   | __CVP__           | Portal 2024.3.1 <br>Portal 2024.3.0 <br> Portal 2024.2.1 <br>Appliance 6.0.7<br> Sensor 1.0.0 <br>    | December 13th, 2024 <br> October 21st, 2024 <br> October 15th, 2024 <br>September 18th, 2024<br> October 16th, 2024 <br>
+   | __EOS__           | 4.32.4FM <br> 4.28.13M <br> 4.30.9M <br>   | January 29th, 2025 <br> January 20th, 2025 <br> January 13th, 2025 <br > 
+   | __CVP__           | Portal 2024.3.1 <br>Appliance 7.0.0<br> Sensor 1.0.0 <br>    | December 13th, 2024 <br> November 15th, 2024<br> October 16th, 2024 <br>
    | __DMF__           | 8.5.2 <br >8.4.4 <br> | November 1st, 2024 <br> September 26th, 2024 <br>
-   | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>17.0.0<br>       | <br>December 15th, 2022<br>July 12th, 2024<br>
-   | __Arista NDR__         | 5.2.3         | August 2024
-   | __TerminAttr__    | 1.35.1 <br> 1.34.2 <br> 1.31.7 <br> 1.28.8 <br>        | November 5th, 2024 <br> October 28th, 2024 <br> October 28th, 2024 <br> October 28th, 2024 <br>
+   | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>18.0.0<br>       | <br>December 15th, 2022<br>December 2024<br>
+   | __Arista NDR__         | 5.2.4         | August 2024
+   | __TerminAttr__    | 1.35.1 <br>       | November 5th, 2024 <br> 
 
 
 ---
@@ -195,15 +164,10 @@ Below is a list of advisories that are announced by Arista. To view more details
 
 | Name          | Advisory Link           | Date of Advisory Notice  |
 | :-----------: |:-------------:| :-----:|
-|  __Policy Based Routing (PBR)__   | [Security Advisory 0108](https://www.arista.com/en/support/advisories-notices/security-advisory/20689-security-advisory-0108)  | December 5th, 2024   |
-|  __SNMP Transit Max Size__   | [Security Advisory 0107](https://www.arista.com/en/support/advisories-notices/security-advisory/20650-security-advisory-0107)  | November 19th, 2024   |
-|  __Incorrect Vlan Tag__   | [Security Advisory 0106](https://www.arista.com/en/support/advisories-notices/security-advisory/20649-security-advisory-0106)  | November 19th, 2024   |
-|  __Edge Threat Management__   | [Security Advisory 0105](https://www.arista.com/en/support/advisories-notices/security-advisory/20454-security-advisory-0105)  | October 29th, 2024   |
-| __CloudVision Appliance__   | [Security Advisory 0104](https://www.arista.com/en/support/advisories-notices/security-advisory/20405-security-advisory-0104) | September 24th, 2024
-| __QSFP Connector Cage__    | [Field Notice 0091](https://www.arista.com/en/support/advisories-notices/field-notice/20690-field-notice-0091) | November 27th, 2024   |
-| __CloudEOS v4.33.2F__    | [Field Notice 0090](https://www.arista.com/en/support/advisories-notices/field-notice/20651-field-notice-0090)   | November 14th, 2024   |
-| __Mojo Identity ID__    | [Field Notice 0089](https://www.arista.com/en/support/advisories-notices/field-notice/20618-field-notice-0089)   | October 29th, 2024   |
-| __WiFi AP Firmware__    |  [Field Notice 0088](https://www.arista.com/en/support/advisories-notices/field-notice/20438-field-notice-0088)  | October 23rd, 2024   |
+|  __BGP Agent Moomory Leak__   | [Security Advisory 0110](https://www.arista.com/en/support/advisories-notices/security-advisory/21092-security-advisory-0110)  | January 24th, 2025   |
+|  __AAA Dynamic ACL__   | [Security Advisory 0109](https://www.arista.com/en/support/advisories-notices/security-advisory/21086-security-advisory-0109)  | January 14th, 2025   |
+| __PoE power-disable port status__    | [Field Notice 0093](https://www.arista.com/en/support/advisories-notices/field-notice/21088-field-notice-0093) | January 15th, 2025   |
+| __CV-CUE 18.0__    | [Field Notice 0092](https://www.arista.com/en/support/advisories-notices/field-notice/21085-field-notice-0092)   | January 7th, 2025   |
 
 
 
@@ -220,22 +184,20 @@ For a list of the most current advisories and notices, click [Here](https://www.
 
 | Device        | Name           | End Of Sale Date  |
 | :-----------: |:-------------: |     :----:        |
-| Software      | [CloudVision Portal 2023.1 Train](https://www.arista.com/en/support/advisories-notices/end-of-support/21053-end-of-software-support-for-cloudvision-portal-2023-1-release-train) <br> [EOS 4.27 Series](https://www.arista.com/en/support/advisories-notices/end-of-support/20174-end-of-software-support-for-eos-4-27) | December 20th, 2024 <br>August 27th, 2024    |
+| Software      | [DMF and CCF Deployments on Accton/ Edgecore Switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21094-end-of-support-for-dmf-and-ccf-deployments-on-accton-edgecore-switches)<br>[EOS-4.34 and later no longer supported on select switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21089-end-of-software-support-for-7280r-r2-7500r-r2-and-7020r-series)<br>[CloudVision Portal 2023.1 Train](https://www.arista.com/en/support/advisories-notices/end-of-support/21053-end-of-software-support-for-cloudvision-portal-2023-1-release-train) <br> [EOS 4.27 Series](https://www.arista.com/en/support/advisories-notices/end-of-support/20174-end-of-software-support-for-eos-4-27) | January 31st, 2025 <br>January 15th, 2025 <br>December 20th, 2024 <br>August 27th, 2024    |
 | Module        | [7500R2 Series Linecards](https://www.arista.com/en/support/advisories-notices/end-of-sale/18886-end-of-sale-of-the-arista-7500r2-series-line-cards) | December 20th, 2023    |
-| Access Points | [AP Model W-118](https://www.arista.com/en/support/advisories-notices/end-of-sale/20652-end-of-sale-of-ap-model-w-118) <br> [Arista 802.11ac Wave 2 Devices](https://www.arista.com/en/support/advisories-notices/end-of-sale/14911-end-of-sale-of-arista-802-11ac-wave-2-devices)      |   November 20th, 2024 <br>June 30th, 2022 |
-| DMF           | [Analytics Node DCA-DM-AA3](https://www.arista.com/en/support/advisories-notices/end-of-sale/20142-end-of-sale-end-of-life-for-arista-analytics-node-appliance-dca-dm-aa3)          |  August 3rd, 2024             |
-| DMF           | [Pluribus NVOS, UNUM, Freedom 9000](https://www.arista.com/en/support/advisories-notices/end-of-sale/20133-end-of-sale-pluribus-nvos-unum-freedom-9000-series)          |  August 2nd, 2024             |
-| Switches      | [DCS-7130-96S Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/20381-end-of-sale-of-the-arista-dcs-7130-96s-series)<br>[DCS-7170 and 7170B Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/19846-end-of-sale-of-the-arista-7170-and-7170b-series)<br>[DCS-7130B-32QD](https://www.arista.com/en/support/advisories-notices/end-of-sale/19845-end-of-sale-of-the-arista-dcs-7130b-32qd-series)<br>[DCS-7170-32CD](https://www.arista.com/en/support/advisories-notices/end-of-sale/19266-end-of-sale-of-the-arista-dcs-7170-32cd-series)<br>[DCS-7010T-48](https://www.arista.com/en/support/advisories-notices/end-of-sale/16538-end-of-sale-7010t-48)<br>      |    Varies by Device |
+| Access Points | [AP Model W-118](https://www.arista.com/en/support/advisories-notices/end-of-sale/20652-end-of-sale-of-ap-model-w-118) <br>      |   November 20th, 2024 <br> |
+| DMF           | [Recorder Node DCA-DM-RA3](https://www.arista.com/en/support/advisories-notices/end-of-sale/21087-end-of-sale-end-of-life-for-arista-recorder-node-appliance-dca-dm-ra3)          |  January 14th, 2025           |
+| Switches      | [DCS-7020R Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/21052-end-of-sale-of-the-arista-dcs-7020r-series)<br> |  December 20th, 2024  |
 
 
 **New Releases** of Arista's device are listed below 
 
-   |  Device       | More Information |  Release Date 
-   | :-----------: | :-----------:    | :-----------:
-   | Arista Multi-Domain Segmentaton Service  | [Arista MSS](https://www.arista.com/en/company/news/press-release/19297-pr-20240430)         | Q3 2024
-   |  Arista 7130 Series             |  [Ultra Low Latency Network](https://www.arista.com/en/company/news/press-release/18273-pr-20231011)  | Q4 2023
-   |  Arista AGNI    |   [AI Driven Network Identity](https://www.arista.com/en/company/news/press-release/17244-pr-20230424)                | Q2 2023 
-   | Arista CV UNO  | [CloudVision Universal Network Observability](https://www.arista.com/en/company/news/press-release/19195-pr-20240305)  | Q1 2024
+|  Device       | More Information |  Release Date 
+    | :-----------: | :-----------:    | :-----------:
+    |  Arista SWAG    |   [Modern Stacking for Campus](https://www.arista.com/en/company/news/press-release/20693-pr-12032024)                | Q1 2025 
+    | Arista Multi-Domain Segmentaton Service  | [Arista MSS](https://www.arista.com/en/company/news/press-release/19297-pr-20240430)         | Q3 2024
+    | Arista CV UNO  | [CloudVision Universal Network Observability](https://www.arista.com/en/company/news/press-release/19195-pr-20240305)  | Q1 2024
 
 
 
