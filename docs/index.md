@@ -14,7 +14,7 @@ https://events.arista.com/2025-02-19-sko-customer-event-marina-del-rey-ca
 
 ---
 
-## **Arista Switch Aggregation**
+## **Arista Switch Aggregation Group - Evolution of Campus Stacking**
 By: Salman Zahid, Director of Systems Engineering, Southwest Region  
 
 Arista Networks' Switch Aggregation Group (SWAG™) redefines campus network stacking with a modern, standards-based approach that addresses decades-old challenges in enterprise network management. By leveraging Arista EOS® and CloudVision® Leaf Spine Stack (LSS™) Management, SWAG delivers scalable, flexible aggregation while eliminating proprietary dependencies.  
@@ -23,8 +23,7 @@ Arista Networks' Switch Aggregation Group (SWAG™) redefines campus network sta
 Key Benefits of Arista SWAG    
 
 1.  Unified Management & Simplified Operations    
-    * Single IP/CLI Interface: Manage up to 16( and 48 in the future)  switches as a single logical entity through one IP address and CLI session, reducing operational complexity.  
-     CloudVision Integration: Centrally provision, monitor, and troubleshoot stacks across entire campuses via a unified dashboard, eliminating siloed management.  
+    * Single IP/CLI Interface: Manage up to 16( and 48 in the future)  switches as a single logical entity through one IP address and CLI session, reducing operational complexity.    
     * CloudVision Integration: Centrally provision, monitor, and troubleshoot stacks across entire campuses via a unified dashboard, eliminating siloed management.  
 
 
@@ -65,7 +64,7 @@ CloudVision LSS extends SWAG’s benefits by enabling hierarchical management:
 
 
 <figure markdown>
-![Image Placement](img/February_Newsletter_Pic1.png)
+![Image Placement](img/February_Newsletter_Pic1.png){: style="height:350px;width:650px"}
     <figcaption> Arista SWAG </figcaption>
 </figure> 
  
