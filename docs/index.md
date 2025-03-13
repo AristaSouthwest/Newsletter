@@ -8,7 +8,7 @@ Welcome to the March 2025 newsletter for Arista customers in the U.S. Southwest 
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.  
 
-You're invited ti out Southwest Users Group event on March 26, 2025! Learn how modern network practices are orchestrated through Arista Validated Designs. Sign up for the event below:  
+You're invited to out Southwest Users Group event on March 26, 2025! Learn how modern network practices are orchestrated through Arista Validated Designs. Sign up for the event below:  
 
 [Arista Southwest User Group Sign up Link](https://events.arista.com/2025-03-26-q1-southwest-users-group)  
 
