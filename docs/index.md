@@ -1,113 +1,151 @@
  ![Image Placememt](img/Arista_Logo_copy.png)
 
 
-# Arista February Southwest Region Newsletter
+# Arista March Southwest Region Newsletter
 
-Welcome to the February 2025 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the March 2025 newsletter for Arista customers in the U.S. Southwest Region!
+
  
-We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.
+We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.  
 
-Have you signed up yet for the Arista Southwest Customer Exchange? Here's a chance to gain insights from industyr leaders on how Arista's latest technologies transform modern networks. The event will take place February 19, 2025 in Marina Del Rey. Sign up below today!
+You're invited ti out Southwest Users Group event on March 26, 2025! Learn how modern network practices are orchestrated through Arista Validated Designs. Sign up for the event below:  
 
-[Sign Up Link Below](https://www.arista.com/en/cg-cv/cv-accessing-events):  
-https://events.arista.com/2025-02-19-sko-customer-event-marina-del-rey-ca
+[Arista Southwest User Group Sign up Link](https://events.arista.com/2025-03-26-q1-southwest-users-group)  
 
 ---
 
-## **Arista Switch Aggregation Group - Evolution of Campus Stacking**
+## **Arista Ethernetlink Portfolio for AI Networking**
 By: Salman Zahid, Director of Systems Engineering, Southwest Region  
 
-Arista Networks' Switch Aggregation Group (SWAG™) redefines campus network stacking with a modern, standards-based approach that addresses decades-old challenges in enterprise network management. By leveraging Arista EOS® and CloudVision® Leaf Spine Stack (LSS™) Management, SWAG delivers scalable, flexible aggregation while eliminating proprietary dependencies.  
+In the rapidly evolving world of Artificial Intelligence, network performance can make or break the success of AI initiatives. Arista Networks has stepped up to this challenge with its groundbreaking Etherlink AI platforms (a set of hardware platforms and a suite of software capabilities in Arista EOS and CloudVision), offering a comprehensive solution for high-performance AI networking.  
+
+**Unparalleled Performance and Efficiency**  
+
+Etherlink delivers up to 65% improved performance compared to traditional Ethernet systems, ensuring faster AI job completion times. This performance boost is achieved through lossless, low-latency platforms and innovative RDMA-aware load balancing and congestion avoidance features.
+Moreover, Etherlink shines in failure recovery scenarios, offering up to 30x faster convergence than InfiniBand. This rapid recovery is crucial in large-scale AI clusters where component failures are inevitable.  
+
+**Scalability for AI Workloads of Any Size**  
+
+Etherlink offers unmatched flexibility, supporting AI clusters ranging from just 32 XPUs to over 100,000 parallel XPUs. This scalability is made possible through a variety of deployment options:  
+
+1. Single systems: Up to 576 800G or 1,152 ports of 400G with a single modular 7800R4 series system.
+
+2. Single-hop distributed Etherlink switching: Up to 4608 800G or 9216  ports of 400G (7700R4 series) in a single-stage cluster. 16k ports of 800G or 32k of 400G in multi-stage cluster.
+
+3. Two- and three-tier leaf/spine or planar topologies: Supporting over 100k XPUs using modular 7800R4 series systems in leaf and spine roles.
+
+**Cutting-Edge Hardware Portfolio**  
+
+Arista offers a range of AI-optimized platforms as part of the Etherlink portfolio:
+
+1. 7060X6 series: Fixed AI leaf switches with up to 64 800G or 128 ports of 400G.
+
+2. 7800R4 series: Modular AI spine systems with up to 576 ports of 800G or 1,152 ports of 400G. 
+
+3. 7700R4 series: Innovative Distributed Etherlink Switch for single-hop, large-scale deployments.  
+
+**Power Efficiency**  
+
+Etherlink enables significant power reduction for AI clusters at both the system and optical interconnect levels:
+
+* Arista's Etherlink systems use best-in-class 5nm silicon, consuming at least 25% lower power per Gb than prior generations.
+
+* Support for Linear-drive Pluggable Optics (LPO - LPOs remove DSPs) further reduces net power consumption by 50% compared to traditional pluggable optics and Active Optical Cables (AOCs).  
 
 
-Key Benefits of Arista SWAG    
+**Intelligent Software Suite**  
 
-1.  Unified Management & Simplified Operations    
-    * Single IP/CLI Interface: Manage up to 16( and 48 in the future)  switches as a single logical entity through one IP address and CLI session, reducing operational complexity.    
-    * CloudVision Integration: Centrally provision, monitor, and troubleshoot stacks across entire campuses via a unified dashboard, eliminating siloed management.  
+Arista EOS (Extensible Operating System) provides advanced features tailored for AI workloads:  
 
+* RDMA-aware dynamic load balancing
 
-2. Cost Efficiency
-    * Reduced Licensing Costs: Third-party tools licensing per IP can save significantly when managing multiple switches under one IP.
-    * No Proprietary Hardware: Uses standard Ethernet cabling/optics instead of vendor-locked stacking cables, lowering CapEx and easing upgrades.  
+* Advanced congestion control 
 
+* AI Analyzer and Latency Analyzer for real-time insights into traffic patterns and network performance 
 
-3.  Architectural Flexibility
-    * Multi-Topology Support: Deploy universal leaf-spine, ring, or chain designs, enabling seamless migration from legacy stacks.
-    * Scalability: Scale from 16 (and in future, 48) switches per cluster, outperforming legacy systems limited to 10 switches. Architecture is designed from day 1 to scale up to 48 switches in a single stack, although that scale will be delivered over time.  
-
-4. Resilient Modern Stacking
-    * Distributed Control Plane: SWAG’s active/standby supervisor model ensures high availability, while worker switches handle forwarding.
-    * Hitless Upgrades: Modify configurations or replace hardware without downtime.
-
-Technical Advantages Over Legacy Stacking
-
-| Feature                     | Leagacy Stacking                 | Arista SWAG |
-| -----------                 | --------------------             | ---------------- |
-| Cabling                     | Proprietary cables               | Standard Ethernet |
-| Topology Flexibility        | Restricted to ring/chain         | Supports leaf-spine, ring, or hybrid  |
-| Scalability                 | less than or equal to 10 switches per stack | Up to 48 switches  |
-| Management                  | Per-stack CLI | CloudVision multi-stack orchestration  |
-| Upgrade Impact              | Full-stack reboots | Hitless, incremental updates  |  
-
-CloudVision LSS (Leaf Spine Stack) Management: Multi-Domain Stack Orchestration  
-
-CloudVision LSS extends SWAG’s benefits by enabling hierarchical management:  
-
-* Logical Grouping: Organize switches by physical location (closet, floor, building) or functional role 
-* AI-Driven Insights: Proactively identify performance bottlenecks or misconfigurations across stacks
-* Automated Compliance: Enforce security policies and audit configurations network-wide
+* Support for Data Center Quantized Congestion Notification (DCQCN)  
 
 
+**EOS-based AI Agent**  
 
+Arista's EOS-based AI Agent optimizes coordinated performance between networking and compute domains. It provides:  
 
+*  Local configuration management of NICs
 
+*  Streaming telemetry of NIC performance
 
-<figure markdown>
-![Image Placement](img/February_Newsletter_Pic1.png){: style="height:350px;width:650px"}
-    <figcaption> Arista SWAG </figcaption>
-</figure> 
- 
+*  Consistent application of QoS parameters from NIC to network  
 
-Links for additional information on Arista SWAG:  
-[Whitepaper](https://www.arista.com/assets/data/pdf/Whitepapers/Cognitive-Campus-WP.pdf)  
-[Video](https://www.youtube.com/watch?v=cMLYLz_3ZEk)  
+**AI Observability**  
 
-Contact your SE or ASE to learn more!
+Arista's AI observability solution offers comprehensive insights into the AI ecosystem:  
 
+*  Streaming data from Arista EOS-based AI platforms and compute nodes
+
+*  NetDL network data lake for centralized data storage and analysis
+
+*  CloudVision network automation platform for visibility into network and compute topology
+
+*  AVA (Autonomous Virtual Assistant) for natural language querying of network status - the support of AVA will continue to evolve over the next few quarters  
+
+**Future-Ready with Ultra Ethernet Consortium**  
+
+As a founding Ultra Ethernet Consortium (UEC) member, Arista is at the forefront of developing next-generation Ethernet technologies for AI and HPC workloads. Etherlink platforms are forward-compatible with future UEC specifications, ensuring long-term viability and performance improvements.  
+
+In conclusion, Arista's Etherlink solution stands at the forefront of networking innovation for AI workloads. By combining high-performance hardware, intelligent software, and a unified vision for AI infrastructure, Arista empowers organizations to build scalable, efficient, and powerful AI networks that drive the future of artificial intelligence.  
+
+For more information, check these resources:  
+
+*  AI Netoworking White Paper
+*  ARISTA AI Ethernet Portfolio
+*  Arista and NVIDIA Collaboration Press Release
+*  AI Center Video
 
 ---
 
-## **A Simple Solution to Network Upgrades** 
+## **Managing Bug and Threat Compliance in the Modern Network** 
 By: Alex Bojko, Advanced Services Engineer, Southwest Region  
 
-Upgrading network infrastructure is oftentimes viewed as a tedious and stressful task that has the potential to lead to disruptions in network operations and even outages. Extensive planning for an upgrade is typically required, as we need to ensure we have the right software version in place, a time window to execute the upgrade within, and a fallback plan in case things go wrong. When it comes time to perform the upgrade, depending on the scale of the infrastructure, it can prove to be a very time consuming task.   
+Keeping a production network in compliance can prove to be a challenging task, especially when it comes to managing bugs and CVE's (Common Vulnerabilities and Exposures) on our network infrastructure. For starters, there can be a wide range of devices deployed in a network, many of which are running various versions of code. Bugs and Security Advisories are unpredictable, and keeping track of them across a wide range of devices and code can become cumbersome. Failing to bring devices into compliance can result in network downtime, outages, and a vulnerable network.   
 
-Arista's CloudVision Software Management Studio is a new addition to Studios that streamlines the process of upgrading network infrastructure. The Software Management Studio greatly simplifies the formerly tedious and time consuming task of upgrading your network infrastructure. Here is how the process works:  
-
-You start by creating a new Workspace, opening the Software Management Studio, and selecting "Add Software". 
+The Compliance Overview section of CloudVision makes managing and maintaining a secure production network simple and straightforward. Once EOS devices are onboarded into CloudVision, they are automatically included in the compliance overview section. CloudVisions Bug and Security Advisory database can be automatically updated by syncing with Arista's AlertBase server within the Settings > Compliance Update section of CloudVision. Once the AlertBase server is synced, you can view any new and existing Bugs and CVE's present on your EOS infrastructure. A table will be auto-populated:    
 
 <figure markdown>
-![Image Placement](img/February_Newsletter_Pic2.png){: style="height:150px;width:650px"}
-    <figcaption> Studios add software feature </figcaption>
+![Image Placement](img/March_Newsletter_Pic1.png){: style="height:250px;width:850px"}
+    <figcaption> CloudVision view of bugs </figcaption>
 </figure>   
 
-Software in this case can be an EOS image, extension, or TerminAttr image. You can download an image or extension onto your local device, then upload it into your CloudVision instance using the "Local" option, or you can download an image directly into CloudVision using the "Cloud" option.  
-
-Once the required images are in place, you simply add them to devices based on a tagging schema you have created. For example, if you are upgrading network infrastructure at a specific site, you can tag each device with that site name, and assign an EOS image or extension to that tag. Once completed, review and submit the Workspace, and execute the associated Change Control to apply the images to the device.  
+<figure markdown>
+![Image Placement](img/March_Newsletter_Pic2.png)
+    <figcaption> First 3 columns zoomed in </figcaption>
+</figure>   
 
 <figure markdown>
-![Image Placement](img/February_Newsletter_Pic3.png){: style="height:150px;width:650px"}
-    <figcaption> Image assignment to device </figcaption>
+![Image Placement](img/March_Newsletter_Pic3.png)
+    <figcaption> Last 3 columns zoomed in </figcaption>
+</figure>   
+
+The table will inform you of the following information:  
+
+*  The Bug/CVE identifier number
+*  A brief summary of the Bug/CVE
+*  The associated severity level
+*  The total number of affected devices and the exact devices that are affected
+*  The version of code that the Bug/CVE was introduced in as well as the version of code that it was fixed in  
+
+Levering this information makes monitoring and maintaining a secure and compliant network a seamless experience. By staying up to date on Bug and Security Advisories affecting devices in your production network, you can avoid network downtime all while ensuring your network is secure. Having one central location to view a list of all affected platforms and the remediation methods for them saves network operators time and energy.   
+
+Arista devices use a single operating system, EOS, across all network domains. This further adds to the simplicity of managing and remediating various Bugs and CVE's on our infrastructure, since they are limited to affecting one single operating system instead of many operating systems across devices in various network domains. EOS has historically been, and continues to be, an extremely high quality operating system, as illustrated in the image below.  
+
+
+<figure markdown>
+![Image Placement](img/March_Newsletter_Pic4.png)
+    <figcaption>  </figcaption>
 </figure>  
 
-The Software Management Studio makes upgrading network infrastructure a seamless experience, all while reducing network disruptions and giving you time back in your day.  
+ To learn more about additional features of CloudVisions Compliance Overview section, like image and configuration compliance as well as End of Life information, click on the link below:  
 
-To learn more about the Software Management Studio, or CloudVision Studios in general, select the links below:  
-
-Links for additional information on Arista SWAG:  
-[Software Management Article](https://www.arista.io/help/articles/cHJvdmlzaW9uaW5nLnN0dWRpb3MuQWxsLmJ1aWx0SW4uc29mdHdhcmU=)  
-[CloudVision Studios Article](https://www.arista.io/help/articles/cHJvdmlzaW9uaW5nLnN0dWRpb3MuQWxsLnN0dWRpb3M=#studios) 
+[CloudVision Compliance Overview](https://www.cv-staging.corp.arista.io/help/articles/ZGV2aWNlcy5zZWxlY3RlZERldmljZS5jb21wbGlhbmNl)   
  
 
 ---
@@ -148,9 +186,9 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
-   | __EOS__           | 4.32.4FM <br> 4.28.13M <br> 4.30.9M <br>   | January 29th, 2025 <br> January 20th, 2025 <br> January 13th, 2025 <br > 
+   | __EOS__           | 4.32.4.1M <br> 4.33.2F <br> 4.32.4FM <br> 4.28.13M <br> 4.30.9M <br>   | February 25th, 2025 <br> February 20th, 2025 <br> January 29th, 2025 <br> January 20th, 2025 <br> January 13th, 2025 <br > 
    | __CVP__           | Portal 2024.3.1 <br>Appliance 7.0.0<br> Sensor 1.0.0 <br>    | December 13th, 2024 <br> November 15th, 2024<br> October 16th, 2024 <br>
-   | __DMF__           | 8.5.2 <br >8.4.4 <br> | November 1st, 2024 <br> September 26th, 2024 <br>
+   | __DMF__           | 8.6.1 <br >8.5.2 <br> | March 4th, 2025 <br> November 1st, 2024 <br> 
    | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>18.0.0<br>       | <br>December 15th, 2022<br>December 2024<br>
    | __Arista NDR__         | 5.2.4         | August 2024
    | __TerminAttr__    | 1.35.1 <br>       | November 5th, 2024 <br> 
@@ -163,10 +201,11 @@ Below is a list of advisories that are announced by Arista. To view more details
 
 | Name          | Advisory Link           | Date of Advisory Notice  |
 | :-----------: |:-------------:| :-----:|
-|  __BGP Agent Moomory Leak__   | [Security Advisory 0110](https://www.arista.com/en/support/advisories-notices/security-advisory/21092-security-advisory-0110)  | January 24th, 2025   |
-|  __AAA Dynamic ACL__   | [Security Advisory 0109](https://www.arista.com/en/support/advisories-notices/security-advisory/21086-security-advisory-0109)  | January 14th, 2025   |
-| __PoE power-disable port status__    | [Field Notice 0093](https://www.arista.com/en/support/advisories-notices/field-notice/21088-field-notice-0093) | January 15th, 2025   |
-| __CV-CUE 18.0__    | [Field Notice 0092](https://www.arista.com/en/support/advisories-notices/field-notice/21085-field-notice-0092)   | January 7th, 2025   |
+|  __BGP Agent Moomory Leak__   | [Security Advisory 0112](https://www.arista.com/en/support/advisories-notices/security-advisory/21098-security-advisory-0111)  | March 11th, 2025   |
+|  __OpenConfig gNOI Request__   | [Security Advisory 0111](https://www.arista.com/en/support/advisories-notices/security-advisory/21098-security-advisory-0111)  | February 25th, 2025   |
+| __CPU Monitor Sessions__    | [Field Notice 0096](https://www.arista.com/en/support/advisories-notices/field-notice/21117-field-notice-0096) | March 7th, 2025   |
+| __Power Source Equipment (PSE)__    | [Field Notice 0095](https://www.arista.com/en/support/advisories-notices/field-notice/21099-field-notice-0095) | February 26th, 2025   |
+| __Intermittent link flaps__    | [Field Notice 0094](https://www.arista.com/en/support/advisories-notices/field-notice/21095-field-notice-0094)   | February 28th, 2025   |
 
 
 
@@ -183,7 +222,7 @@ For a list of the most current advisories and notices, click [Here](https://www.
 
 | Device        | Name           | End Of Sale Date  |
 | :-----------: |:-------------: |     :----:        |
-| Software      | [DMF and CCF Deployments on Accton/ Edgecore Switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21094-end-of-support-for-dmf-and-ccf-deployments-on-accton-edgecore-switches)<br>[EOS-4.34 and later no longer supported on select switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21089-end-of-software-support-for-7280r-r2-7500r-r2-and-7020r-series)<br>[CloudVision Portal 2023.1 Train](https://www.arista.com/en/support/advisories-notices/end-of-support/21053-end-of-software-support-for-cloudvision-portal-2023-1-release-train) <br> [EOS 4.27 Series](https://www.arista.com/en/support/advisories-notices/end-of-support/20174-end-of-software-support-for-eos-4-27) | January 31st, 2025 <br>January 15th, 2025 <br>December 20th, 2024 <br>August 27th, 2024    |
+| Software      | [DMF and CCF Deployments on Accton/ Edgecore Switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21094-end-of-support-for-dmf-and-ccf-deployments-on-accton-edgecore-switches)<br>[EOS-4.34 and later no longer supported on select switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21089-end-of-software-support-for-7280r-r2-7500r-r2-and-7020r-series)<br>[CloudVision Portal 2023.1 Train](https://www.arista.com/en/support/advisories-notices/end-of-support/21053-end-of-software-support-for-cloudvision-portal-2023-1-release-train) <br>  | January 31st, 2025 <br>January 15th, 2025 <br>December 20th, 2024 <br>    |
 | Module        | [7500R2 Series Linecards](https://www.arista.com/en/support/advisories-notices/end-of-sale/18886-end-of-sale-of-the-arista-7500r2-series-line-cards) | December 20th, 2023    |
 | Access Points | [AP Model W-118](https://www.arista.com/en/support/advisories-notices/end-of-sale/20652-end-of-sale-of-ap-model-w-118) <br>      |   November 20th, 2024 <br> |
 | DMF           | [Recorder Node DCA-DM-RA3](https://www.arista.com/en/support/advisories-notices/end-of-sale/21087-end-of-sale-end-of-life-for-arista-recorder-node-appliance-dca-dm-ra3)          |  January 14th, 2025           |
