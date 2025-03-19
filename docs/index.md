@@ -61,7 +61,7 @@ Arista EOS (Extensible Operating System) provides advanced features tailored for
 
 * Advanced congestion control 
 
-* AI Analyzer and Latency Analyzer for real-time insights into traffic patterns and network performance 
+* Cluster Load Balancing, where congestion management is done end-to-end instead of on just a local hop   
 
 * Support for Data Center Quantized Congestion Notification (DCQCN)  
 
@@ -82,11 +82,7 @@ Arista's AI observability solution offers comprehensive insights into the AI eco
 
 *  Streaming data from Arista EOS-based AI platforms and compute nodes
 
-*  NetDL network data lake for centralized data storage and analysis
-
-*  CloudVision network automation platform for visibility into network and compute topology
-
-*  AVA (Autonomous Virtual Assistant) for natural language querying of network status - the support of AVA will continue to evolve over the next few quarters  
+*  CV UNO (CloudVision Universal Network Observability) —an AI-driven, 360° network observability feature set within CloudVision—integrates AI job visibility with network and system data, providing real-time insights to optimize AI job performance and pinpoint bottlenecks and hardware issues with unmatched precision for rapid resolution  
 
 **Future-Ready with Ultra Ethernet Consortium**  
 
