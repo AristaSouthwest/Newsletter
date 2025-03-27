@@ -197,7 +197,7 @@ Below is a list of advisories that are announced by Arista. To view more details
 
 | Name          | Advisory Link           | Date of Advisory Notice  |
 | :-----------: |:-------------:| :-----:|
-|  __BGP Agent Moomory Leak__   | [Security Advisory 0112](https://www.arista.com/en/support/advisories-notices/security-advisory/21098-security-advisory-0111)  | March 11th, 2025   |
+|  __BGP Agent Memory Leak__   | [Security Advisory 0112](https://www.arista.com/en/support/advisories-notices/security-advisory/21098-security-advisory-0111)  | March 11th, 2025   |
 |  __OpenConfig gNOI Request__   | [Security Advisory 0111](https://www.arista.com/en/support/advisories-notices/security-advisory/21098-security-advisory-0111)  | February 25th, 2025   |
 | __CPU Monitor Sessions__    | [Field Notice 0096](https://www.arista.com/en/support/advisories-notices/field-notice/21117-field-notice-0096) | March 7th, 2025   |
 | __Power Source Equipment (PSE)__    | [Field Notice 0095](https://www.arista.com/en/support/advisories-notices/field-notice/21099-field-notice-0095) | February 26th, 2025   |
