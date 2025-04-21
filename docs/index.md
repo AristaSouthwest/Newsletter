@@ -20,7 +20,7 @@ Driven by evolving security challenges, Zero Trust has emerged as a top priority
 
 <figure markdown>
 ![Image Placement](img/April2025_Newsletter_Pic1.png){: style="height:300px;width:800px"} 
-    <figcaption> Zero Trust Structure </figcaption>
+    <figcaption> Arista Zero Trust Networking </figcaption>
 </figure>  
 
 Arista’s Zero Trust architecture is a combination of various functions starting from  
@@ -35,7 +35,7 @@ Arista’s Zero Trust architecture is a combination of various functions startin
 
 
 To learn more about Arista’s Zero Trust approach, please visit the following link below:  
-[Arista Zero Touch](https://www.arista.com/en/solutions/security)  
+[Arista Zero Trust Networking](https://www.arista.com/en/solutions/security)  
 
 ---
 
