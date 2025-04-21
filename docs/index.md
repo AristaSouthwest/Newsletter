@@ -1,148 +1,74 @@
  ![Image Placememt](img/Arista_Logo_copy.png)
 
 
-# Arista March Southwest Region Newsletter
+# Arista Southwest Region Newsletter
 
-Welcome to the March 2025 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the April 2025 newsletter for Arista customers in the U.S. Southwest Region!
 
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.  
 
-You're invited to out Southwest Users Group event on March 26, 2025! Learn how modern network practices are orchestrated through Arista Validated Designs. Sign up for the event below:  
-
-[Arista Southwest User Group Sign up Link](https://events.arista.com/2025-03-26-q1-southwest-users-group)  
-
 ---
 
-## **Arista Ethernetlink Portfolio for AI Networking**
+## **Arista Zero Trust Networking Stack: Key Concepts**
 By: Salman Zahid, Director of Systems Engineering, Southwest Region  
 
-In the rapidly evolving world of Artificial Intelligence, network performance can make or break the success of AI initiatives. Arista Networks has stepped up to this challenge with its groundbreaking Etherlink AI platforms (a set of hardware platforms and a suite of software capabilities in Arista EOS and CloudVision), offering a comprehensive solution for high-performance AI networking.  
-
-**Unparalleled Performance and Efficiency**  
-
-Etherlink delivers up to 65% improved performance compared to traditional Ethernet systems, ensuring faster AI job completion times. This performance boost is achieved through lossless, low-latency platforms and innovative RDMA-aware load balancing and congestion avoidance features.
-Moreover, Etherlink shines in failure recovery scenarios, offering up to 30x faster convergence than InfiniBand. This rapid recovery is crucial in large-scale AI clusters where component failures are inevitable.  
-
-**Scalability for AI Workloads of Any Size**  
-
-Etherlink offers unmatched flexibility, supporting AI clusters ranging from just 32 XPUs to over 100,000 parallel XPUs. This scalability is made possible through a variety of deployment options:  
-
-1. Single systems: Up to 576 800G or 1,152 ports of 400G with a single modular 7800R4 series system.
-
-2. Single-hop distributed Etherlink switching: Up to 4608 800G or 9216  ports of 400G (7700R4 series) in a single-stage cluster. 16k ports of 800G or 32k of 400G in multi-stage cluster.
-
-3. Two- and three-tier leaf/spine or planar topologies: Supporting over 100k XPUs using modular 7800R4 series systems in leaf and spine roles.
-
-**Cutting-Edge Hardware Portfolio**  
-
-Arista offers a range of AI-optimized platforms as part of the Etherlink portfolio:
-
-1. 7060X6 series: Fixed AI leaf switches with up to 64 800G or 128 ports of 400G.
-
-2. 7800R4 series: Modular AI spine systems with up to 576 ports of 800G or 1,152 ports of 400G. 
-
-3. 7700R4 series: Innovative Distributed Etherlink Switch for single-hop, large-scale deployments.  
-
-**Power Efficiency**  
-
-Etherlink enables significant power reduction for AI clusters at both the system and optical interconnect levels:
-
-* Arista's Etherlink systems use best-in-class 5nm silicon, consuming at least 25% lower power per Gb than prior generations.
-
-* Support for Linear-drive Pluggable Optics (LPO - LPOs remove DSPs) further reduces net power consumption by 50% compared to traditional pluggable optics and Active Optical Cables (AOCs).  
+Safeguarding enterprise assets has always been essential for maintaining business continuity. However, as the traditional network perimeter disappears—driven by the dynamic placement of applications in the cloud and the adoption of SaaS solutions—organizations now face greater vulnerabilities. The push to offer seamless access to key resources for employees and contractors, often through BYOD policies, further increases this risk. Additionally, many threat actors now employ sophisticated, malware-free techniques that can cause significant damage, even when data is fully encrypted.  
 
 
-**Intelligent Software Suite**  
+Driven by evolving security challenges, Zero Trust has emerged as a top priority for enterprises. As a leading provider of networking solutions to enterprise customers, Arista recognizes that the network itself can be leveraged to enhance enterprise security in innovative and efficient ways—delivering robust protection without adding unnecessary complexity while maintaining a seamless experience for all users and stakeholders. While Zero Trust encompasses a broad range of security domains and requires contributions from various technologies—including firewalls, endpoint detection and response (EDR), and other security services—the network remains foundational. Every user, device, and application relies on the network to communicate, positioning it as a critical control point for enforcing security policies and enabling real-time visibility and threat response across the enterprise.  
 
-Arista EOS (Extensible Operating System) provides advanced features tailored for AI workloads:  
+<figure markdown>
+![Image Placement](img/April2025_Newsletter_Pic1.png){: style="height:300px;width:800px"} 
+    <figcaption> Zero Trust Structure </figcaption>
+</figure>  
 
-* RDMA-aware dynamic load balancing
+Arista’s Zero Trust architecture is a combination of various functions starting from  
 
-* Advanced congestion control 
+1. Identity-based adaptive access control: Arista’s AGNI (Arista Guardian Network Identity) system serves as a network access control policy engine that provides access to users and devices no matter where they connect over wired or wireless networks. It can be a policy engine for corporate users, devices, guest users, BYOD, and IoT. It meets the zero-trust requirement of trusting nothing and always knowing the identity of every endpoint. AGNI also helps operators restrict what users or devices can access once they are on the network.  
 
-* Cluster Load Balancing, where congestion management is done end-to-end instead of on just a local hop   
+2. Based on the user’s identity, we can create identity-aware microperimeters that are completely decoupled from the underlying network topology. Arista’s ZTX traffic mapper appliance (physical or virtual) can then monitor all session-level activity in the network and provide the operator a clear view of the communication activity. The operator can create policies based on that identity-aware view.  
 
-* Support for Data Center Quantized Congestion Notification (DCQCN)  
+3. Multi Domain Microsegmentation Services (Arista MSS) can then enforce the identity-aware segmentation at the network's edge and greatly simplify or limit the need for the firewall to just inter-zone traffic—this kind of identity-aware enforcement further limits lateral movement within the network. Even if someone were to infiltrate the network, Arista MSS would greatly reduce the attacker's ability by restricting movement beyond what is allowed for that group, which is explicitly governed through the policy. Any traffic that does not match the policy is redirected to the firewalls for further inspection.  
+
+4. The native built-in NDR (Network Detection and Response) capability within Arista switches discovers, profiles, and tracks devices, users, and applications using AI-based fingerprinting and detects sophisticated threats with the lowest noise possible. This meets the continuous monitoring requirement of a network built with Zero Trust principles.  
 
 
-**EOS-based AI Agent**  
-
-Arista's EOS-based AI Agent optimizes coordinated performance between networking and compute domains. It provides:  
-
-*  Local configuration management of NICs
-
-*  Streaming telemetry of NIC performance
-
-*  Consistent application of QoS parameters from NIC to network  
-
-**AI Observability**  
-
-Arista's AI observability solution offers comprehensive insights into the AI ecosystem:  
-
-*  Streaming data from Arista EOS-based AI platforms and compute nodes
-
-*  CV UNO (CloudVision Universal Network Observability) —an AI-driven, 360° network observability feature set within CloudVision—integrates AI job visibility with network and system data, providing real-time insights to optimize AI job performance and pinpoint bottlenecks and hardware issues with unmatched precision for rapid resolution  
-
-**Future-Ready with Ultra Ethernet Consortium**  
-
-As a founding Ultra Ethernet Consortium (UEC) member, Arista is at the forefront of developing next-generation Ethernet technologies for AI and HPC workloads. Etherlink platforms are forward-compatible with future UEC specifications, ensuring long-term viability and performance improvements.  
-
-In conclusion, Arista's Etherlink solution stands at the forefront of networking innovation for AI workloads. By combining high-performance hardware, intelligent software, and a unified vision for AI infrastructure, Arista empowers organizations to build scalable, efficient, and powerful AI networks that drive the future of artificial intelligence.  
-
-For more information, check these resources:  
-
-*  AI Netoworking White Paper
-*  ARISTA AI Ethernet Portfolio
-*  Arista and NVIDIA Collaboration Press Release
-*  AI Center Video
+To learn more about Arista’s Zero Trust approach, please visit the following link below:  
+[Arista Zero Touch](https://www.arista.com/en/solutions/security)  
 
 ---
 
-## **Managing Bug and Threat Compliance in the Modern Network** 
-By: Alex Bojko, Advanced Services Engineer, Southwest Region  
+## **The Evolution of Arista EOS: From SysDB to NetDL** 
+By: Frough Taihary & Alex Bojko, Advanced Services Engineer, Southwest Region  
 
-Keeping a production network in compliance can prove to be a challenging task, especially when it comes to managing bugs and CVE's (Common Vulnerabilities and Exposures) on our network infrastructure. For starters, there can be a wide range of devices deployed in a network, many of which are running various versions of code. Bugs and Security Advisories are unpredictable, and keeping track of them across a wide range of devices and code can become cumbersome. Failing to bring devices into compliance can result in network downtime, outages, and a vulnerable network.   
+Arista Networks’ Extensible Operating System (EOS) has been a game-changer in networking, offering a modular, programmable, and highly resilient architecture. Unlike traditional network operating systems, EOS is built on a database-driven model, enabling real-time state streaming and management.    
 
-The Compliance Overview section of CloudVision makes managing and maintaining a secure production network simple and straightforward. Once EOS devices are onboarded into CloudVision, they are automatically included in the compliance overview section. CloudVisions Bug and Security Advisory database can be automatically updated by syncing with Arista's AlertBase server within the Settings > Compliance Update section of CloudVision. Once the AlertBase server is synced, you can view any new and existing Bugs and CVE's present on your EOS infrastructure. A table will be auto-populated:    
+ This article explores the evolution of EOS, focusing on its core databases—SysDB, NetDB, and NetDL.  
 
-<figure markdown>
-![Image Placement](img/March_Newsletter_Pic1.png){: style="height:250px;width:850px"}
-    <figcaption> CloudVision view of bugs </figcaption>
-</figure>   
+ SysDB is the core of a switch that holds the state information of a switch. SysDB, or System Database,  exists in every Arista switch. It stores the state of all 100+ agents, or processes, running on the switch. The agents communicate through a publish and subscribe model to SysDB, therefore agents do not communicate with each other directly but only with SysDB. This prevents agent interdependency and cascading failures within the operating system. Also, by separating agent state from processing, we have created a more resilient and fault tolerant switching architecture. An agent that goes offline simply needs to pull its last known state from SysDB upon re-initilization to begin processing as if no failure occurred. To summarize, SysDB serves as a centralized database within each EOS switch, however, the next evolution of EOS goes beyond a single device.   
+ 
 
 <figure markdown>
-![Image Placement](img/March_Newsletter_Pic2.png)
-    <figcaption> First 3 columns zoomed in </figcaption>
-</figure>   
-
-<figure markdown>
-![Image Placement](img/March_Newsletter_Pic3.png)
-    <figcaption> Last 3 columns zoomed in </figcaption>
-</figure>   
-
-The table will inform you of the following information:  
-
-*  The Bug/CVE identifier number
-*  A brief summary of the Bug/CVE
-*  The associated severity level
-*  The total number of affected devices and the exact devices that are affected
-*  The version of code that the Bug/CVE was introduced in as well as the version of code that it was fixed in  
-
-Levering this information makes monitoring and maintaining a secure and compliant network a seamless experience. By staying up to date on Bug and Security Advisories affecting devices in your production network, you can avoid network downtime all while ensuring your network is secure. Having one central location to view a list of all affected platforms and the remediation methods for them saves network operators time and energy.   
-
-Arista devices use a single operating system, EOS, across all network domains. This further adds to the simplicity of managing and remediating various Bugs and CVE's on our infrastructure, since they are limited to affecting one single operating system instead of many operating systems across devices in various network domains. EOS has historically been, and continues to be, an extremely high quality operating system, as illustrated in the image below.  
-
-
-<figure markdown>
-![Image Placement](img/March_Newsletter_Pic4.png)
+![Image Placement](img/April2025_Newsletter_Pic2.png)
     <figcaption>  </figcaption>
 </figure>  
 
- To learn more about additional features of CloudVisions Compliance Overview section, like image and configuration compliance as well as End of Life information, click on the link below:  
+NetDB is the next evolution of EOS, and it operates by collecting data from all of our Arista EOS switches. NetDB allows us to aggregate all the switches' state information in one location. The evolution from SysDB to NetDB led to the creation of our Network management and orchestration platform CloudVision. While this was a big step forward, we wanted to expand our visibility from EOS devices to now include information from all aspects of our network.   
 
-[CloudVision Compliance Overview](https://www.cv-staging.corp.arista.io/help/articles/ZGV2aWNlcy5zZWxlY3RlZERldmljZS5jb21wbGlhbmNl)   
- 
+NetDL is the latest evolution of EOS. NetDL is a series of databases that aggregates information from all aspects of our network, not just the switching infrastructure. This can include data from our EOS devices, wireless, security, IoT, Virtualized, and 3rd party infrastructure. This led to the creation of CV-UNO (Universal Network Observability), which ingests all of the additional data into CloudVision, giving the network operator much wider visibility into their entire network. Also, since NetDL provides us with an expansive collection of network data in one location, Arista's AI/ML solution AVA (Autonomous Virtual Assist) can leverage the data to provide customers with real time remediation recommendations, reducing MTTR.   
+
+<figure markdown>
+![Image Placement](img/April2025_Newsletter_Pic3.png)
+    <figcaption>  </figcaption>
+</figure> 
+
+In conclusion, EOS evolved from a single database located on a single switch, to a network wide database aggregating every switch's state information, to an encompassing series of databases aggregating data from every aspect and interaction within our network.  
+
+To learn more, click on the links below:  
+[Ken Duda "EOS: A Tale of Opposite Architectures"](https://www.youtube.com/watch?v=Hfwr6sY27hA)  
+[Ken Duda "Arista NetDL Evolution"](https://www.youtube.com/watch?v=FWvceu6c-gY)  
+[Arista AVA (Autonomous Virtual Assist)](https://www.arista.com/assets/data/pdf/Whitepapers/Arista-AVA-Whitepaper.pdf)  
 
 ---
 
@@ -182,9 +108,9 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
-   | __EOS__           | 4.32.4.1M <br> 4.33.2F <br> 4.32.4FM <br> 4.28.13M <br> 4.30.9M <br>   | February 25th, 2025 <br> February 20th, 2025 <br> January 29th, 2025 <br> January 20th, 2025 <br> January 13th, 2025 <br > 
-   | __CVP__           | Portal 2024.3.1 <br>Appliance 7.0.0<br> Sensor 1.0.0 <br>    | December 13th, 2024 <br> November 15th, 2024<br> October 16th, 2024 <br>
-   | __DMF__           | 8.6.1 <br >8.5.2 <br> | March 4th, 2025 <br> November 1st, 2024 <br> 
+   | __EOS__           | 4.32.5M <br> 4.32.4.1M <br> 4.33.2F <br>  | March 27th, 2025 <br> February 25th, 2025 <br> February 20th, 2025 <br > 
+   | __CVP__           | Portal 2025.1.0 <br>Appliance 7.0.1<br> Sensor 1.1.0 <br>    | April 3rd, 2025 <br> January 28th, 2025<br> March 24th, 2025 <br>
+   | __DMF__           | 8.6.1 <br >8.5.2 <br> | March 6th, 2025 <br> November 1st, 2024 <br> 
    | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>18.0.0<br>       | <br>December 15th, 2022<br>December 2024<br>
    | __Arista NDR__         | 5.2.4         | August 2024
    | __TerminAttr__    | 1.35.1 <br>       | November 5th, 2024 <br> 
@@ -193,15 +119,19 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 ---
 
 ## __*Software Advisories*__
-Below is a list of advisories that are announced by Arista. To view more details on the specific advisories, please click the links in the middle boxes.
+Below is a list of advisories that are announced by Arista. To view more details on the specific advisories, please click the links in the middle row.
 
 | Name          | Advisory Link           | Date of Advisory Notice  |
 | :-----------: |:-------------:| :-----:|
-|  __BGP Agent Memory Leak__   | [Security Advisory 0112](https://www.arista.com/en/support/advisories-notices/security-advisory/21098-security-advisory-0111)  | March 11th, 2025   |
-|  __OpenConfig gNOI Request__   | [Security Advisory 0111](https://www.arista.com/en/support/advisories-notices/security-advisory/21098-security-advisory-0111)  | February 25th, 2025   |
-| __CPU Monitor Sessions__    | [Field Notice 0096](https://www.arista.com/en/support/advisories-notices/field-notice/21117-field-notice-0096) | March 7th, 2025   |
-| __Power Source Equipment (PSE)__    | [Field Notice 0095](https://www.arista.com/en/support/advisories-notices/field-notice/21099-field-notice-0095) | February 26th, 2025   |
-| __Intermittent link flaps__    | [Field Notice 0094](https://www.arista.com/en/support/advisories-notices/field-notice/21095-field-notice-0094)   | February 28th, 2025   |
+|  __Time Bound Device Onboarding__   | [Security Advisory 0116](https://www.arista.com/en/support/advisories-notices/security-advisory/21316-security-advisory-0116)  | April 15th, 2025   |
+|  __ZTP Admin Privileges__   | [Security Advisory 0115](https://www.arista.com/en/support/advisories-notices/security-advisory/21315-security-advisory-0115)  | April 15th, 2025   |
+|  __Malicious Authenticated User__   | [Security Advisory 0114](https://www.arista.com/en/support/advisories-notices/security-advisory/21314-security-advisory-0114)  | April 15th, 2025   |
+|  __EOS Secure Vxlan__   | [Security Advisory 0113](https://www.arista.com/en/support/advisories-notices/security-advisory/21289-security-advisory-0113)  | April 8th, 2025   |
+|  __Renaming Arista WAN Routing Models__   | [Field Notice 0098](https://www.arista.com/en/support/advisories-notices/field-notice/21286-field-notice-0098)  | March 26th, 2025   |
+|  __CloudVision On-Prem Incomplete Database Writes__   | [Field Notice 0097](https://www.arista.com/en/support/advisories-notices/field-notice/21272-field-notice-0097)  | March 12th, 2025   |
+|  __CPU Monitor Sessions__   | [Field Notice 0096](https://www.arista.com/en/support/advisories-notices/field-notice/21117-field-notice-0096)  | March 7th, 2025   |
+
+
 
 
 
@@ -218,7 +148,7 @@ For a list of the most current advisories and notices, click [Here](https://www.
 
 | Device        | Name           | End Of Sale Date  |
 | :-----------: |:-------------: |     :----:        |
-| Software      | [DMF and CCF Deployments on Accton/ Edgecore Switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21094-end-of-support-for-dmf-and-ccf-deployments-on-accton-edgecore-switches)<br>[EOS-4.34 and later no longer supported on select switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21089-end-of-software-support-for-7280r-r2-7500r-r2-and-7020r-series)<br>[CloudVision Portal 2023.1 Train](https://www.arista.com/en/support/advisories-notices/end-of-support/21053-end-of-software-support-for-cloudvision-portal-2023-1-release-train) <br>  | January 31st, 2025 <br>January 15th, 2025 <br>December 20th, 2024 <br>    |
+| Software      | [End of Software Support for EOS 4.28](https://www.arista.com/en/support/advisories-notices/end-of-support/21275-end-of-software-support-for-eos-4-28)<br>[DMF and CCF Deployments on Accton/ Edgecore Switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21094-end-of-support-for-dmf-and-ccf-deployments-on-accton-edgecore-switches)<br>[EOS-4.34 and later no longer supported on select switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21089-end-of-software-support-for-7280r-r2-7500r-r2-and-7020r-series)<br>[CloudVision Portal 2023.1 Train](https://www.arista.com/en/support/advisories-notices/end-of-support/21053-end-of-software-support-for-cloudvision-portal-2023-1-release-train) <br>  | March 14, 2025 <br>January 31st, 2025 <br>January 15th, 2025 <br>December 20th, 2024 <br>    |
 | Module        | [7500R2 Series Linecards](https://www.arista.com/en/support/advisories-notices/end-of-sale/18886-end-of-sale-of-the-arista-7500r2-series-line-cards) | December 20th, 2023    |
 | Access Points | [AP Model W-118](https://www.arista.com/en/support/advisories-notices/end-of-sale/20652-end-of-sale-of-ap-model-w-118) <br>      |   November 20th, 2024 <br> |
 | DMF           | [Recorder Node DCA-DM-RA3](https://www.arista.com/en/support/advisories-notices/end-of-sale/21087-end-of-sale-end-of-life-for-arista-recorder-node-appliance-dca-dm-ra3)          |  January 14th, 2025           |
