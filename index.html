@@ -441,9 +441,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#addititional-information" class="md-nav__link">
+  <a href="#additional-information" class="md-nav__link">
     <span class="md-ellipsis">
-      Addititional Information
+      Additional Information
     </span>
   </a>
   
@@ -712,9 +712,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#addititional-information" class="md-nav__link">
+  <a href="#additional-information" class="md-nav__link">
     <span class="md-ellipsis">
-      Addititional Information
+      Additional Information
     </span>
   </a>
   
@@ -787,6 +787,8 @@
 <h2 id="arista-avd-workflow"><strong>Arista AVD Workflow</strong><a class="headerlink" href="#arista-avd-workflow" title="Permanent link">&para;</a></h2>
 <p>By: Nicholas D'ambrosio, Advanced Services Engineer, Southwest Region  </p>
 <p>In this month's newsletter, we are introducing a new type of article. One in which you can follow along in your environment! Nicholas has written a tutorial on using an AVD Workflow to deploy network configurations. Follow the tutorial to gain practical knowledge on our AVD tools!  </p>
+<p>Not familar with AVD just yet? Below is a link to introduce the foundations and key areas to implment AVD.
+<a href="https://avd.arista.com/5.4/docs/getting-started/intro-to-ansible-and-avd.html">AVD Introduction Click Here</a></p>
 <h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="#arista-avd-workflow">Arista AVD Workflow</a></li>
@@ -818,7 +820,7 @@
 </li>
 </ul>
 <h2 id="avd-workflow-overview">AVD Workflow Overview<a class="headerlink" href="#avd-workflow-overview" title="Permanent link">&para;</a></h2>
-<p>This document outlines the workflow for using Arista Ansible Validated Designs (AVD) to automate and deploy network configurations to EOS devices via CloudVision as-a-Service (CVaaS).  </p>
+<p>This document outlines the workflow for using Arista Validated Designs (AVD) to automate and deploy network configurations to EOS devices via CloudVision as-a-Service (CVaaS).  </p>
 <p><img alt="AVD Workflow Diagram" src="img/avd-workflow-diagram.png" />   </p>
 <h2 id="inventory-structure">Inventory Structure<a class="headerlink" href="#inventory-structure" title="Permanent link">&para;</a></h2>
 <p>Below is a basic Ansible file structure breakdown:</p>
@@ -1232,7 +1234,7 @@ SPINE1<span class="w">                     </span>:<span class="w"> </span><span
 <li><a href="https://avd.arista.com/5.4/ansible_collections/arista/avd/roles/eos_cli_config_gen/index.html">eos_cli_config_gen</a></li>
 <li><a href="https://avd.arista.com/5.4/ansible_collections/arista/avd/roles/cv_deploy/index.html">cv_deploy</a></li>
 </ul>
-<h3 id="addititional-information">Addititional Information<a class="headerlink" href="#addititional-information" title="Permanent link">&para;</a></h3>
+<h3 id="additional-information">Additional Information<a class="headerlink" href="#additional-information" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://github.com/arista-netdevops-community">Arista Netdevops Community</a></li>
 <li><a href="https://avd.arista.com/5.4/index.html">Arista AVD</a></li>
@@ -1320,39 +1322,34 @@ SPINE1<span class="w">                     </span>:<span class="w"> </span><span
 </thead>
 <tbody>
 <tr>
+<td style="text-align: center;"><strong>ACL Policies</strong></td>
+<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/security-advisory/21414-security-advisory-0120">Security Advisory 0120</a></td>
+<td style="text-align: center;">May 27th, 2025</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>IPSec</strong></td>
+<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/security-advisory/21413-security-advisory-0119">Security Advisory 0119</a></td>
+<td style="text-align: center;">May 27th, 2025</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>VLAN Isolation</strong></td>
+<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/security-advisory/21411-security-advisory-0118">Security Advisory 0118</a></td>
+<td style="text-align: center;">May 20th, 2025</td>
+</tr>
+<tr>
 <td style="text-align: center;"><strong>gNMI Transport</strong></td>
 <td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/security-advisory/21394-security-advisory-0117">Security Advisory 0117</a></td>
 <td style="text-align: center;">May 6th, 2025</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>Time Bound Device Onboarding</strong></td>
-<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/security-advisory/21316-security-advisory-0116">Security Advisory 0116</a></td>
-<td style="text-align: center;">April 15th, 2025</td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>ZTP Admin Privileges</strong></td>
-<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/security-advisory/21315-security-advisory-0115">Security Advisory 0115</a></td>
-<td style="text-align: center;">April 15th, 2025</td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>Malicious Authenticated User</strong></td>
-<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/security-advisory/21314-security-advisory-0114">Security Advisory 0114</a></td>
-<td style="text-align: center;">April 15th, 2025</td>
+<td style="text-align: center;"><strong>AP Point Firmware 19.0</strong></td>
+<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/field-notice/21415-field-notice-0100">Field Notice 0100</a></td>
+<td style="text-align: center;">May 28th, 2025</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>Secure Boot</strong></td>
 <td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/field-notice/21317-field-notice-0099">Field Notice 0099</a></td>
 <td style="text-align: center;">April 22nd, 2025</td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>Renaming Arista WAN Routing Models</strong></td>
-<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/field-notice/21286-field-notice-0098">Field Notice 0098</a></td>
-<td style="text-align: center;">March 26th, 2025</td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>CloudVision On-Prem Incomplete Database Writes</strong></td>
-<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/field-notice/21272-field-notice-0097">Field Notice 0097</a></td>
-<td style="text-align: center;">March 12th, 2025</td>
 </tr>
 </tbody>
 </table>
@@ -1375,8 +1372,8 @@ SPINE1<span class="w">                     </span>:<span class="w"> </span><span
 <tbody>
 <tr>
 <td style="text-align: center;">Software</td>
-<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/end-of-support/21275-end-of-software-support-for-eos-4-28">End of Software Support for EOS 4.28</a><br><a href="https://www.arista.com/en/support/advisories-notices/end-of-support/21094-end-of-support-for-dmf-and-ccf-deployments-on-accton-edgecore-switches">DMF and CCF Deployments on Accton/ Edgecore Switches</a><br><a href="https://www.arista.com/en/support/advisories-notices/end-of-support/21089-end-of-software-support-for-7280r-r2-7500r-r2-and-7020r-series">EOS-4.34 and later no longer supported on select switches</a><br><a href="https://www.arista.com/en/support/advisories-notices/end-of-support/21053-end-of-software-support-for-cloudvision-portal-2023-1-release-train">CloudVision Portal 2023.1 Train</a> <br></td>
-<td style="text-align: center;">March 14, 2025 <br>January 31st, 2025 <br>January 15th, 2025 <br>December 20th, 2024 <br></td>
+<td style="text-align: center;"><a href="https://www.arista.com/en/support/advisories-notices/end-of-support/21412-end-of-software-support-for-cloudvision-portal-2023-2-release-train">End of Software for CloudVision Portal 2023.2</a><br><a href="https://www.arista.com/en/support/advisories-notices/end-of-support/21275-end-of-software-support-for-eos-4-28">End of Software Support for EOS 4.28</a><br><a href="https://www.arista.com/en/support/advisories-notices/end-of-support/21094-end-of-support-for-dmf-and-ccf-deployments-on-accton-edgecore-switches">DMF and CCF Deployments on Accton/ Edgecore Switches</a><br><a href="https://www.arista.com/en/support/advisories-notices/end-of-support/21089-end-of-software-support-for-7280r-r2-7500r-r2-and-7020r-series">EOS-4.34 and later no longer supported on select switches</a><br></td>
+<td style="text-align: center;">May 27th. 2025 <br> March 14, 2025 <br>January 31st, 2025 <br>January 15th, 2025 <br></td>
 </tr>
 <tr>
 <td style="text-align: center;">Module</td>
