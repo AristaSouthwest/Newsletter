@@ -15,6 +15,9 @@ By: Nicholas D'ambrosio, Advanced Services Engineer, Southwest Region
 
 In this month's newsletter, we are introducing a new type of article. One in which you can follow along in your environment! Nicholas has written a tutorial on using an AVD Workflow to deploy network configurations. Follow the tutorial to gain practical knowledge on our AVD tools!  
 
+Not familar with AVD just yet? Below is a link to introduce the foundations and key areas to implment AVD.
+[AVD Introduction Click Here](https://avd.arista.com/5.4/docs/getting-started/intro-to-ansible-and-avd.html)
+
 ## Table of Contents
 - [Arista AVD Workflow](#arista-avd-workflow)
   - [Table of Contents](#table-of-contents)
@@ -39,7 +42,7 @@ In this month's newsletter, we are introducing a new type of article. One in whi
 
 ## AVD Workflow Overview
 
-This document outlines the workflow for using Arista Ansible Validated Designs (AVD) to automate and deploy network configurations to EOS devices via CloudVision as-a-Service (CVaaS).  
+This document outlines the workflow for using Arista Validated Designs (AVD) to automate and deploy network configurations to EOS devices via CloudVision as-a-Service (CVaaS).  
  
 ![AVD Workflow Diagram](img/avd-workflow-diagram.png)   
 
@@ -528,7 +531,7 @@ CVaaS will push configurations to all switches in the fabric.
 - [eos_cli_config_gen](https://avd.arista.com/5.4/ansible_collections/arista/avd/roles/eos_cli_config_gen/index.html)
 - [cv_deploy](https://avd.arista.com/5.4/ansible_collections/arista/avd/roles/cv_deploy/index.html)
 
-### Addititional Information
+### Additional Information
 
 - [Arista Netdevops Community](https://github.com/arista-netdevops-community)
 - [Arista AVD](https://avd.arista.com/5.4/index.html)
@@ -590,16 +593,12 @@ Below is a list of advisories that are announced by Arista. To view more details
 
 | Name          | Advisory Link           | Date of Advisory Notice  |
 | :-----------: |:-------------:| :-----:|
-|  __gNMI Transport__   | [Security Advisory 0117](https://www.arista.com/en/support/advisories-notices/security-advisory/21394-security-advisory-0117)  | May 6th, 2025   |
-|  __Time Bound Device Onboarding__   | [Security Advisory 0116](https://www.arista.com/en/support/advisories-notices/security-advisory/21316-security-advisory-0116)  | April 15th, 2025   |
-|  __ZTP Admin Privileges__   | [Security Advisory 0115](https://www.arista.com/en/support/advisories-notices/security-advisory/21315-security-advisory-0115)  | April 15th, 2025   |
-|  __Malicious Authenticated User__   | [Security Advisory 0114](https://www.arista.com/en/support/advisories-notices/security-advisory/21314-security-advisory-0114)  | April 15th, 2025   |
-|  __Secure Boot__   | [Field Notice 0099](https://www.arista.com/en/support/advisories-notices/field-notice/21317-field-notice-0099)  | April 22nd, 2025   |
-|  __Renaming Arista WAN Routing Models__   | [Field Notice 0098](https://www.arista.com/en/support/advisories-notices/field-notice/21286-field-notice-0098)  | March 26th, 2025   |
-|  __CloudVision On-Prem Incomplete Database Writes__   | [Field Notice 0097](https://www.arista.com/en/support/advisories-notices/field-notice/21272-field-notice-0097)  | March 12th, 2025   |
-
-
-
+|  __ACL Policies__   | [Security Advisory 0120](https://www.arista.com/en/support/advisories-notices/security-advisory/21414-security-advisory-0120)  | May 27th, 2025   |  
+|  __IPSec__   | [Security Advisory 0119](https://www.arista.com/en/support/advisories-notices/security-advisory/21413-security-advisory-0119)  | May 27th, 2025   |  
+|  __VLAN Isolation__   | [Security Advisory 0118](https://www.arista.com/en/support/advisories-notices/security-advisory/21411-security-advisory-0118)  | May 20th, 2025   |  
+|  __gNMI Transport__   | [Security Advisory 0117](https://www.arista.com/en/support/advisories-notices/security-advisory/21394-security-advisory-0117)  | May 6th, 2025   |  
+|  __AP Point Firmware 19.0__   | [Field Notice 0100](https://www.arista.com/en/support/advisories-notices/field-notice/21415-field-notice-0100)  | May 28th, 2025   |  
+|  __Secure Boot__   | [Field Notice 0099](https://www.arista.com/en/support/advisories-notices/field-notice/21317-field-notice-0099)  | April 22nd, 2025   |  
 
 
 
@@ -616,7 +615,7 @@ For a list of the most current advisories and notices, click [Here](https://www.
 
 | Device        | Name           | End Of Sale Date  |
 | :-----------: |:-------------: |     :----:        |
-| Software      | [End of Software Support for EOS 4.28](https://www.arista.com/en/support/advisories-notices/end-of-support/21275-end-of-software-support-for-eos-4-28)<br>[DMF and CCF Deployments on Accton/ Edgecore Switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21094-end-of-support-for-dmf-and-ccf-deployments-on-accton-edgecore-switches)<br>[EOS-4.34 and later no longer supported on select switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21089-end-of-software-support-for-7280r-r2-7500r-r2-and-7020r-series)<br>[CloudVision Portal 2023.1 Train](https://www.arista.com/en/support/advisories-notices/end-of-support/21053-end-of-software-support-for-cloudvision-portal-2023-1-release-train) <br>  | March 14, 2025 <br>January 31st, 2025 <br>January 15th, 2025 <br>December 20th, 2024 <br>    |
+| Software      | [End of Software for CloudVision Portal 2023.2](https://www.arista.com/en/support/advisories-notices/end-of-support/21412-end-of-software-support-for-cloudvision-portal-2023-2-release-train)<br>[End of Software Support for EOS 4.28](https://www.arista.com/en/support/advisories-notices/end-of-support/21275-end-of-software-support-for-eos-4-28)<br>[DMF and CCF Deployments on Accton/ Edgecore Switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21094-end-of-support-for-dmf-and-ccf-deployments-on-accton-edgecore-switches)<br>[EOS-4.34 and later no longer supported on select switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21089-end-of-software-support-for-7280r-r2-7500r-r2-and-7020r-series)<br> | May 27th. 2025 <br> March 14, 2025 <br>January 31st, 2025 <br>January 15th, 2025 <br> |
 | Module        | [7500R2 Series Linecards](https://www.arista.com/en/support/advisories-notices/end-of-sale/18886-end-of-sale-of-the-arista-7500r2-series-line-cards) | December 20th, 2023    |
 | Access Points | [AP Model W-118](https://www.arista.com/en/support/advisories-notices/end-of-sale/20652-end-of-sale-of-ap-model-w-118) <br>      |   November 20th, 2024 <br> |
 | DMF           | [DMF 8.2](https://www.arista.com/en/support/advisories-notices/end-of-support/21409-end-of-software-support-for-dmf-8-2)          |  May 12th, 2025           |
