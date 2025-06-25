@@ -3,541 +3,87 @@
 
 # Arista Southwest Region Newsletter
 
-Welcome to the May 2025 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the June 2025 newsletter for Arista customers in the U.S. Southwest Region!
 
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.  
 
 ---
 
-## **Arista AVD Workflow**
-By: Nicholas D'ambrosio, Advanced Services Engineer, Southwest Region  
+## **Leveraging Arista Cloud Test (ACT) for Network Modeling**
+By: Shayne Kelly, Advanced Services Engineer, Southwest Region   
 
-In this month's newsletter, we are introducing a new type of article. One in which you can follow along in your environment! Nicholas has written a tutorial on using an AVD Workflow to deploy network configurations. Follow the tutorial to gain practical knowledge on our AVD tools!  
+Arista Cloud Test (ACT) is a virtualized network modeling environment that can be used for testing configurations and features, or as a full ‘digital twin’. This allows you to have a full working model of your network, whether you are trying to get a head start on port mapping and configurations, testing out a difficult migration, applying a new set of features, or creating a full digital twin of your existing production network, where you can test changes and designs before applying them to your production environment.   
 
-Not familar with AVD just yet? Below is a link to introduce the foundations and key areas to implment AVD.
-[AVD Introduction Click Here](https://avd.arista.com/5.4/docs/getting-started/intro-to-ansible-and-avd.html)
+I use ACT on a regular basis, as customers frequently come to me and ask, ‘How do I migrate from a traditional 3-Tier design to an EVPN/VxLAN CLOS network?’, ‘How do I set up the routing policy for my Metro Area Network?’, or even, ‘What is the best way to configure my BGP policies?’. Any number of these situations can easily be modeled with ACT.   
 
-## Table of Contents
-- [Arista AVD Workflow](#arista-avd-workflow)
-  - [Table of Contents](#table-of-contents)
-  - [AVD Workflow Overview](#avd-workflow-overview)
-  - [Inventory Structure](#inventory-structure)
-    - [Role of Variables](#role-of-variables)
-    - [Build Playbook](#build-playbook)
-      - [How They Work Together](#how-they-work-together)
-      - [Example Output](#example-output)
-  - [Deploy Playbook](#deploy-playbook)
-    - [Playbook Functionality](#playbook-functionality)
-    - [CVaaS/CVP Authentication](#cvaascvp-authentication)
-    - [Example Output](#example-output-1)
-  - [Submit Pending Change Control via CVaaS](#submit-pending-change-control-via-cvaas)
-    - [Review Studio Workspace and Pending Change Control](#review-studio-workspace-and-pending-change-control)
-    - [Submit Change Control](#submit-change-control)
-  - [References](#references)
-    - [Getting Started](#getting-started)
-    - [Arista AVD Ansible Roles](#arista-avd-ansible-roles)
-    - [Addititional Information](#addititional-information)   
+Also, given that ACT allows you to specify the device model and have the correct port mapping applied, you are able to get a head start on modeling out your configuration and even your automation, before you ever rack your new Arista Gear. I have worked with many customers, using ACT to create and test the configurations and automation models they have employed in their production environments, which allowed them to build out everything they needed for their deployment, long before the switches arrived. This includes switch configurations, Network Automation Variable Files, for both customer Ansible Scripts and Arista Validated Design (AVD) models, and even integrations with third party services, such DHCP and IPAM (IP Address Management) systems.   
 
+Lastly, because you can provision connectivity outside of this virtual environment, you can connect these virtual switches to CVaaS (Arista Cloud Vision as a Service), allowing you to use the same Cloud Vision that you use to manage your other switches, to manage your test environment. This allows you to manage your switches via Cloud Vision, whether that is with Studios, or a different Automation Platform, and view your configuration and changes the same way you will with your switches in your production environment.   
 
-## AVD Workflow Overview
+Obviously a deep dive into this technology is a rather lengthy article. So in this article, we will cover the ‘highlights’ of ACT, some basic steps and requirements to get your ACT environment up and running, and show what this looks like in CVaaS.   
 
-This document outlines the workflow for using Arista Validated Designs (AVD) to automate and deploy network configurations to EOS devices via CloudVision as-a-Service (CVaaS).  
- 
-![AVD Workflow Diagram](img/avd-workflow-diagram.png)   
+**ACT Setup and Configuration**  
 
-## Inventory Structure
+ACT leverages simple YAML files for constructing your device inventory and the connections between the devices. This allows you a simple way to create your lab environment. I love the fact that YAML files are so flexible and easy to read. For someone who is not an automation ‘expert’ this format is easy for me to work with and understand. I have worked with customers who have never used automation before, but due to the structure of YAML files, they were able to quickly understand how to edit these files and use them in their environment.   
 
-Below is a basic Ansible file structure breakdown:
+Once you have all of your topology file completed, now you simply use that to ‘create’ your virtual environment and ACT does the rest[^1]. ACT will verify that the topology file is valid and even call out any errors, if they exist. Once the file is validated, you can generate your lab and away you go. The screenshot below shows an example of a lab that I recently built to test out some of the new Campus Studios features for a customer. You can see each of the devices is listed, with the details about the device.  
 
-```bash
-project_root/
-├── inventory.yml              # Main inventory file
-├── group_vars/                # Global Ansible groups directory
-│   ├── all.yml                # Global Ansible variables YAML file
-│   ├── <group>.yml            # Group variables YAML file
-│   └── custom-head.html       # Custom header/footer
-├── host_vars/                 # Global Ansible hosts directory
-│   └── <device-hostname>.yml  # Host-specific variables
-├── build.yml                  # Playbook to render configuration
-└── deploy.yml                 # Playbook to push configuration to CVaaS/CVP  
-```
+**Working with Your Virtual Environment**  
 
+For this lab, I choose to use CVaaS as the way that I would configure and manage my devices. I have an existing CVaaS instance that I use for testing, and adding these devices to my CVaaS instance was exactly the same as I would do for an on-site deployment. Because there are only a few devices in my lab, I choose not to host a ZTP (Zero Touch Provisioning) server, which would have added the security token and the required network information to connect the device to CVaaS automatically. Instead, I choose to do this manually, however, I have used the ZTP method in the past, and it works exactly as it does in a production environment.   
 
-Here is an example of an Ansible inventory file that can be used to define your AVD topology. This YAML file defines the topology (fabric) and host relationships:  
+In the screenshot below, you can see the Inventory Page from my CVaaS environment. The virtual devices for this lab have been onboarded and you can see them in the inventory, alongside other production, physical devices in my environment. I like to use CVaaS when I am testing features specific to CloudVision as it provides me with the most up to date features and functionality.   
 
-```yaml
+<figure markdown="span">
+  ![Inventory List](img/CVP_Inventory.png)
+  <figcaption>Inventory List in CVaaS</figcaption>
+</figure>
 
 
-### AVD Topology inventory.yml
-all:
-  children:
-    FABRIC:
-      children:
-        SPINES:
-          hosts:
-            spine1:
-            spine2:
-        LEAFS:
-          hosts:
-            leaf1a:
-            leaf1b:
-    NETWORK_SERVICES:
-      children:
-        LEAFS:
-        SPINES:
-    NETWORK_PORTS:
-      children:
-        LEAFS:
-        SPINES:  
+Again, all of these devices that you see here are virtual devices, running in Cloud Hosted Instance, that you can use to test with. I have done the same or similar work for Data Center Deployments, WAN routing deployments, tests for AVD and other automation frameworks, you name it. The possibilities are endless with ACT. While this example is relatively small and simple, I have built ACT topologies with Customers that literally span 100s of devices, in large 5 Stage CLOS fabrics, with multiple uplinks and dozens of connected end-hosts, all running iPerf and other network testing technologies.   
 
-```  
+**Summary**  
 
+ACT is a very easy to use tool that allows you to test out features, pre-build your network or create a digital twin that you can use to test out changes. It provides you a platform to create extremely large networks, or test out features in a small sandbox, catered to Arista Devices.   
 
-### Role of Variables
+If you are interested in learning more about ACT, or would like to speak to someone about ordering this or seeing a live demo, please contact your local account team.  
 
-<code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">group_vars/all.yml</code> - Global All 'Shared' Variables
+Alternatively, you can also read the following Data Sheet for additional information:  
+[ACT Data Sheet](https://www.arista.com/assets/data/pdf/Datasheets/Cloud-Test-Datasheet.pdf)  
 
-Global variables shared by all devices. This is where you store Arista eAPI and SSH connection parameters that Ansible can reference for all devices in the inventory file.
 
-```yaml
-ansible_user: admin
-ansible_ssh_pass: "{{ vault_ansible_password }}"
-ansible_network_os: eos
-ansible_connection: network_cli
-ansible_become: yes
-ansible_become_method: enable
-ansible_become_password: admin
-```
+[^1]: Virtually all of the ‘fixed’ switches can be specified, with the correct port mapping applied. It is possible to use Chassis switches as well, but this takes a bit more effort    
 
-<code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">group_vars/FABRIC.yml:</code> - Top Level -  AVD Configuration Variables
 
-Variables applied to all devices under the inventory hierarchy. This could include the FABRIC, DATACENTER, or CAMPUS top layer of the architecture. These configurations define device groups, mLAG settings, uplinks, and common domain configurations.
+## **Simple and Straightforward Network Monitoring - Arista Connectivity Monitoring Studio**
+By: Alex Bojko, Advanced Services Engineer, Southwest Region   
 
-```yaml
-# CloudVision TerminAtter definitions
-cvp_instance_ips:
-  - apiserver.arista.io
-terminattr_smashexcludes: "ale,flexCounter,hardware,kni,pulse,strata"
-terminattr_ingestexclude: "/Sysdb/cell/1/agent,/Sysdb/cell/2/agent"
-terminattr_disable_aaa: true
-terminattr_cvaddr: "apiserver.arista.io:443"
-terminattr_cvauth: "token-secure,/tmp/cv-onboarding-token"
-terminattr_cvvrf: MGMT
-terminattr_taillogs: true
+HIgh latency, packet loss, and jitter and all words we despise as network engineers. We design and build networks to combat and prevent each of those events from happening. However, some things are out of our control and still find a way to occur despite our best efforts. Clients, Endpoints, and Applications are isolated in discrete locations, away from the local network. Managing and determining the performance and user experience of a modern network has proven to be a tough challenge.   
 
-# Spine Switches
-l3spine:
-  defaults:
-    platform: cEOSLab
-    spanning_tree_mode: mstp
-    spanning_tree_priority: 4096
-    loopback_ipv4_pool: 172.16.1.0/24
-    mlag_peer_ipv4_pool: 192.168.0.0/24
-    mlag_peer_l3_ipv4_pool: 10.1.1.0/24
-    virtual_router_mac_address: 00:1c:73:00:dc:01
-    mlag_interfaces: [Ethernet55/1, Ethernet56/1]
-  node_groups:
-    - group: SPINES
-      nodes:
-        - name: spine1
-          id: 1
-          mgmt_ip: "192.168.101.13/24"
-        - name: spine2
-          id: 2
-          mgmt_ip: "192.168.101.14/24"
+The Connectivity Monitor Studio built into Arista CloudVIsion servers as a simple and straightforward solution to help address this challenge. Connectivity Monitor is a feature introduced in EOS 4.24.2F that aims to allow users to monitor their network resources directly from their Arista switches. It works by periodically sending ICMP probes to designated endpoints, tracking latency, packet loss, jitter, and HTTP response time. An Endpoint can be classified as an EOS device, third-party device, access point, server, or application. As long as ICMP and HTTP ports to these endpoints are open, Connectivity Monitor will be able to track a device's connection to them.  
 
-# IDF - Leaf Switches
-l2leaf:
-  defaults:
-    platform: cEOSLab
-    mlag_peer_ipv4_pool: 192.168.0.0/24
-    spanning_tree_mode: mstp
-    spanning_tree_priority: 16384
-    inband_mgmt_subnet: 10.10.10.0/24
-    inband_mgmt_vlan: 10
-  node_groups:
-    - group: IDF1
-      mlag: true
-      uplink_interfaces: [Ethernet51]
-      mlag_interfaces: [Ethernet53, Ethernet54]
-      filter:
-        tags: [ "110", "120" ]
-      nodes:
-        - name: leaf1a
-          id: 3
-          mgmt_ip: "192.168.101.111/24"
-          uplink_switches: [SPINE1]
-          uplink_switch_interfaces: [Ethernet1]
-        - name: leaf1b
-          id: 4
-          mgmt_ip: "192.168.101.112/24"
-          uplink_switches: [SPINE2]
-          uplink_switch_interfaces: [Ethernet1]
-```
-<code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">group_vars/SPINES.yml</code> & <code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">LEAFS.yml</code> - Device Type Variables
+Using the Connectivity Monitor Studio in Arista CloudVision, we define a list of hosts (endpoints) that we would like to track by giving them a name and designating their destination IP address. Then, with the use of device tags, we define an Arista switch (or group of switches) that we will source the ICMP probes from. This can be one of or any number of our Arista EOS switches that have been onboarded into CloudVision. The last step is to simply map the defined hosts to the tagged Arista switch or group of switches we want to source the monitoring from.   
 
-These files specify the category (spine or leaf) that switch hosts belong to in the topology. The type designation aligns with parameters outlined in the FABRIC.yml variables file.
+<figure markdown="span">
+  ![Inventory List](img/JuneNewsletterPic2.png){: style="height:300px;width:700px"}
+  <figcaption>Hosts in Connectivity Monitoring Studios</figcaption>
+</figure>
 
-```yaml
----
-### group_vars/SPINES.yml
-type: l3spine     # Must be either spine|l3spine
-```
+CloudVision Studios will then build out the configuration needed for each device that we defined in the Connectivity Monitor Studio. After executing the Change Control, within the Devices tab of CloudVision, under the Connectivity Monitor subsection, we can select any number of our devices and view Latency, Packet Loss, Jitter, and HTTP Response time statistics to the defined hosts.   
 
-```yaml  
+<figure markdown="span">
+  ![Inventory List](img/JuneNewsletterPic3.png){: style="height:200px;width:700px"}
+  <figcaption>Latency View</figcaption>
+</figure>
 
-### group_vars/LEAFS.yml
-type: l2leaf     # Must be l2leaf
-```
+For CloudVision as a Service (CVaaS) customers, this information is stored for 30 days. This can greatly aid in troubleshooting network disruptions as we can view historical telemetry data up to 4 weeks in the past. Furthermore, using the Events tab in CloudVIsion, we can set Latency, Packet Loss, Jitter, or HTTP Response Time thresholds that, when breached, send alerts directly to a receiver of our choice. Coupled with the real-time state streaming of EOS, this ensures that we will not miss a single spike in latency or any of the other listed metrics that we are tracking thanks to Connectivity Monitor.    
 
-<code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">group_vars/NETWORK_SERVICES.yml</code> - SVI Configuration
+To learn more about Connectivity Monitor and the Connectivity Monitor Studio, click the links below:  
 
-Variables for applying Switched Virtual Interfaces (SVI) to the default routing instance. Each SVI creates an associated VLAN configuration that is "tagged" for filtering trunk links between switches.
-
-```yaml
----
-### group_vars/NETWORK_SERVICES.yml
-tenants:
-  - name: FABRIC
-    vrfs:
-      - name: default
-        svis:
-          - id: 110
-            name: 'IDF1-Data'
-            tags: ["110"]
-            enabled: true
-            ip_virtual_router_addresses:
-              - 10.1.10.1
-            nodes:
-              - node: SPINE1
-                ip_address: 10.1.10.2/23
-              - node: SPINE2
-                ip_address: 10.1.10.3/23
-          - id: 120
-            name: 'IDF1-Voice'
-            tags: ["120"]
-            enabled: true
-            ip_virtual_router_addresses:
-              - 10.1.20.1
-            nodes:
-              - node: SPINE1
-                ip_address: 10.1.20.2/23
-              - node: SPINE2
-                ip_address: 10.1.20.3/23
-          - id: 130
-            name: 'IDF1-Guest'
-            tags: ["130"]
-            enabled: true
-            ip_virtual_router_addresses:
-              - 10.1.30.1
-            nodes:
-              - node: SPINE1
-                ip_address: 10.1.30.2/23
-              - node: SPINE2
-                ip_address: 10.1.30.3/23
-```
-
-<code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">group_vars/NETWORK_PORTS.yml</code> - Port Configuration
-
-Variables for applying switch port-level configuration in the form of profiles, including VLAN assignment, 802.1x, POE, and other features.
-
-```yaml
----
-### group_vars/DC1_NETWORK_PORTS.yml
-
-### Port Profile
-port_profiles:
-  - profile: PP-DOT1X
-    mode: "trunk phone"
-    spanning_tree_portfast: edge
-    spanning_tree_bpduguard: enabled
-    poe:
-      priority: critical
-      reboot:
-        action: maintain
-      link_down:
-        action: maintain
-      shutdown:
-        action: power-off
-      limit:
-        class: 4
-    dot1x:
-      port_control: auto
-      reauthentication: true
-      pae:
-        mode: authenticator
-      host_mode:
-        mode: multi-host
-        multi_host_authenticated: true
-      mac_based_authentication:
-        enabled: true
-      timeout:
-        reauth_period: server
-        tx_period: 3
-      reauthorization_request_limit: 3
-
-# ---------------- IDF1 ----------------
-# Assign switch interfaces the port porfile above
-  - switches:
-      - LEAF1[AB] # regex match LEAF1A & LEAF1B
-    switch_ports:
-      - Ethernet1-48
-    description: IDF1 Standard Port
-    profile: PP-DOT1X # Assigned port porfile
-    native_vlan: 110
-    structured_config: # Direct injection of EOS CLI-equivalent configuration into the interface, used for edge cases or features not abstracted by AVD.
-      switchport:
-        phone:
-          trunk: untagged
-          vlan: 120
-    dot1x:
-      authentication_failure:
-        action: allow
-        allow_vlan: 130
-```
-
-The global variables are now in place and ready for the next steps.
-
-### Build Playbook
-
-```yaml
----
-# build.yml
-- name: Build Configs
-  hosts: FABRIC
-  gather_facts: false
-  tasks:
-
-    - name: Generate AVD Structured Configurations and Fabric Documentation
-      ansible.builtin.import_role:
-        name: arista.avd.eos_designs
-
-    - name: Generate Device Configurations and Documentation
-      ansible.builtin.import_role:
-        name: arista.avd.eos_cli_config_gen
-```
-
-<code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">arista.avd.eos_designs</code>
-
-![AVD eos_designs Role Diagram](img/avd_eos_designs_role_diagram.png)
-
-**Purpose:** Generates structured configuration data models from your inventory (inventory.yml, group_vars, and host_vars) and builds fabric-wide documentation.
-
-**Outputs:**
-
-- YAML data structures per device under <code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">structured_configs/</code>
-- Markdown-based documentation in <code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">documentation/fabric/</code>
-
-**Include:**
-
-- Interface assignments 
-- BGP/EVPN settings
-- VLANs/SVI definitions
-- Underlay/Overlay routing logic
-
-<code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">arista.avd.eos_cli_config_gen</code>
-
-![AVD eos_cli_config_gen Role Diagram](img/avd_eos_cli_config_gen_diagram.png)
-
-**Purpose:** Converts structured config output from eos_designs into CLI-ready EOS configurations using Jinja2 templates.
-
-**Outputs:**
-
-- Flat text configuration files per device in <code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">intended/configs/</code>
-- Optionally, <code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">intended/structured_configs/</code> for CVP Studio
-
-**Include:**
-
-- Complete running-config per device
-- Platform-specific syntax (MLAG, port-channel, BGP, etc.)
-- Ready to push to EOS or CVaaS
-
-#### How They Work Together
-
-**eos_designs:**
-
-- Processes inventory and variables
-- Computes design logic (interface IPs, routing adjacencies, etc.)
-- Exports structured YAML data
-
-**eos_cli_config_gen:**
-
-- Reads structured YAML
-- Renders Jinja2 templates to EOS CLI syntax
-- Produces config files and optional configlets
-
-💡 **Key Concept:**
-
-- <code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">eos_designs</code> = Defines "What should this network do?"
-- <code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">eos_cli_config_gen</code> = Generates "What CLI is needed to implement it?"
-
-#### Example Output
-
-```bash
-(venv) root@057f4a3b7a6a:/app/examples/campus-fabric# ansible-playbook -i inventory.yml build.yml 
-
-PLAY [Build Configs] **************************************************************************************************************************************************************************************
-
-TASK [arista.avd.eos_designs : Verify Requirements] *******************************************************************************************************************************************************
-AVD version 5.1.0
-Use -v for details.
-ok: [SPINE1 -> localhost]
-
-TASK [arista.avd.eos_designs : Create required output directories if not present] *************************************************************************************************************************
-ok: [SPINE1 -> localhost] => (item=/app/examples/campus-fabric/intended/structured_configs)
-ok: [SPINE1 -> localhost] => (item=/app/examples/campus-fabric/documentation/fabric)
-
-TASK [arista.avd.eos_designs : Set eos_designs facts] *****************************************************************************************************************************************************
-ok: [SPINE1]
-
-TASK [arista.avd.eos_designs : Generate device configuration in structured format] ************************************************************************************************************************
-ok: [SPINE1 -> localhost]
-ok: [SPINE2 -> localhost]
-ok: [LEAF1A -> localhost]
-ok: [LEAF1B -> localhost]
-
-TASK [arista.avd.eos_designs : Generate fabric documentation] *********************************************************************************************************************************************
-ok: [SPINE1 -> localhost]
-
-TASK [arista.avd.eos_designs : Remove avd_switch_facts] ***************************************************************************************************************************************************
-ok: [SPINE1]
-
-TASK [arista.avd.eos_cli_config_gen : Verify Requirements] ************************************************************************************************************************************************
-skipping: [SPINE1]
-
-TASK [arista.avd.eos_cli_config_gen : Generate eos intended configuration and device documentation] *******************************************************************************************************
-ok: [SPINE1 -> localhost]
-ok: [SPINE2 -> localhost]
-ok: [LEAF1A -> localhost]
-ok: [LEAF1B -> localhost]
-
-PLAY RECAP ************************************************************************************************************************************************************************************************
-LEAF1A                     : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-LEAF1B                     : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0      
-SPINE1                     : ok=7    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
-SPINE2                     : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-```
-
-## Deploy Playbook
-
-![AVD cv_deploy Role Diagram](img/avd_cv_deploy_diagram.png)
-
-Example deploy playbook using the cv_deploy role to connect to CVaaS:
-
-```yaml
-- name: Deploy Configurations to Devices Using CloudVision Portal
-  hosts: DC1_FABRIC
-  gather_facts: false
-  connection: local
-  tasks:
-    - name: Push Configuration to CVaaS Studio
-      ansible.builtin.import_role:
-        name: arista.avd.cv_deploy
-      vars:
-        cv_server: www.cv-prod-us-central1-c.arista.io
-        cv_token: "{{ lookup('env', 'CVP_PASSWORD') }}"
-```
-
-### Playbook Functionality
-
-The **deploy.yml** playbook pushes rendered EOS configurations to CloudVision as-a-Service (CVaaS) using the <code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">arista.avd.cv_deploy</code> role:
-
-<code style="background:#b4b4b4;padding:0.2em 0.4em;font-weight:bold">cv_deploy</code> Role Workflow:
-
-1. Reads intended configs from intended_configs/
-2. Connects to CVaaS using cv_server and cv_token
-3. Creates/updates configlets in CloudVision Studio
-4. Assigns configlets to appropriate devices
-5. Optionally initiates config proposals for approval (Studio mode)
-6. Verifies assignment and returns status
-
-### CVaaS/CVP Authentication
-
-**Token Requirements:**
-
-1. Create a CloudVision service account in **Settings > Users > Service Accounts**
-2. Generate an API access token
-3. Store token as an environment variable or in Ansible Vault
-
-```bash
-export CVP_PASSWORD="your_cvaas_service_account_token"
-```
-
-The playbook references this token via:
-
-```yaml
-cv_token: "{{ lookup('env', 'CVP_PASSWORD') }}"
-```
-
-**Note:** The service account requires read/write access to Config Studio, Devices, and Provisioning APIs.
-
-### Example Output
-
-```bash
-(venv) root@057f4a3b7a6a:/app/examples/campus-fabric# ansible-playbook -i inventory.yml deploy-studio.yml 
-
-PLAY [Deploy Configurations to Devices Using CloudVision Portal] ********************************************************************
-
-TASK [arista.avd.cv_deploy : Verify Requirements] ***********************************************************************************
-AVD version 5.1.0
-Use -v for details.
-ok: [SPINE1 -> localhost]
-
-TASK [arista.avd.cv_deploy : Deploy device configurations and tags to CloudVision] **************************************************
-changed: [SPINE1 -> localhost]
-
-PLAY RECAP **************************************************************************************************************************
-SPINE1                     : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-
-(venv) root@057f4a3b7a6a:/app/examples/campus-fabric# 
-```
-
-## Submit Pending Change Control via CVaaS
-
-### Review Studio Workspace and Pending Change Control
-
-After the deploy.yml playbook completes:
-
-1. A workspace is created in Studio with device-specific configurations
-2. A pending change control ticket is generated after validation
-
-![CVaaS Studio Workspace](img/cvaas_studio_workspace_submitted.png)
-
-![CVaaS Change Control Pending](img/cvaas_cc_pending.png)
-
-### Submit Change Control
-
-1. Click on the pending change ticket
-2. Review changes
-3. Click "Approve and Execute" when ready
-
-CVaaS will push configurations to all switches in the fabric.
-
-![CVaaS Change Control Approved](img/cvaas_cc_approve.png)
-
-![CVaaS Change Control Successful](img/cvaas_cc_successful.png)
-
-## References
-
-### Getting Started
-
-- [Install Arista AVD](https://avd.arista.com/5.4/docs/installation/collection-installation.html)
-- [Getting Started Guide](https://avd.arista.com/5.4/docs/getting-started/intro-to-ansible-and-avd.html)
-- [Campus Fabric Example](https://avd.arista.com/5.4/ansible_collections/arista/avd/examples/campus-fabric/index.html)
-
-### Arista AVD Ansible Roles
-- [eos_design](https://avd.arista.com/5.4/ansible_collections/arista/avd/roles/eos_designs/index.html)
-- [eos_cli_config_gen](https://avd.arista.com/5.4/ansible_collections/arista/avd/roles/eos_cli_config_gen/index.html)
-- [cv_deploy](https://avd.arista.com/5.4/ansible_collections/arista/avd/roles/cv_deploy/index.html)
-
-### Additional Information
-
-- [Arista Netdevops Community](https://github.com/arista-netdevops-community)
-- [Arista AVD](https://avd.arista.com/5.4/index.html)
-- [Ansible Galaxy: arista.avd](https://galaxy.ansible.com/ui/repo/published/arista/avd/)
-- [Arista ANTA Framework](https://anta.arista.com/stable/)
-- [Arista PyAVD](https://avd.arista.com/5.4/docs/pyavd/pyavd.html)  
+[Connectivity Monitor](https://www.arista.io/help/articles/ZGV2aWNlcy5jb25uZWN0aXZpdHlNb25pdG9yLkFsbA==#connectivity-monitor)  
+[Connectivity Monitor Studio](https://www.arista.io/help/articles/cHJvdmlzaW9uaW5nLnN0dWRpb3MuQWxsLmJ1aWx0SW4uY29ubmVjdGl2aXR5#connectivity-monitoring-studio)  
+[Connectivity Monitor TOI](https://www.arista.com/en/support/toi/eos-4-20-1f/13913-connectivity-monitor)    
 
 
 ---
@@ -578,10 +124,10 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
-   | __EOS__           | 4.33.2.1F <br> 4.33.3F <br> 4.34.0F <br> 4.30.10M <br>  | May 14th, 2025 <br> May 2nd, 2025 <br> April 25th, 2025 <br > April 21st, 2025 <br >
+   | __EOS__           | 4.32.6M <br> 4.34.1F <br> 4.32.0.2F <br> 4.33.2.1F <br>  | June 20th, 2025 <br> June 16th, 2025 <br> May 20th, 2025 <br> May 14th, 2025 <br> 
    | __CVP__           | Portal 2025.1.1 <br>Appliance 7.0.1<br> Sensor 1.1.0 <br>    | May 7th, 2025 <br> January 28th, 2025<br> March 24th, 2025 <br>
-   | __DMF__           | 8.4.5 <br >| April 28th, 2025 <br> 
-   | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>18.0.0<br>       | <br>December 15th, 2022<br>December 2024<br>
+   | __DMF__           | 8.5.3 <br >| June 20th, 2025 <br> 
+   | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br>13.0.0-67<br>19.0.0<br>       | <br>December 15th, 2022<br>June 12th, 2025<br>
    | __Arista NDR__         | 5.2.4         | August 2024
    | __TerminAttr__    | 1.27.2 <br>       | April 9th, 2025 <br> 
 
@@ -596,9 +142,9 @@ Below is a list of advisories that are announced by Arista. To view more details
 |  __ACL Policies__   | [Security Advisory 0120](https://www.arista.com/en/support/advisories-notices/security-advisory/21414-security-advisory-0120)  | May 27th, 2025   |  
 |  __IPSec__   | [Security Advisory 0119](https://www.arista.com/en/support/advisories-notices/security-advisory/21413-security-advisory-0119)  | May 27th, 2025   |  
 |  __VLAN Isolation__   | [Security Advisory 0118](https://www.arista.com/en/support/advisories-notices/security-advisory/21411-security-advisory-0118)  | May 20th, 2025   |  
-|  __gNMI Transport__   | [Security Advisory 0117](https://www.arista.com/en/support/advisories-notices/security-advisory/21394-security-advisory-0117)  | May 6th, 2025   |  
+|  __32bit EOS CCS-750X__   | [Field Notice 0102](https://www.arista.com/en/support/advisories-notices/field-notice/21629-field-notice-0102)  | June 23rd, 2025   | 
+|  __DMF Analytics Node__   | [Field Notice 0101](https://www.arista.com/en/support/advisories-notices/field-notice/21628-field-notice-0101)  | June 18th, 2025   |   
 |  __AP Point Firmware 19.0__   | [Field Notice 0100](https://www.arista.com/en/support/advisories-notices/field-notice/21415-field-notice-0100)  | May 28th, 2025   |  
-|  __Secure Boot__   | [Field Notice 0099](https://www.arista.com/en/support/advisories-notices/field-notice/21317-field-notice-0099)  | April 22nd, 2025   |  
 
 
 
@@ -618,7 +164,8 @@ For a list of the most current advisories and notices, click [Here](https://www.
 | Software      | [End of Software for CloudVision Portal 2023.2](https://www.arista.com/en/support/advisories-notices/end-of-support/21412-end-of-software-support-for-cloudvision-portal-2023-2-release-train)<br>[End of Software Support for EOS 4.28](https://www.arista.com/en/support/advisories-notices/end-of-support/21275-end-of-software-support-for-eos-4-28)<br>[DMF and CCF Deployments on Accton/ Edgecore Switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21094-end-of-support-for-dmf-and-ccf-deployments-on-accton-edgecore-switches)<br>[EOS-4.34 and later no longer supported on select switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21089-end-of-software-support-for-7280r-r2-7500r-r2-and-7020r-series)<br> | May 27th. 2025 <br> March 14, 2025 <br>January 31st, 2025 <br>January 15th, 2025 <br> |
 | Module        | [7500R2 Series Linecards](https://www.arista.com/en/support/advisories-notices/end-of-sale/18886-end-of-sale-of-the-arista-7500r2-series-line-cards) | December 20th, 2023    |
 | Access Points | [AP Model W-118](https://www.arista.com/en/support/advisories-notices/end-of-sale/20652-end-of-sale-of-ap-model-w-118) <br>      |   November 20th, 2024 <br> |
-| DMF           | [DMF 8.2](https://www.arista.com/en/support/advisories-notices/end-of-support/21409-end-of-software-support-for-dmf-8-2)          |  May 12th, 2025           |
+| CVP           | [CVP 2023.2](https://www.arista.com/en/support/advisories-notices/end-of-support/21627-end-of-software-support-for-cloudvision-portal-2023-3-release-train) <br> [CVP 2023.2](https://www.arista.com/en/support/advisories-notices/end-of-support/21412-end-of-software-support-for-cloudvision-portal-2023-2-release-train)          |  June 17th, 2025 <br> May 27th, 2025   |
+| DMF           | [DMF 8.3](https://www.arista.com/en/support/advisories-notices/end-of-support/21417-end-of-software-support-for-dmf-8-3)          |  June 3rd, 2025           |
 | Switches      | [DCS-7020R Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/21052-end-of-sale-of-the-arista-dcs-7020r-series)<br> |  December 20th, 2024  |
 
 

@@ -12,6 +12,7 @@ markdown_extensions:
 - admonition
 - tables
 - def_list
+- footnotes
 - pymdownx.details
 - pymdownx.superfences
 - pymdownx.snippets
@@ -22,6 +23,8 @@ markdown_extensions:
 
 theme:
   name: material
+  features: 
+    - content.footnote.tooltips
   icon:
     admonition:
       quote: octicons/quote-16
