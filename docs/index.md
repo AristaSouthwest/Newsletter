@@ -3,87 +3,71 @@
 
 # Arista Southwest Region Newsletter
 
-Welcome to the June 2025 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the July 2025 newsletter for Arista customers in the U.S. Southwest Region!
 
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.  
 
 ---
 
-## **Leveraging Arista Cloud Test (ACT) for Network Modeling**
-By: Shayne Kelly, Advanced Services Engineer, Southwest Region   
+## **Arista AI: It's Only A Matter of Time**
+By: Akashdeep Takhar, Advanced Services Engineer, Southwest Region   
 
-Arista Cloud Test (ACT) is a virtualized network modeling environment that can be used for testing configurations and features, or as a full ‘digital twin’. This allows you to have a full working model of your network, whether you are trying to get a head start on port mapping and configurations, testing out a difficult migration, applying a new set of features, or creating a full digital twin of your existing production network, where you can test changes and designs before applying them to your production environment.   
+The impact that Artificial Intelligence has on our lives today is quite extraordinary. It seems as if no matter where we travel to or which screen we face, you will eventually hear about AI. Artificial Intelligence (AI) is revolutionizing the way networks are built, managed, and optimized. As AI workloads grow in scale and complexity, traditional network infrastructures are struggling to keep up. A significant portion of AI job time is spent on network communications, making network bottlenecks a critical concern in job completion in workflows from the constant inputs and requests to the AI cluster. This shift is placing networking at the core of innovation, with AI applications requiring massive data exchange, real-time responsiveness, and robust connectivity. The role of the network is no longer just about transport—it’s about enabling intelligence at scale.  
 
-I use ACT on a regular basis, as customers frequently come to me and ask, ‘How do I migrate from a traditional 3-Tier design to an EVPN/VxLAN CLOS network?’, ‘How do I set up the routing policy for my Metro Area Network?’, or even, ‘What is the best way to configure my BGP policies?’. Any number of these situations can easily be modeled with ACT.   
-
-Also, given that ACT allows you to specify the device model and have the correct port mapping applied, you are able to get a head start on modeling out your configuration and even your automation, before you ever rack your new Arista Gear. I have worked with many customers, using ACT to create and test the configurations and automation models they have employed in their production environments, which allowed them to build out everything they needed for their deployment, long before the switches arrived. This includes switch configurations, Network Automation Variable Files, for both customer Ansible Scripts and Arista Validated Design (AVD) models, and even integrations with third party services, such DHCP and IPAM (IP Address Management) systems.   
-
-Lastly, because you can provision connectivity outside of this virtual environment, you can connect these virtual switches to CVaaS (Arista Cloud Vision as a Service), allowing you to use the same Cloud Vision that you use to manage your other switches, to manage your test environment. This allows you to manage your switches via Cloud Vision, whether that is with Studios, or a different Automation Platform, and view your configuration and changes the same way you will with your switches in your production environment.   
-
-Obviously a deep dive into this technology is a rather lengthy article. So in this article, we will cover the ‘highlights’ of ACT, some basic steps and requirements to get your ACT environment up and running, and show what this looks like in CVaaS.   
-
-**ACT Setup and Configuration**  
-
-ACT leverages simple YAML files for constructing your device inventory and the connections between the devices. This allows you a simple way to create your lab environment. I love the fact that YAML files are so flexible and easy to read. For someone who is not an automation ‘expert’ this format is easy for me to work with and understand. I have worked with customers who have never used automation before, but due to the structure of YAML files, they were able to quickly understand how to edit these files and use them in their environment.   
-
-Once you have all of your topology file completed, now you simply use that to ‘create’ your virtual environment and ACT does the rest[^1]. ACT will verify that the topology file is valid and even call out any errors, if they exist. Once the file is validated, you can generate your lab and away you go. The screenshot below shows an example of a lab that I recently built to test out some of the new Campus Studios features for a customer. You can see each of the devices is listed, with the details about the device.  
-
-**Working with Your Virtual Environment**  
-
-For this lab, I choose to use CVaaS as the way that I would configure and manage my devices. I have an existing CVaaS instance that I use for testing, and adding these devices to my CVaaS instance was exactly the same as I would do for an on-site deployment. Because there are only a few devices in my lab, I choose not to host a ZTP (Zero Touch Provisioning) server, which would have added the security token and the required network information to connect the device to CVaaS automatically. Instead, I choose to do this manually, however, I have used the ZTP method in the past, and it works exactly as it does in a production environment.   
-
-In the screenshot below, you can see the Inventory Page from my CVaaS environment. The virtual devices for this lab have been onboarded and you can see them in the inventory, alongside other production, physical devices in my environment. I like to use CVaaS when I am testing features specific to CloudVision as it provides me with the most up to date features and functionality.   
+Arista Networks is leading this transformation with a suite of AI-ready solutions designed to meet these next-generation challenges. Arista’s AI Network solutions, including its AI Spine-Leaf fabric and high-performance Ethernet switching platforms, support 100G to 800G connectivity for demanding GPU clusters. The Etherlink Smart Networking Portfolio further enhances this architecture by providing visibility, automation, and simplified deployment across AI infrastructure. Hardware platforms such as the 7060X, 7800R, and 7700R4 Series are ready to handle AI centers that comprise tens to thousands of XPUs. To give you a complete set of tools to run a grand AI cluster, we have also enhanced our EOS software to handle the traffic by adding features such as: Cluster Load Balancing, AI Flow Observability, and RoCEv2 support, just to name a few.  
 
 <figure markdown="span">
-  ![Inventory List](img/CVP_Inventory.png)
-  <figcaption>Inventory List in CVaaS</figcaption>
-</figure>
+  ![Pic1](img/July25Article1.png)
+  <figcaption>Arista AI Portfolio</figcaption>
+</figure>  
+
+These innovations help adapt you to the modern changes in the world of computing and networks.. Arista’s platforms are designed to simplify the deployment and management of AI networks, reducing operational overhead while delivering the speed and reliability required for AI success. AI is here, and networks must evolve with it. Arista offers the performance, intelligence, and ease of use that modern AI-driven businesses need. Explore how Arista can help you build your AI-ready future today with the links below:  
+[Deployment Guide](https://www.arista.com/assets/data/pdf/AI-Network-Fabric_Deployment_Guide.pdf)  
+[AI Network Whitepaper](https://www.arista.com/assets/data/pdf/Whitepapers/AI-Network-WP.pdf)  
+[Product Portfolio](https://www.arista.com/assets/data/pdf/Arista-Etherlink-Smart-Networking-Portfolio-Solution-Brief.pdf)
 
 
-Again, all of these devices that you see here are virtual devices, running in Cloud Hosted Instance, that you can use to test with. I have done the same or similar work for Data Center Deployments, WAN routing deployments, tests for AVD and other automation frameworks, you name it. The possibilities are endless with ACT. While this example is relatively small and simple, I have built ACT topologies with Customers that literally span 100s of devices, in large 5 Stage CLOS fabrics, with multiple uplinks and dozens of connected end-hosts, all running iPerf and other network testing technologies.   
 
-**Summary**  
+## **Initial Onboarding Of Your Arista Device: The DO's and DO NOT's**
+By: Akashdeep Takhar, Advanced Services Engineer, Southwest Region    
 
-ACT is a very easy to use tool that allows you to test out features, pre-build your network or create a digital twin that you can use to test out changes. It provides you a platform to create extremely large networks, or test out features in a small sandbox, catered to Arista Devices.   
-
-If you are interested in learning more about ACT, or would like to speak to someone about ordering this or seeing a live demo, please contact your local account team.  
-
-Alternatively, you can also read the following Data Sheet for additional information:  
-[ACT Data Sheet](https://www.arista.com/assets/data/pdf/Datasheets/Cloud-Test-Datasheet.pdf)  
-
-
-[^1]: Virtually all of the ‘fixed’ switches can be specified, with the correct port mapping applied. It is possible to use Chassis switches as well, but this takes a bit more effort    
-
-
-## **Simple and Straightforward Network Monitoring - Arista Connectivity Monitoring Studio**
-By: Alex Bojko, Advanced Services Engineer, Southwest Region   
-
-High latency, packet loss, and jitter are all words we despise as network engineers. We design and build networks to combat and prevent each of those events from happening. However, some things are out of our control and still find a way to occur despite our best efforts. Clients, Endpoints, and Applications are isolated in discrete locations, away from the local network. Managing and determining the performance and user experience of a modern network has proven to be a tough challenge.   
-
-The Connectivity Monitor Studio built into Arista CloudVision serves as a simple and straightforward solution to help address this challenge. Connectivity Monitor is a feature introduced in EOS 4.24.2F that aims to allow users to monitor their network resources directly from their Arista switches. It works by periodically sending ICMP probes to designated endpoints, tracking latency, packet loss, jitter, and HTTP response time. An Endpoint can be classified as an EOS device, third-party device, access point, server, or application. As long as ICMP and HTTP ports to these endpoints are open, Connectivity Monitor will be able to track a device's connection to them.  
-
-Using the Connectivity Monitor Studio in Arista CloudVision, we define a list of hosts (endpoints) that we would like to track by giving them a name and designating their destination IP address. Then, with the use of device tags, we define an Arista switch (or group of switches) that we will source the ICMP probes from. This can be one of or any number of our Arista EOS switches that have been onboarded into CloudVision. The last step is to simply map the defined hosts to the tagged Arista switch or group of switches we want to source the monitoring from.   
+The day has finally arrived: You are ready to rack your new Arista switch and begin to onboard it to production. After waiting for shipment, scheduling the team to rack the switches, and allocating space in your environment, you can now start to use the switch. However, there are some checklist items that we need to take into consideration to prevent problems from arising. Poor preparation leads to poor execution, and as an Advanced Service Engineer that has seen problems occur, it’s best to have some action items taken care of early on. Listed below are 4 best practices to use during the initial onboarding of your devices. In addition, we have also included 4 crucial steps you should avoid in order to execute the onboarding process to perfection with the least amount of trouble.   
 
 <figure markdown="span">
-  ![Inventory List](img/JuneNewsletterPic2.png){: style="height:300px;width:700px"}
-  <figcaption>Hosts in Connectivity Monitoring Studios</figcaption>
-</figure>
+  ![Pic1](img/July25Article2.jpg)
+  <figcaption>To DO List Below</figcaption>
+</figure>  
 
-CloudVision Studios will then build out the configuration needed for each device that we defined in the Connectivity Monitor Studio. After executing the Change Control, within the Devices tab of CloudVision, under the Connectivity Monitor subsection, we can select any number of our devices and view Latency, Packet Loss, Jitter, and HTTP Response time statistics to the defined hosts.   
+To DO:  
+
+1.  If using Zero Touch Provisioning, please set up Option 66 and 67 on your DHCP Server:   
+   To enable ZTP for initial onboarding, it is required to enable options 66 and 67 within your DHCP server for the Arista switches to grab a configuration file. Note that if you are running EOS version 4.30.X and above, this requirement is not necessary. The purpose of ZTP is to have a pre-set configuration installed onto your switch. In addition, the next step is to check for reachability to Arista.io   
+2. Ensure that you have the proper length rack mounts:  
+  Sometimes we are busy with discussion of architecture, so busy that in fact we glance over some detail that might seem obvious. Upon arrival of your device, ensure that the proper rack equipment is ready to hold the switches in place. If a custom rack mount is needed, your fellow SE would be more than happy to find one for you.  
+3. If you plan to use in band management, enable the Firewall to allow the assigned Vlan to pass through to reach the internet:  
+  One of the final steps to ensure that onboarding is complete is for the device to reach out to your cloud tenant instance on Arista.io. While using in-band management, if there is a Vlan that is associated with managing the switches, ensure that the Vlan is able to pass through the firewall to reach out to Arista.io.  
+4. Create a Port Map for device connectivity:  
+  Time saving step here. Wiring devices together seems easy, until you realize the distance between devices are far apart or that the port speed is not what you had expected. Save time by creating a design or port mapping sheet to quickly wire devices together.    
 
 <figure markdown="span">
-  ![Inventory List](img/JuneNewsletterPic3.png){: style="height:200px;width:700px"}
-  <figcaption>Latency View</figcaption>
-</figure>
+  ![Pic1](img/July25Article3.jpg)
+  <figcaption>To NOT Do List Below</figcaption>
+</figure> 
 
-For CloudVision as a Service (CVaaS) customers, this information is stored for 30 days. This can greatly aid in troubleshooting network disruptions as we can view historical telemetry data up to 4 weeks in the past. Furthermore, using the Events tab in CloudVIsion, we can set Latency, Packet Loss, Jitter, or HTTP Response Time thresholds that, when breached, send alerts directly to a receiver of our choice. Coupled with the real-time state streaming of EOS, this ensures that we will not miss a single spike in latency or any of the other listed metrics that we are tracking thanks to Connectivity Monitor.    
+To NOT Do List:  
 
-To learn more about Connectivity Monitor and the Connectivity Monitor Studio, click the links below:  
+1. Wait last minute to see if your CVP instance is set up:   
+  As your equipment arrives, it’s best practice to begin communicating with the Account Manager to check for your CVP instance. If it’s not ready, and your equipment arrives, this may add additional time to your plans for onboarding the devices to use CVP.  
+2. Build configurations for the device, as they begin to onboard:  
+  Having at least an idea of the features and protocols to use prior to the device’s arrival is crucial. Without having a set plan, or even discussing the protocols to use, will add more time to setting up your network. If there is a set deadline, this should be a high priority. It’s best to have this set up as the devices ship over, even better when talking to your SE representative to have questions answered faster.  
+3. Forget to check transceiver and optic bandwidth capabilities:  
+  This is one of those steps that we might overlook because we are sure the fibers and optics will work together….until it doesn’t. Mismatch speeds and troubleshooting Layer 1 problems take longer than anticipated since there are many sources of truth for the issue.   
 
-[Connectivity Monitor](https://www.arista.io/help/articles/ZGV2aWNlcy5jb25uZWN0aXZpdHlNb25pdG9yLkFsbA==#connectivity-monitor)  
-[Connectivity Monitor Studio](https://www.arista.io/help/articles/cHJvdmlzaW9uaW5nLnN0dWRpb3MuQWxsLmJ1aWx0SW4uY29ubmVjdGl2aXR5#connectivity-monitoring-studio)  
-[Connectivity Monitor TOI](https://www.arista.com/en/support/toi/eos-4-20-1f/13913-connectivity-monitor)    
+If you’re able to limit the amount of time it takes to troubleshoot the matter because you had prepared ahead of time, wouldn’t your future self thank you for that? Of course, at Arista we have teams that help with the onboarding process, along with SE’s that check to see if the essential fundamentals of your networks are ready for production. If there’s any questions regarding the onboarding process of your new devices, please ask and we would be happy to help!  
+
+Additional tips here, click the links below:  
+[Tips and Tricks](https://arista.my.site.com/AristaCommunity/s/article/eos-tricks-and-tips-that-make-life-easier)    
 
 
 ---
