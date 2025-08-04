@@ -3,7 +3,10 @@
 
 # Arista Southwest Region Newsletter
 
-Welcome to the August 2025 newsletter for Arista customers in the U.S. Southwest Region!
+Welcome to the August 2025 newsletter for Arista customers in the U.S. Southwest Region!  
+
+Did you hear? VeloCloud is now a part of Arista Check out the latest blog, written by our CEO, Jayshree Ullal below!  
+[Next Generation SD-WAN in the AI Era, by Arista CEO Jayshree Ullal](https://blogs.arista.com/blog/next-generation-sd-wan-in-the-ai-era)  
 
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.  
