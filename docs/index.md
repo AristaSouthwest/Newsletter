@@ -36,7 +36,7 @@ By: Akashdeep Takhar, Advanced Services Engineer, Southwest Region
 The day has finally arrived: You are ready to rack your new Arista switch and begin to onboard it to production. After waiting for shipment, scheduling the team to rack the switches, and allocating space in your environment, you can now start to use the switch. However, there are some checklist items that we need to take into consideration to prevent problems from arising. Poor preparation leads to poor execution, and as an Advanced Service Engineer that has seen problems occur, it’s best to have some action items taken care of early on. Listed below are 4 best practices to use during the initial onboarding of your devices. In addition, we have also included 4 crucial steps you should avoid in order to execute the onboarding process to perfection with the least amount of trouble.   
 
 <figure markdown="span">
-  ![Pic1](img/July25Article11.jpg)
+  ![Pic1](img/July25article11.jpg)
   <figcaption>To DO List Below</figcaption>
 </figure>  
 
