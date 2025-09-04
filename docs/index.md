@@ -3,87 +3,119 @@
 
 # Arista Southwest Region Newsletter
 
-Welcome to the August 2025 newsletter for Arista customers in the U.S. Southwest Region!  
+Welcome to the September 2025 newsletter for Arista customers in the U.S. Southwest Region!  
 
 Did you hear? VeloCloud is now a part of Arista. Check out the latest blog, written by our CEO, Jayshree Ullal below!  
 [Next Generation SD-WAN in the AI Era, by Arista CEO Jayshree Ullal](https://blogs.arista.com/blog/next-generation-sd-wan-in-the-ai-era)  
 
+Check out additional Blog Posts below!  
+[CloudVision: The First Decade](https://blogs.arista.com/blog/cloudvision-the-first-decade-2025)  
+[All Blogs](https://blogs.arista.com/blog)  
  
 We welcome your feedback on the newsletter. If you have any ideas on what you want to see, please reach out to southwest@arista.com.  
 
 ---
 
-## **Arista Networking for AI: It's Only A Matter of Time**
-By: Akashdeep Takhar, Advanced Services Engineer, Southwest Region   
+## **Using Traffic Policies to Assist with QoS and Congestion Management**
+By: Shayne Kelly, Advanced Services Engineer, Southwest Region  
 
-The impact that Artificial Intelligence has on our lives today is quite extraordinary. It seems as if no matter where we travel to or which screen we face, you will eventually hear about AI. Artificial Intelligence (AI) is revolutionizing the way networks are built, managed, and optimized. As AI workloads grow in scale and complexity, traditional network infrastructures are struggling to keep up. A significant portion of AI job time is spent on network communications, making network bottlenecks a critical concern in job completion in workflows from the constant inputs and requests to the AI cluster. This shift is placing networking at the core of innovation, with AI applications requiring massive data exchange, real-time responsiveness, and robust connectivity. The role of the network is no longer just about transport—it’s about enabling intelligence at scale.  
+As applications within the Data Center and even end host devices inside our Campuses, use an ever increasing amount of network bandwidth, QoS and Congestion Management have become a hot topic in network design and implementation. The previous answer of ‘throw more bandwidth at it’, is being pushed to the limit as AI continues to place demands on the network infrastructure. But how do you build a QoS policy that is dynamic and does not need to be amended each time you add a subnet? The answer is Arista Traffic Polices.   
 
-Arista Networks is leading this transformation with a suite of AI-ready solutions designed to meet these next-generation challenges. Arista’s Networking for AI solutions, including its AI Spine-Leaf fabric and high-performance Ethernet switching platforms, support 100G to 800G connectivity for demanding GPU clusters. The Etherlink Smart Networking Portfolio further enhances this architecture by providing visibility, automation, and simplified deployment across AI infrastructure. Hardware platforms such as the 7060X, 7800R, and 7700R4 Series are ready to handle AI centers that comprise tens to thousands of XPUs. To give you a complete set of tools to run a grand AI cluster, we have also enhanced our EOS software to handle the traffic by adding features such as: Cluster Load Balancing, AI Flow Observability, and RoCEv2 support, just to name a few.  
+**What are Traffic Policies?**  
 
+In the most simple definition, a Traffic Policy allows the user to configure rules to match on certain packets through the packet processing pipeline. In the context of QoS Polices, Traffic Polices allow us to match on certain criteria, maybe a field-set [field-set TOI link](https://www.arista.com/en/support/toi/eos-4-29-2f/17201-bgp-peer-field-sets-for-use-with-traffic-policies) that we created to match various subnets from certain BGP peers, and then take an action on the packets contained in the match criteria, by setting a DSCP value and/or a transit queue.   
+
+As you can see in this TOI [Link](https://www.arista.com/en/support/toi/eos-4-27-1f/14873-bgp-community-based-prefix-sets-for-use-with-traffic-policies), by using traffic policies in conjunction with BGP, we can get away from ACL based matching criteria and statically configured IP prefix matches, and instead leverage BGP to manage the IP prefix field sets, to use within our traffic policy.    
+
+**A Brief Example of Using Traffic Policies to set DSCP Values**  
+
+In order to show how traffic policies can be used, I set up a quick lab, using some Arista Devices in a Typical Spine/Leaf Configuration. I have (2) sets of Leaf or ToR switches, each connected to an ESXI host that has various Linux Virtual Machines. I prefer to use Linux as it is easier to verify traffic using TCPDUMP.   
+
+The diagram below shows the layout of the Lab that I am using (please note, while there is an MLAG shown in the diagram, I am not using MLAG for this lab):  
+  
 <figure markdown="span">
-  ![Pic1](img/July25Article1.png)
-  <figcaption>Arista AI Portfolio</figcaption>
-</figure>  
-
-These innovations help adapt you to the modern changes in the world of computing and networks.. Arista’s platforms are designed to simplify the deployment and management of networking for AI, reducing operational overhead while delivering the speed and reliability required for AI success. AI is here, and networks must evolve with it. Arista offers the performance, intelligence, and ease of use that modern AI-driven businesses need. Explore how Arista can help you build your AI-ready future today with the links below:  
-[Deployment Guide](https://www.arista.com/assets/data/pdf/AI-Network-Fabric_Deployment_Guide.pdf)  
-[AI Network Whitepaper](https://www.arista.com/assets/data/pdf/Whitepapers/AI-Network-WP.pdf)  
-[Product Portfolio](https://www.arista.com/assets/data/pdf/Arista-Etherlink-Smart-Networking-Portfolio-Solution-Brief.pdf)  
-[Demystifying Ultra Ethernet](https://blogs.arista.com/blog/demystifying-ultra-ethernet)
+  ![Pic1](img/September25Article1pic1.png)
+  <figcaption>Lab</figcaption>
+</figure>   
 
 
+Using this lab, I tested various scenarios and configurations, but for the purpose of this article, we will focus on setting the DSCP value via a Dynamic Field-Set, using BGP Communities. My goal is to use the ‘B’ Leafs, which will be the ingress leaf in this traffic flow, to set a DSCP value of 48 on all packets that are being sent to 172.0.122.0/24. This subnet is connected to the ‘C’ Leafs.   
 
-## **Initial Onboarding Of Your Arista Device: The DO's and DO NOT's**
+In the example configuration below, we will use a traffic-policy that references a field-set that is being sourced from BGP. This means that we can define a criteria in BGP, in this case matching upon a community (65104:22), and any routes that have this community will be matched to the PremiumPfx class in our traffic policy. With the traffic policy configured, we will apply it to the interface (See below configuration output):  
+
+```
+traffic-policies
+    field-set ipv4 prefix basic
+    source bgp
+!
+    field-set ipv4 prefix premium
+    source bgp
+!
+router bgp 65107
+   vrf default
+      traffic-policy field-set mappings
+         field-set ipv4 basic
+            community 65104:11
+         field-set ipv4 premium
+            community 65104:22
+traffic-policies
+   traffic-policy transit
+      match PremiumPfx ipv4
+         destination prefix field-set premium
+         !
+         actions
+            set dscp 48
+!
+interface Eth1
+    traffic-policy input transit
+
+```  
+
+Now that this has been applied, we will source traffic from 172.0.121.11 (a VM attached to the ‘B’ Leafs) destined for 172.0.122.11 (a VM attached to the ‘C’ Leafs). In order to show the DSCP value being set (shown as tos 0xc0), we will compare the output of a tcpdump taken before applying the traffic-policy to the interface with the output of a tcpdump taken after applying the traffic-policy to the interface.   
+
+```
+lab@tp1202:~$ sudo tcpdump -i ens34 src host 172.0.121.11 -vvv
+tcpdump: listening on ens34, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+21:14:09.374584 IP (tos 0x0, ttl 61, id 48402, offset 0, flags [DF], proto ICMP (1), length 84)
+
+AFTER
+lab@tp1202:~$ sudo tcpdump -i ens34 src host 172.0.121.11 -vvv
+tcpdump: listening on ens34, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+21:15:24.006086 IP (tos 0xc0, ttl 61, id 22808, offset 0, flags [DF], proto ICMP (1), length 84)
+
+```  
+
+As you can see, we were able to set the DSCP value on packets destined for a particular subnet, based upon a BGP community that is being advertised by the ingress leaf.   
+
+**Summary**  
+
+Traffic Policies are a very flexible method for manipulating various aspects of your network. This same methodology could be used at the WAN edge, to mark inbound or outbound traffic based upon BGP attributes. You could use this to provide SLAs for certain applications in your data center, or even to police traffic coming from your campus. There are a multitude of use cases for this.   
+
+If you are interested in learning more about Traffic Polices, or would like to speak to someone about seeing a live demonstration, please contact your local account team.   
+
+---
+
+## **Arista Virtual Lab Environments: An Opportunity to Test Your Creativity**
 By: Akashdeep Takhar, Advanced Services Engineer, Southwest Region    
 
-The day has finally arrived: You are ready to rack your new Arista switch and begin to onboard it to production. After waiting for shipment, scheduling the team to rack the switches, and allocating space in your environment, you can now start to use the switch. However, there are some checklist items that we need to take into consideration to prevent problems from arising. Poor preparation leads to poor execution, and as an Advanced Service Engineer that has seen problems occur, it’s best to have some action items taken care of early on. Listed below are 4 best practices to use during the initial onboarding of your devices. In addition, we have also included 4 crucial steps you should avoid in order to execute the onboarding process to perfection with the least amount of trouble.   
+Reading about technical literature for new tools is great to stay ahead of the curve in the networking space, however the impact of the toolset is reinforced by testing it out. Our team can provide you the opportunity to test our EOS and CloudVision solutions in sandbox environments! We have two environments ready for you to use: Arista Test Drive (ATD) and Arista Cloud Test (ACT).  
+
+Arista Test Drive (ATD) gives you the ability to use a pre-built topology to test, break apart, and build different functionalities of a network environment through EOS. With 3 pre-built topologies, you have the ability to choose the one that is closest to your production network. This allows for you to replicate real life production to test new features out. Have an ongoing issue in your live network? Replicate it in your ATD instance to test possible fixes and to identify root causes. In addition to CLI accessibility, you also have the opportunity to become more familiar with CloudVision as well. Create changes, push configurations, and utilize our Studios feature to learn more about CVP’s capabilities!  
 
 <figure markdown="span">
-  ![Pic1](img/July25article11.jpg)
-  <figcaption>To DO List Below</figcaption>
+  ![Pic1](img/September25Article2.png)
+  <figcaption>Use Cases For Each Lab</figcaption>
 </figure>  
 
-Do List:  
+What if the pre-built topologies are not similar to the topology you had in mind? That’s where Arista Cloud Test (ACT) can help to fulfill that requirement. Arista Cloud Test creates a custom topology by taking the inputs from a YAML file to build out a topology of your choice. Included in ACT are also different device models to choose from. This allows for you to specifically choose which devices to deploy in your sandbox environment, further adding additional customability to test out features in EOS and CloudVision. You can also choose specific versions of CloudVision to use in your environment. Essentially, you can build out a digital twin of your live production to test out features and troubleshoot problems by replication in the lab environment. Debating to use new features or make changes to production? Start by testing those actions within the lab environment to prevent issues or record issues that arise.   
 
-1.  If using Zero Touch Provisioning, please set up Option 66 and 67 on your DHCP Server:   
-   To enable ZTP for initial onboarding, it is required to enable options 66 and 67 within your DHCP server for the Arista switches to grab a configuration file. Note that if you are running EOS version 4.30.X and above, this requirement is not necessary. The purpose of ZTP is to have a pre-set configuration installed onto your switch. In addition, the next step is to check for reachability to Arista.io   
-2. Ensure that you have the proper length rack mounts:  
-  Sometimes we are busy with discussion of architecture, so busy that in fact we glance over some detail that might seem obvious. Upon arrival of your device, ensure that the proper rack equipment is ready to hold the switches in place. If a custom rack mount is needed, your fellow SE would be more than happy to find one for you.  
-3. Determine method of device management:    
-  Depending on your choice of either in band or out of band management, it is best practice to have that decision made before the devices are set up. One of the final steps to ensure that onboarding is complete is for the device to reach out to your cloud tenant instance on https://arista.io. Open port 443 to gain reachability to https://arista.io if using CloudVision as a Service (CVaaS). 
-4. Create a Port Map for device connectivity:  
-  Time saving step here. Wiring devices together seems easy, until you realize the distance between devices are far apart or that the port speed is not what you had expected. Save time by creating a design or port mapping sheet to quickly wire devices together.    
-
-<figure markdown="span">
-  ![Pic1](img/July25Article3.jpg)
-  <figcaption>To NOT Do List Below</figcaption>
-</figure> 
-
-Do NOT:  
-
-1. Do not wait last minute to see if your CVP instance is set up:   
-  As your equipment arrives, it’s best practice to begin communicating with the Account Manager to check for your CVP instance. If it’s not ready, and your equipment arrives, this may add additional time to your plans for onboarding the devices to use CVP.  
-2. Do not wait to build configurations for the device, as they begin to onboard:  
-  Having at least an idea of the features and protocols to use prior to the device’s arrival is crucial. Without having a set plan, or even discussing the protocols to use, will add more time to setting up your network. If there is a set deadline, this should be a high priority. It’s best to have this set up as the devices ship over, even better when talking to your SE representative to have questions answered faster.  
-3. Do not forget to check transceiver and optic bandwidth capabilities:  
-  This is one of those steps that we might overlook because we are sure the fibers and optics will work together….until it doesn’t. Mismatch speeds and troubleshooting Layer 1 problems take longer than anticipated since there are many sources of truth for the issue.   
-
-If you’re able to limit the amount of time it takes to troubleshoot the matter because you had prepared ahead of time, wouldn’t your future self thank you for that? Of course, at Arista we have teams that help with the onboarding process, along with SE’s that check to see if the essential fundamentals of your networks are ready for production. If there’s any questions regarding the onboarding process of your new devices, please ask and we would be happy to help!  
-
-Additional tips here, click the links below:  
-[Tips and Tricks](https://arista.my.site.com/AristaCommunity/s/article/eos-tricks-and-tips-that-make-life-easier)    
+The opportunity to replicate your production, test out new features, or practice using Arista’s solution are all possible thanks to Arista Test Drive and Arista Cloud Test. Contact your SE to learn more on how to obtain access to these labs.  
 
 
 ---
 
 ## __*Upcoming Events*__  
 Arista hosts various events throughout the year for you! Members of our team organize these informative events to showcase Arista's ability to not only help improve your network, but to also assist by providing a set of tools to improve your operations!  
-
-Our next upcoming event will showcase hitless upgrades. Schedule for August 21st, join us by clicking on the link below!  
-
-[Arista Presents: Achieve Seamless Networking with Hitless Upgrades](https://events.arista.com/2025-08-21-arista-presents-achieve-seamless-networking-with-hitless-upgrades-virtual)
-
-
 
 Click on the boxes below to be directed to Arista's website for additional lists of Webinars and Events.
 
@@ -120,12 +152,13 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
 
    |  Softwares    | Versions      |  Release Date |
    | :-----------: | :-----------: | :-----------:
-   | __EOS__           | 4.32.6.1M <br> 4.33.4M <br> 4.32.6M <br> 4.34.1F <br>  | July 2nd, 2025 <br> June 23rd, 2025 <br> June 20th, 2025 <br> June 16th, 2025 <br> 
-   | __CVP__           | Portal 2025.2.0 <br> Appliance 7.0.1 <br> Sensor 1.1.0 <br>    | July 4th, 2025 <br> January 28th, 2025<br> March 24th, 2025 <br>
-   | __DMF__           | 8.6.2 <br >| June 23rd, 2025 <br> 
-   | __WLAN__ <br>CV-CUE<br>Wireless Manager<br> | <br> 19.0.0 <br>19.0.0<br>       | <br> July 25th, 2025<br>June 12th, 2025<br>
+   | __EOS__           | 4.34.2F <br>4.32.6.1M <br> 4.33.4M <br> 4.32.6M <br>  | August 3rd, 2025 <br>July 2nd, 2025 <br> June 23rd, 2025 <br> June 20th, 2025 <br> 
+   | __CVP__           | Portal 2025.2.1 <br> Appliance 7.0.1 <br> Sensor 1.1.1 <br>    | August 21st, 2025 <br> January 28th, 2025<br> July 14th, 2025 <br>
+   | __DMF__           | 8.8.0 <br >| August 15th, 2025 <br> 
+   | __WLAN__ <br>CV-CUE<br> | <br> 19.0.0 <br>      | <br> July 25th, 2025<br>  
    | __Arista NDR__         | 5.3.5         | July 16th, 2025
-   | __TerminAttr__    | 1.37.2 <br>       | April 9th, 2025 <br> 
+   | __TerminAttr__    | 1.37.2 <br>       | April 9th, 2025 <br>  
+   | __VeloCloud SD-WAN__  <br>Orchestrator/ Gateway / Edge<br>  | <br>6.4.0 <br>       | <br> May 2nd, 2025 <br> 
 
 
 ---
@@ -137,10 +170,10 @@ Below is a list of advisories that are announced by Arista. To view more details
 | :-----------: |:-------------:| :-----:|
 |  __Global Common Encryption Key__   | [Security Advisory 0122](https://www.arista.com/en/support/advisories-notices/security-advisory/22022-security-advisory-0122)  | July 22nd, 2025   |  
 |  __UDP Source Port 3503 Packets__   | [Security Advisory 0121](https://www.arista.com/en/support/advisories-notices/security-advisory/22021-security-advisory-0121)  | July 22nd, 2025   |  
-|  __Neighbor AP Detection on Wi-Fi 7 AP's__   | [Field Notice 0106](https://www.arista.com/en/support/advisories-notices/field-notice/22024-field-notice-0106)  | July 29th, 2025   |  
-|  __Deprecated Command Removal__   | [Field Notice 0105](https://www.arista.com/en/support/advisories-notices/field-notice/22016-field-notice-0105)  | July 14th, 2025   | 
-|  __Prolonged Network Churn Events__   | [Field Notice 0104](https://www.arista.com/en/support/advisories-notices/field-notice/22011-field-notice-0104)  | July 14th, 2025   |   
-|  __Secure Boot__   | [Field Notice 0103](https://www.arista.com/en/support/advisories-notices/field-notice/21651-field-notice-0103)  | July 1st, 2025   |  
+|  __CVP Reverse Proxy__   | [Field Notice 0111](https://www.arista.com/en/support/advisories-notices/field-notice/22238-field-notice-0111)  | September 3rd, 2025   |  
+|  __CVP Disc Usage__   | [Field Notice 0110](https://www.arista.com/en/support/advisories-notices/field-notice/22237-field-notice-0110)  | September 3rd, 2025   | 
+|  __Last Support Release WiFi 6 Platforms__   | [Field Notice 0109](https://www.arista.com/en/support/advisories-notices/field-notice/22049-field-notice-0109)  | August 13th, 2025   |   
+|  __Guest Manager Analytics- Data Opt Out__   | [Field Notice 0108](https://www.arista.com/en/support/advisories-notices/field-notice/22034-field-notice-0108)  | August 1st, 2025   |  
 
 
 
@@ -161,6 +194,8 @@ For a list of the most current advisories and notices, click [Here](https://www.
 | CVP           | [CVP IPAM Application](https://www.arista.com/en/support/advisories-notices/endofsupport) <br> [CVP 2023.3](https://www.arista.com/en/support/advisories-notices/end-of-support/21627-end-of-software-support-for-cloudvision-portal-2023-3-release-train)          |  July 14th, 2025 <br> June 17th, 2025   |
 | DMF           | [DMF 8.3](https://www.arista.com/en/support/advisories-notices/end-of-support/21417-end-of-software-support-for-dmf-8-3)          |  June 3rd, 2025           |
 | Switches      | [DCS-7020R Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/21052-end-of-sale-of-the-arista-dcs-7020r-series)<br> |  December 20th, 2024  |
+| VeloCloud      | [SASE Secured by Symantec](https://www.arista.com/en/support/advisories-notices/end-of-sale/22072-end-of-sale-life-velocloud-sase-secured-symantec)<br> [Software Defined (SD) Access](https://www.arista.com/en/support/advisories-notices/end-of-sale/21653-end-of-sale-end-of-life-for-velocloud-software-defined-sd-access) <br> |  August 20th, 2024 <br> July 1st, 2025 | 
+
 
 
 **New Releases** of Arista's device are listed below 
