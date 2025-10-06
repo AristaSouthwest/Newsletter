@@ -3,7 +3,7 @@
 
 # Arista Southwest Region Newsletter
 
-Welcome to the September 2025 newsletter for Arista customers in the U.S. Southwest Region!  
+Welcome to the October 2025 newsletter for Arista customers in the U.S. Southwest Region!  
 
 Did you hear? VeloCloud is now a part of Arista. Check out the latest blog, written by our CEO, Jayshree Ullal below!  
 [Next Generation SD-WAN in the AI Era, by Arista CEO Jayshree Ullal](https://blogs.arista.com/blog/next-generation-sd-wan-in-the-ai-era)  
@@ -16,100 +16,59 @@ We welcome your feedback on the newsletter. If you have any ideas on what you wa
 
 ---
 
-## **Using Traffic Policies to Assist with QoS and Congestion Management**
-By: Shayne Kelly, Advanced Services Engineer, Southwest Region  
+## **VeloCloud SD-WAN - Now Part of Arista**
+By: Chris Donovan, Systems Engineer (VeloCloud)  
 
-As applications within the Data Center and even end host devices inside our Campuses, use an ever increasing amount of network bandwidth, QoS and Congestion Management have become a hot topic in network design and implementation. The previous answer of ‘throw more bandwidth at it’, is being pushed to the limit as AI continues to place demands on the network infrastructure. But how do you build a QoS policy that is dynamic and does not need to be amended each time you add a subnet? The answer is Arista Traffic Polices.   
+Arista Networks, known for its campus and data center switching, has completed the purchase of VeloCloud in order to provide a full end-to-end intelligent network. You might be wondering: why VeloCloud? VeloCloud has led in the Gartner Magic Quadrant for SD-WAN for 7 years straight. Using our Dynamic Multi-Path Optimization (DMPO) technology, VeloCloud is able to provide improved performance and resilience between corporate sites as well as between corporate sites and the cloud.  
 
-**What are Traffic Policies?**  
-
-In the most simple definition, a Traffic Policy allows the user to configure rules to match on certain packets through the packet processing pipeline. In the context of QoS Polices, Traffic Polices allow us to match on certain criteria, maybe a field-set [field-set TOI link](https://www.arista.com/en/support/toi/eos-4-29-2f/17201-bgp-peer-field-sets-for-use-with-traffic-policies) that we created to match various subnets from certain BGP peers, and then take an action on the packets contained in the match criteria, by setting a DSCP value and/or a transit queue.   
-
-As you can see in this TOI [Link](https://www.arista.com/en/support/toi/eos-4-27-1f/14873-bgp-community-based-prefix-sets-for-use-with-traffic-policies), by using traffic policies in conjunction with BGP, we can get away from ACL based matching criteria and statically configured IP prefix matches, and instead leverage BGP to manage the IP prefix field sets, to use within our traffic policy.    
-
-**A Brief Example of Using Traffic Policies to set DSCP Values**  
-
-In order to show how traffic policies can be used, I set up a quick lab, using some Arista Devices in a Typical Spine/Leaf Configuration. I have (2) sets of Leaf or ToR switches, each connected to an ESXI host that has various Linux Virtual Machines. I prefer to use Linux as it is easier to verify traffic using TCPDUMP.   
-
-The diagram below shows the layout of the Lab that I am using (please note, while there is an MLAG shown in the diagram, I am not using MLAG for this lab):  
-  
 <figure markdown="span">
-  ![Pic1](img/September25Article1pic1.png)
-  <figcaption>Lab</figcaption>
-</figure>   
+  ![First Pic](img/October25Pic1.png)
+  <figcaption>Arista VeloCloud</figcaption>
+</figure>  
 
+**What is DMPO**  
 
-Using this lab, I tested various scenarios and configurations, but for the purpose of this article, we will focus on setting the DSCP value via a Dynamic Field-Set, using BGP Communities. My goal is to use the ‘B’ Leafs, which will be the ingress leaf in this traffic flow, to set a DSCP value of 48 on all packets that are being sent to 172.0.122.0/24. This subnet is connected to the ‘C’ Leafs.   
+DMPO is our overlay technology. DMPO allows us to measure loss, latency and jitter on WAN links in real time and in both directions independently. We then identify applications using Deep Packet Inspection and direct them over the best available bandwidth based on their performance needs. Realtime traffic can be directed to the WAN link with the lowest loss, latency and jitter and when those characteristics change, can be moved to the new best path, transparently to the users. Large file transfers can be spread across multiple WAN links of different speeds to use all available bandwidth without choking higher priority applications.     
 
-In the example configuration below, we will use a traffic-policy that references a field-set that is being sourced from BGP. This means that we can define a criteria in BGP, in this case matching upon a community (65104:22), and any routes that have this community will be matched to the PremiumPfx class in our traffic policy. With the traffic policy configured, we will apply it to the interface (See below configuration output):  
+**What about Cloud and SaaS applications?**  
 
-```
-traffic-policies
-    field-set ipv4 prefix basic
-    source bgp
-!
-    field-set ipv4 prefix premium
-    source bgp
-!
-router bgp 65107
-   vrf default
-      traffic-policy field-set mappings
-         field-set ipv4 basic
-            community 65104:11
-         field-set ipv4 premium
-            community 65104:22
-traffic-policies
-   traffic-policy transit
-      match PremiumPfx ipv4
-         destination prefix field-set premium
-         !
-         actions
-            set dscp 48
-!
-interface Eth1
-    traffic-policy input transit
+Most SD-WAN solutions work great between corporate sites where an SD-WAN device can be installed on both ends. As more applications move to the cloud, requiring an SD-WAN device on both ends becomes cumbersome. VeloCloud solves this by hosting gateways (VCGs) in major datacenters around the world. These hosted VCGs enable you to leverage the capabilities of DMPO from the branch to the front doors of all the major Cloud and SaaS providers without any additional effort.   
 
-```  
+While there are many other features in the VeloCloud portfolio, DMPO and the hosted VCGs provide two of the biggest differentiators for us. As a Systems Engineer that came over with the VeloCloud acquisition, I am excited about the future under Arista and the integrations that are taking shape. If you want to find out more about VeloCloud, I look forward to meeting with you and showing you what we can do.  
 
-Now that this has been applied, we will source traffic from 172.0.121.11 (a VM attached to the ‘B’ Leafs) destined for 172.0.122.11 (a VM attached to the ‘C’ Leafs). In order to show the DSCP value being set (shown as tos 0xc0), we will compare the output of a tcpdump taken before applying the traffic-policy to the interface with the output of a tcpdump taken after applying the traffic-policy to the interface.   
+For more information on Arista VeloCloud SDWAN, please select link below:
+[Arista VeloCloud SDWAN](https://www.arista.com/en/solutions/sd-wan)  
 
-```
-lab@tp1202:~$ sudo tcpdump -i ens34 src host 172.0.121.11 -vvv
-tcpdump: listening on ens34, link-type EN10MB (Ethernet), snapshot length 262144 bytes
-21:14:09.374584 IP (tos 0x0, ttl 61, id 48402, offset 0, flags [DF], proto ICMP (1), length 84)
-
-AFTER
-lab@tp1202:~$ sudo tcpdump -i ens34 src host 172.0.121.11 -vvv
-tcpdump: listening on ens34, link-type EN10MB (Ethernet), snapshot length 262144 bytes
-21:15:24.006086 IP (tos 0xc0, ttl 61, id 22808, offset 0, flags [DF], proto ICMP (1), length 84)
-
-```  
-
-As you can see, we were able to set the DSCP value on packets destined for a particular subnet, based upon a BGP community that is being advertised by the ingress leaf.   
-
-**Summary**  
-
-Traffic Policies are a very flexible method for manipulating various aspects of your network. This same methodology could be used at the WAN edge, to mark inbound or outbound traffic based upon BGP attributes. You could use this to provide SLAs for certain applications in your data center, or even to police traffic coming from your campus. There are a multitude of use cases for this.   
-
-If you are interested in learning more about Traffic Polices, or would like to speak to someone about seeing a live demonstration, please contact your local account team.   
 
 ---
 
-## **Arista Virtual Lab Environments: An Opportunity to Test Your Creativity**
-By: Akashdeep Takhar, Advanced Services Engineer, Southwest Region    
+## **Simplifying Campus Network Operations with CloudVision Network Hierarchy**
+By: Alex Bojko, Advanced Services Engineer, Southwest Region    
 
-Reading about technical literature for new tools is great to stay ahead of the curve in the networking space, however the impact of the toolset is reinforced by testing it out. Our team can provide you the opportunity to test our EOS and CloudVision solutions in sandbox environments! We have two environments ready for you to use: Arista Test Drive (ATD) and Arista Cloud Test (ACT).  
+Managing modern campus networks can prove to be a challenging task that can feel overwhelming at times. Campus networks encompass large numbers of remote sites, each with unique characteristics and various devices to manage. In order to simplify the management of such a distributed infrastructure, Arista has introduced Network Hierarchy in CloudVision.     
 
-Arista Test Drive (ATD) gives you the ability to use a pre-built topology to test, break apart, and build different functionalities of a network environment through EOS. With 3 pre-built topologies, you have the ability to choose the one that is closest to your production network. This allows for you to replicate real life production to test new features out. Have an ongoing issue in your live network? Replicate it in your ATD instance to test possible fixes and to identify root causes. In addition to CLI accessibility, you also have the opportunity to become more familiar with CloudVision as well. Create changes, push configurations, and utilize our Studios feature to learn more about CVP’s capabilities!  
+Overseeing such a deployment and gaining visibility into various sites and device connections is a difficult task to accomplish. When an issue arises, locating that issue and pinpointing it to a specific site can be an extremely difficult task. Configuration across sites can also be difficult to standardize and modify when needed.  
+
+Network Hierarchy is a feature meant to simplify campus network management, and was introduced to Arista CloudVision to help address these pain points at scale.  
+
+Network Hierarchy in CloudVision provides a logical, tree-like structured view that allows you to group devices together by location. Instead of a linear list of devices that are scattered across your infrastructure, Network Hierarchy provides an organized, simple to comprehend view that allows you to navigate seamlessly between campus networks that you manage using the tree-like structured navigation panel. This structure works at scale, making it easy to oversee and manage large deployments with many physical locations. Each Campus is organized within the hierarchy, with devices grouped by physical location and operational use.  
 
 <figure markdown="span">
-  ![Pic1](img/September25Article2.png)
-  <figcaption>Use Cases For Each Lab</figcaption>
+  ![Pic2](img/Oct25Pic2.png)
+  <figcaption>Network Hierarchy Page</figcaption>
 </figure>  
 
-What if the pre-built topologies are not similar to the topology you had in mind? That’s where Arista Cloud Test (ACT) can help to fulfill that requirement. Arista Cloud Test creates a custom topology by taking the inputs from a YAML file to build out a topology of your choice. Included in ACT are also different device models to choose from. This allows for you to specifically choose which devices to deploy in your sandbox environment, further adding additional customability to test out features in EOS and CloudVision. You can also choose specific versions of CloudVision to use in your environment. Essentially, you can build out a digital twin of your live production to test out features and troubleshoot problems by replication in the lab environment. Debating to use new features or make changes to production? Start by testing those actions within the lab environment to prevent issues or record issues that arise.   
+Within each Campus defined in Network Hierarchy, statistics and metrics are displayed that provide a comprehensive overview tailored to what is happening at each individual site. Metrics include statistics from both the wired and wireless side, Uplink health, MLAG Status, authentication information, connectivity monitor status, and a logical topology view of the Campus network.  This allows operators to quickly go from a global, network wide view, to a site/device specific, interface specific, drilled down view. Having this flexibility allows for faster MTTR, as issues are able to be isolated far more quickly and efficiently. Operators can locate issues that are specific to a site, and from there drill down to determine the exact device or devices experiencing the issues.  
 
-The opportunity to replicate your production, test out new features, or practice using Arista’s solution are all possible thanks to Arista Test Drive and Arista Cloud Test. Contact your SE to learn more on how to obtain access to these labs.  
+<figure markdown="span">
+  ![Pic2](img/Oct25Pic3.png)
+  <figcaption>Network Hierarchy Port Specific View</figcaption>
+</figure>   
+
+Network Hierarchy also allows for access layer interface configuration via the Access Interface Configuration Quick Action in CloudVIsion. Here, the operator can rapidly assign access layer port configuration to individual or groups of interfaces. This further simplifies day 2 operations, as any campus device switchport configuration can be viewed and modified as needed, all from the Network Hierarchy view.  
+
+To learn more about Network Hierarchy, the metrics it provides, how to run diagnostics, and how it can simplify your Campus network management, click the link below.  
+[Arista Network Hierarchy Guide](https://www.arista.io/help/articles/bmV0d29ya0hpZXJhcmNoeS5BbGwubmV0d29ya0hpZXJhcmNoeQ==) 
 
 
 ---
@@ -157,7 +116,7 @@ For new code releases, click [here](https://www.arista.com/en/support/software-d
    | __DMF__           | 8.8.0 <br >| August 15th, 2025 <br> 
    | __WLAN__ <br>CV-CUE<br> | <br> 19.0.0 <br>      | <br> July 25th, 2025<br>  
    | __Arista NDR__         | 5.3.5         | July 16th, 2025
-   | __TerminAttr__    | 1.37.2 <br>       | April 9th, 2025 <br>  
+   | __TerminAttr__    | 1.39.1 <br>       | July 18th, 2025 <br>  
    | __VeloCloud SD-WAN__  <br>Orchestrator/ Gateway / Edge<br>  | <br>6.4.0 <br>       | <br> May 2nd, 2025 <br> 
 
 
@@ -170,11 +129,13 @@ Below is a list of advisories that are announced by Arista. To view more details
 | :-----------: |:-------------:| :-----:|
 |  __Global Common Encryption Key__   | [Security Advisory 0122](https://www.arista.com/en/support/advisories-notices/security-advisory/22022-security-advisory-0122)  | July 22nd, 2025   |  
 |  __UDP Source Port 3503 Packets__   | [Security Advisory 0121](https://www.arista.com/en/support/advisories-notices/security-advisory/22021-security-advisory-0121)  | July 22nd, 2025   |  
+|  __AP Kernal Panics__   | [Field Notice 0115](https://www.arista.com/en/support/advisories-notices/field-notice/22422-field-notice-0115)  | September 20th, 2025   |  
+|  __Updated Redirector for AP__   | [Field Notice 0114](https://www.arista.com/en/support/advisories-notices/field-notice/22418-field-notice-0114)  | September 19th, 2025   |  
+|  __Guest Manager UI to CV-CUE__   | [Field Notice 0113](https://www.arista.com/en/support/advisories-notices/field-notice/22417-field-notice-0113)  | September 19th, 2025   |  
+|  __Update of Radsec Certificates__   | [Field Notice 0112](https://www.arista.com/en/support/advisories-notices/field-notice/22400-field-notice-0112)  | September 11th, 2025   |  
 |  __CVP Reverse Proxy__   | [Field Notice 0111](https://www.arista.com/en/support/advisories-notices/field-notice/22238-field-notice-0111)  | September 3rd, 2025   |  
 |  __CVP Disc Usage__   | [Field Notice 0110](https://www.arista.com/en/support/advisories-notices/field-notice/22237-field-notice-0110)  | September 3rd, 2025   | 
-|  __Last Support Release WiFi 6 Platforms__   | [Field Notice 0109](https://www.arista.com/en/support/advisories-notices/field-notice/22049-field-notice-0109)  | August 13th, 2025   |   
-|  __Guest Manager Analytics- Data Opt Out__   | [Field Notice 0108](https://www.arista.com/en/support/advisories-notices/field-notice/22034-field-notice-0108)  | August 1st, 2025   |  
-
+ 
 
 
 For a list of the most current advisories and notices, click [Here](https://www.arista.com/en/support/advisories-notices)
@@ -192,8 +153,9 @@ For a list of the most current advisories and notices, click [Here](https://www.
 | :-----------: |:-------------: |     :----:        |
 | Software      | [End of Software for CloudVision Portal 2023.2](https://www.arista.com/en/support/advisories-notices/end-of-support/21412-end-of-software-support-for-cloudvision-portal-2023-2-release-train)<br>[End of Software Support for EOS 4.28](https://www.arista.com/en/support/advisories-notices/end-of-support/21275-end-of-software-support-for-eos-4-28)<br>[DMF and CCF Deployments on Accton/ Edgecore Switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21094-end-of-support-for-dmf-and-ccf-deployments-on-accton-edgecore-switches)<br>[EOS-4.34 and later no longer supported on select switches](https://www.arista.com/en/support/advisories-notices/end-of-support/21089-end-of-software-support-for-7280r-r2-7500r-r2-and-7020r-series)<br> | May 27th. 2025 <br> March 14, 2025 <br>January 31st, 2025 <br>January 15th, 2025 <br> |
 | CVP           | [CVP IPAM Application](https://www.arista.com/en/support/advisories-notices/endofsupport) <br> [CVP 2023.3](https://www.arista.com/en/support/advisories-notices/end-of-support/21627-end-of-software-support-for-cloudvision-portal-2023-3-release-train)          |  July 14th, 2025 <br> June 17th, 2025   |
-| DMF           | [DMF 8.3](https://www.arista.com/en/support/advisories-notices/end-of-support/21417-end-of-software-support-for-dmf-8-3)          |  June 3rd, 2025           |
-| Switches      | [DCS-7020R Series](https://www.arista.com/en/support/advisories-notices/end-of-sale/21052-end-of-sale-of-the-arista-dcs-7020r-series)<br> |  December 20th, 2024  |
+| DMF           | [DMF 8.3](https://www.arista.com/en/support/advisories-notices/end-of-support/21417-end-of-software-support-for-dmf-8-3)          |  June 3rd, 2025           |  
+| CCF           | [CCF Product Line](https://www.arista.com/en/support/advisories-notices/end-of-sale/22430-end-of-sale-end-of-life-for-arista-ccf-product-line)          |  October 1st, 2025           |  
+| Switches      | [7010TX-48-DC Switch](https://www.arista.com/en/support/advisories-notices/end-of-sale/22421-end-of-sale-of-the-arista-7010tx-48-dc-switches)<br> [7050CX3-32S Switch](https://www.arista.com/en/support/advisories-notices/end-of-sale/22419-end-of-sale-of-the-arista-7050cx3-32s-switches)<br> [CCS-720XP-96ZC2 Switch with 4GB DRAM](https://www.arista.com/en/support/advisories-notices/end-of-sale/22403-end-of-sale-of-the-arista-ccs-720xp-96zc2-switches-with-4gb-dram)<br> [CCS-720D Switches with 4GB DRAM](https://www.arista.com/en/support/advisories-notices/end-of-sale/22402-end-of-sale-of-the-arista-ccs-720d-switches-with-4gb-dram)<br> [CCS-710P-12 Switch](https://www.arista.com/en/support/advisories-notices/end-of-sale/22401-end-of-sale-of-the-arista-ccs-710p-12-switch) |  September 19th, 2025<br> September 19th, 2025<br> Septemebr 12th, 2025<br> September 12th, 2025<br> September 12th, 2025 |
 | VeloCloud      | [SASE Secured by Symantec](https://www.arista.com/en/support/advisories-notices/end-of-sale/22072-end-of-sale-life-velocloud-sase-secured-symantec)<br> [Software Defined (SD) Access](https://www.arista.com/en/support/advisories-notices/end-of-sale/21653-end-of-sale-end-of-life-for-velocloud-software-defined-sd-access) <br> |  August 20th, 2024 <br> July 1st, 2025 | 
 
 
